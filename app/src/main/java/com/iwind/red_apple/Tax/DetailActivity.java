@@ -31,8 +31,8 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
     TextView tv_question_describe;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         x.view().inject(this);
         InitView();
         setonClickListener();

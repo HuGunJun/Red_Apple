@@ -60,7 +60,7 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-                intent.putExtra(ConstantString.QUESTION_TITLE, "这是什么特么的标题擦擦擦啊擦擦啊擦");
+                intent.putExtra(ConstantString.DISSCUSS_TITLE, "这是什么特么的标题擦擦擦啊擦擦啊擦");
                 startActivity(intent);
             }
         });

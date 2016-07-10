@@ -72,6 +72,33 @@
         <!-- 咨询页面-->
         <activity android:name=".Tax.NewActivity"></activity>
 
+        <!-- 我的信息页面-->
+        <activity android:name=".Mine.MyInfoActivity"></activity>
+
+        <!-- 编辑昵称页面-->
+        <activity android:name=".Mine.EditNickActivity"></activity>
+
+        <!-- 我的提问-->
+        <activity android:name=".Mine.MyQuestionActivity"></activity>
+
+        <!-- 我的回答-->
+        <activity android:name=".Mine.MyAnswerActivity"></activity>
+
+        <!-- 我的收藏-->
+        <activity android:name=".Mine.MyCollectionActivity"></activity>
+
+        <!-- 用户反馈-->
+        <activity android:name=".Mine.UserCallBackActivity"></activity>
+
+        <!-- 设置-->
+        <activity android:name=".Mine.SettingActivity"></activity>
+
+        <!-- 修改密码-->
+        <activity android:name=".Mine.Act_ChangePass"></activity>
+
+        <!-- 关于我们-->
+        <activity android:name=".Mine.Act_AboutUs"></activity>
+
     </application>
 
 </manifest>

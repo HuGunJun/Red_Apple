@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.iwind.red_apple">
+
+
+    <application
+        android:name=".App.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 启动页面-->
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 登陆-->
+        <activity android:name=".LoginActivity"></activity>
+
+        <!-- 注册-->
+        <activity android:name=".RegisterActivity"></activity>
+
+        <!-- 主界面-->
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleInstance"></activity>
+
+        <!-- 税务首页-->
+        <activity android:name=".Tax.TaxActivity"></activity>
+
+        <!-- 发现首页-->
+        <activity android:name=".Find.FindActivity"></activity>
+
+        <!-- 我的-->
+        <activity android:name=".Mine.MintActivity"></activity>
+
+        <!-- 税务常识-->
+        <activity android:name=".Tax.TaxKnowActivity"></activity>
+
+        <!-- 税务须知-->
+        <activity android:name=".Tax.ShouldKnowActivity"></activity>
+
+        <!-- 添加回答-->
+        <activity android:name=".Tax.AddAnswerActivity"></activity>
+
+        <!-- 咨询详情页面-->
+        <activity android:name=".Tax.NewsDetailActivity"></activity>
+
+        <!-- 详情页面-->
+        <activity android:name=".Tax.DetailActivity"></activity>
+
+        <!--个人税务页面 -->
+        <activity android:name=".Tax.PersonalTaxActivity"></activity>
+
+        <!-- 回答详情 -->
+        <activity android:name=".Tax.AnswerDetailActivity"></activity>
+
+        <!-- 讨论页面-->
+        <activity android:name=".Tax.DiscussActivity"></activity>
+
+        <!-- 讨论详情页面-->
+        <activity android:name=".Tax.DiscussDetailActivity"></activity>
+
+        <!-- 咨询页面-->
+        <activity android:name=".Tax.NewActivity"></activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Red_Apple</string>
+
+    <string name="bottom_menu_tax">税务</string>
+    <string name="bottom_menu_find">发现</string>
+    <string name="bottom_menu_mine">我</string>
+    <string name="vifi_code">验证码</string>
+    <string name="vifi_code_can_not_be_empty">验证码不能为空</string>
+    <string name="please_read_introduce">请阅读注册协议</string>
+    <string name="get_sms_code">获取短信验证码</string>
+    <string name="forgot_pass">忘记密码?</string>
+    <string name="piece">条</string>
+    <string name="new_question">最新提问</string>
+    <string name="new_answer">最新回答</string>
+    <string name="new_move">最新动态</string>
+    <string name="info">整天忙忙碌碌,该如何帮助企业纳税?</string>
+    <string name="tell_you">认证成为企业用户就告诉你</string>
+    <string name="push_info">推荐税务须知</string>
+    <string name="tax_know">税务须知</string>
+    <string name="personal_tax">个人税务</string>
+    <string name="do_tax_know">办税须知</string>
+    <string name="clletion_talk">收藏话题</string>
+    <string name="nomal_know">税务常识</string>
+    <string name="should_know">办税须知</string>
+    <string name="discuss">讨论</string>
+    <string name="add_answer">添加回答</string>
+    <string name="please_input_answer">请输入回答内容</string>
+    <string name="brown">发布</string>
+      <string name="hello_world">
+        最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
+
+1、ScrollView内嵌软件介绍+ViewPager+ViewPager中是ScrollView，这种方式呢，纯原生，没有涉及到自定义控件，但是这样嵌套呢，涉及到测量以及事件的冲突处理，大家可以自己尝试去做一下，想像起来蛮容易的，做起来其实还是挺费劲的，代码我会给出，核心代码不多，大家自行参考。本文将重点分析第二种方式。
+
+2、将做外层的ScrollView改为了自定义的一个控件，继承自LinearLayout，叫做StickyNavLayout，这里感谢小七的命名，同时本方式感谢二群暖暖提供的源码
+
+        最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
+
+1、ScrollView内嵌软件介绍+ViewPager+ViewPager中是ScrollView，这种方式呢，纯原生，没有涉及到自定义控件，但是这样嵌套呢，涉及到测量以及事件的冲突处理，大家可以自己尝试去做一下，想像起来蛮容易的，做起来其实还是挺费劲的，代码我会给出，核心代码不多，大家自行参考。本文将重点分析第二种方式。
+
+2、将做外层的ScrollView改为了自定义的一个控件，继承自LinearLayout，叫做StickyNavLayout，这里感谢小七的命名，同时本方式感谢二群暖暖提供的源码
+
+        最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
+
+1、ScrollView内嵌软件介绍+ViewPager+ViewPager中是ScrollView，这种方式呢，纯原生，没有涉及到自定义控件，但是这样嵌套呢，涉及到测量以及事件的冲突处理，大家可以自己尝试去做一下，想像起来蛮容易的，做起来其实还是挺费劲的，代码我会给出，核心代码不多，大家自行参考。本文将重点分析第二种方式。
+
+2、将做外层的ScrollView改为了自定义的一个控件，继承自LinearLayout，叫做StickyNavLayout，这里感谢小七的命名，同时本方式感谢二群暖暖提供的源码
+
+        最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
+
+1、ScrollView内嵌软件介绍+ViewPager+ViewPager中是ScrollView，这种方式呢，纯原生，没有涉及到自定义控件，但是这样嵌套呢，涉及到测量以及事件的冲突处理，大家可以自己尝试去做一下，想像起来蛮容易的，做起来其实还是挺费劲的，代码我会给出，核心代码不多，大家自行参考。本文将重点分析第二种方式。
+
+2、将做外层的ScrollView改为了自定义的一个控件，继承自LinearLayout，叫做StickyNavLayout，这里感谢小七的命名，同时本方式感谢二群暖暖提供的源码
+        最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
+
+1、ScrollView内嵌软件介绍+ViewPager+ViewPager中是ScrollView，这种方式呢，纯原生，没有涉及到自定义控件，但是这样嵌套呢，涉及到测量以及事件的冲突处理，大家可以自己尝试去做一下，想像起来蛮容易的，做起来其实还是挺费劲的，代码我会给出，核心代码不多，大家自行参考。本文将重点分析第二种方式。
+
+2、将做外层的ScrollView改为了自定义的一个控件，继承自LinearLayout，叫做StickyNavLayout，这里感谢小七的命名，同时本方式感谢二群暖暖提供的源码
+        最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
+
+1、ScrollView内嵌软件介绍+ViewPager+ViewPager中是ScrollView，这种方式呢，纯原生，没有涉及到自定义控件，但是这样嵌套呢，涉及到测量以及事件的冲突处理，大家可以自己尝试去做一下，想像起来蛮容易的，做起来其实还是挺费劲的，代码我会给出，核心代码不多，大家自行参考。本文将重点分析第二种方式。
+
+2、将做外层的ScrollView改为了自定义的一个控件，继承自LinearLayout，叫做StickyNavLayout，这里感谢小七的命名，同时本方式感谢二群暖暖提供的源码
+        最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
+
+1、ScrollView内嵌软件介绍+ViewPager+ViewPager中是ScrollView，这种方式呢，纯原生，没有涉及到自定义控件，但是这样嵌套呢，涉及到测量以及事件的冲突处理，大家可以自己尝试去做一下，想像起来蛮容易的，做起来其实还是挺费劲的，代码我会给出，核心代码不多，大家自行参考。本文将重点分析第二种方式。
+
+2、将做外层的ScrollView改为了自定义的一个控件，继承自LinearLayout，叫做StickyNavLayout，这里感谢小七的命名，同时本方式感谢二群暖暖提供的源码
+        最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
+
+1、ScrollView内嵌软件介绍+ViewPager+ViewPager中是ScrollView，这种方式呢，纯原生，没有涉及到自定义控件，但是这样嵌套呢，涉及到测量以及事件的冲突处理，大家可以自己尝试去做一下，想像起来蛮容易的，做起来其实还是挺费劲的，代码我会给出，核心代码不多，大家自行参考。本文将重点分析第二种方式。
+
+2、将做外层的ScrollView改为了自定义的一个控件，继承自LinearLayout，叫做StickyNavLayout，这里感谢小七的命名，同时本方式感谢二群暖暖提供的源码
+</string>
+</resources>

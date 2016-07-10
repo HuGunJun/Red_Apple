@@ -28,20 +28,20 @@
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_showvideo_activity.xml",
-        "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\src\\main\\res\\layout\\ease_showvideo_activity.xml"
-    },
-    {
         "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_part_time.xml"
+        "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_showvideo_activity.xml",
+        "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\src\\main\\res\\layout\\ease_showvideo_activity.xml"
     },
     {
         "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_view_cycle_viewpager_contet.xml",
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\layout\\ease_view_cycle_viewpager_contet.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_part_time.xml"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_conversation_item.xml",
@@ -56,12 +56,12 @@
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_file.xml",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\src\\main\\res\\layout\\ease_row_sent_file.xml"
-    },
-    {
         "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_view_svprogressdefault.xml",
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\layout\\ease_view_svprogressdefault.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_file.xml",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\src\\main\\res\\layout\\ease_row_sent_file.xml"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_received_bigexpression.xml",
@@ -76,12 +76,12 @@
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_received_bigexpression.xml",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\src\\main\\res\\layout\\ease_row_received_bigexpression.xml"
-    },
-    {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_received_video_call.xml",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\src\\main\\res\\layout\\ease_row_received_video_call.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_received_bigexpression.xml",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\src\\main\\res\\layout\\ease_row_received_bigexpression.xml"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_fragment_chat.xml",
@@ -108,12 +108,12 @@
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\src\\main\\res\\layout\\ease_row_sent_file.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_chat_input_menu.xml",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\src\\main\\res\\layout\\ease_widget_chat_input_menu.xml"
-    },
-    {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_big_expression.xml",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\src\\main\\res\\layout\\ease_row_big_expression.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_chat_input_menu.xml",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\src\\main\\res\\layout\\ease_widget_chat_input_menu.xml"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_big_expression.xml",
@@ -140,20 +140,20 @@
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\layout\\ease_view_actionsheet.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_switch_view.xml",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\src\\main\\res\\layout\\ease_switch_view.xml"
-    },
-    {
         "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_picture.xml",
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\layout\\ease_row_sent_picture.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_media_cancel_action.xml"
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_switch_view.xml",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\src\\main\\res\\layout\\ease_switch_view.xml"
     },
     {
         "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_media_cancel_action.xml"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_contact.xml",
@@ -168,12 +168,12 @@
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\layout\\ease_expression_gridview.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_viewpage.xml",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\src\\main\\res\\layout\\ease_viewpage.xml"
-    },
-    {
         "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_viewpage.xml",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\src\\main\\res\\layout\\ease_viewpage.xml"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_fragment_conversation_list.xml",
@@ -244,12 +244,12 @@
         "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\src\\main\\res\\layout\\video_easy_switcher_layout.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_emojicon_tab_bar.xml",
@@ -276,12 +276,12 @@
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\layout\\ease_row_sent_location.xml"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_switch_view.xml",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\layout\\ease_switch_view.xml"
-    },
-    {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\biz_video_media_controller.xml",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\layout\\biz_video_media_controller.xml"
+    },
+    {
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_switch_view.xml",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\layout\\ease_switch_view.xml"
     },
     {
         "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\debug\\layout\\ease_layout_chat_primary_menu.xml",

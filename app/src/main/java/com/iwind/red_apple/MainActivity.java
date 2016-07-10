@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.iwind.red_apple.Find.FindActivity;
-import com.iwind.red_apple.Mine.MintActivity;
+import com.iwind.red_apple.Mine.MineActivity;
 import com.iwind.red_apple.Tax.TaxActivity;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
@@ -106,7 +106,7 @@ public class MainActivity extends TabActivity {
     public void InitData() {
         tabHost.addTab(tabHost.newTabSpec("1").setIndicator("1").setContent(new Intent(this, TaxActivity.class)));
         tabHost.addTab(tabHost.newTabSpec("2").setIndicator("2").setContent(new Intent(this, FindActivity.class)));
-        tabHost.addTab(tabHost.newTabSpec("3").setIndicator("3").setContent(new Intent(this, MintActivity.class)));
+        tabHost.addTab(tabHost.newTabSpec("3").setIndicator("3").setContent(new Intent(this, MineActivity.class)));
         radioderGroup = (RadioGroup) findViewById(R.id.main_radio);
         radioderGroup.check(R.id.mainTabs_radio_tax);//默认第一个按钮
         radioderGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

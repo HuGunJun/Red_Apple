@@ -10,4 +10,7 @@
     <color name="lightgray">#999999</color>
     <!-- 主页页面背景-->
     <color name="background_color">#f7f7f7</color>
+
+    <!-- 分割线-->
+    <color name="diliver_line">#E5E6E5</color>
 </resources>

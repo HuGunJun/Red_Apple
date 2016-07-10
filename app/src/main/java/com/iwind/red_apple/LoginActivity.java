@@ -3,12 +3,17 @@ package com.iwind.red_apple;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -62,6 +67,32 @@ public class LoginActivity extends EaseBaseActivity {
             Toast.makeText(context, getResources().getString(R.string.Password_cannot_be_empty), Toast.LENGTH_SHORT).show();
             return;
         }
+
+
+//        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.LOGIN);
+//        params.addBodyParameter(ConstantString.USER_NAME, username);
+//        params.addBodyParameter(ConstantString.PASSWORD, pass);
+//        x.http().post(params, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                Log(result);
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//                Log("错误");
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//
+//            }
+//        });
 
         startActivity(new Intent(context, MainActivity.class));
         finish();

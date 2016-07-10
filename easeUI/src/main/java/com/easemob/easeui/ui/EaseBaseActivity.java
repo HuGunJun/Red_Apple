@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -97,6 +98,16 @@ public abstract class EaseBaseActivity extends AppCompatActivity {
         // onresume时，取消notification显示
         // EaseUI.getInstance().getNotifier().reset();
 
+    }
+
+
+    /**
+     * 打印日志
+     *
+     * @param str
+     */
+    public void Log(String str) {
+        Log.i("main", str);
     }
 
     /**

@@ -13,8 +13,8 @@
         android:background="@drawable/btn_selector"
         android:clickable="true"
         android:gravity="center"
-        android:orientation="vertical"
         android:onClick="onClick"
+        android:orientation="vertical"
         android:paddingBottom="15dp"
         android:paddingTop="15dp">
 
@@ -68,16 +68,21 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/diliver_line"></View>
+
     <LinearLayout
         android:id="@+id/lv_answer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:onClick="onClick"
-        android:layout_marginLeft="1dp"
-        android:layout_marginRight="1dp"
         android:layout_weight="0.3"
         android:background="@drawable/btn_selector"
         android:gravity="center"
+        android:onClick="onClick"
         android:orientation="vertical">
 
         <LinearLayout
@@ -129,6 +134,13 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/diliver_line"></View>
 
 
     <LinearLayout

@@ -10,39 +10,28 @@
     <ImageView
         android:id="@+id/left_image"
         android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:background="@drawable/ease_common_tab_bg"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_launcher" />
-
-    <com.easemob.easeui.widget.switchview.SegmentView
-        android:id="@+id/segmentView"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        app:content="左边,右边"
-        app:index="0"
-        app:textColorN="#0072c6"
-        app:textColorP="#ffffff" />
+        android:scaleType="centerInside" />
 
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginLeft="50dp"
+        android:layout_toLeftOf="@+id/relativeLayout"
+        android:layout_toRightOf="@+id/left_image"
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
-        android:text="标题"
         android:textColor="#ffffff"
         android:textSize="20sp" />
 
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true">
@@ -52,8 +41,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:background="@drawable/ease_common_tab_bg"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_launcher" />
+            android:scaleType="centerInside" />
 
         <ImageView
             android:id="@+id/right_image_right"
@@ -61,8 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/right_image_left"
             android:background="@drawable/ease_common_tab_bg"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_launcher" />
+            android:scaleType="centerInside" />
 
         <TextView
             android:id="@+id/tv_right"
@@ -74,5 +61,15 @@
             android:textColor="@color/white" />
     </RelativeLayout>
 
-
+    <com.easemob.easeui.widget.switchview.SegmentView
+        android:id="@+id/segmentView"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="visible"
+        app:content="左边,右边"
+        app:index="0"
+        app:textColorN="#0072c6"
+        app:textColorP="#ffffff" />
 </RelativeLayout>

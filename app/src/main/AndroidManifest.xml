@@ -3,6 +3,9 @@
     package="com.iwind.red_apple">
 
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
     <application
         android:name=".App.MyApplication"
         android:allowBackup="true"
@@ -23,8 +26,7 @@
         <activity android:name=".RegisterActivity"></activity>
 
         <!-- 主界面-->
-        <activity
-            android:name=".MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -38,7 +40,7 @@
         <activity android:name=".Find.FindActivity"></activity>
 
         <!-- 我的-->
-        <activity android:name=".Mine.MintActivity"></activity>
+        <activity android:name=".Mine.MineActivity"></activity>
 
         <!-- 税务常识-->
         <activity android:name=".Tax.TaxKnowActivity"></activity>

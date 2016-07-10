@@ -29,6 +29,11 @@
             android:layout_weight="0.0"
             android:visibility="gone" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/diliver_line"></View>
+
         <RadioGroup
             android:id="@+id/main_radio"
             android:layout_width="match_parent"

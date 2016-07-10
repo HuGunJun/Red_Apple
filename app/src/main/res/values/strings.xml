@@ -25,7 +25,10 @@
     <string name="discuss">讨论</string>
     <string name="add_answer">添加回答</string>
     <string name="please_input_answer">请输入回答内容</string>
+    <string name="personal_industry">个人业务</string>
     <string name="brown">发布</string>
+    <string name="guide_video">视频指导</string>
+    <string name="industry_news">行业资讯</string>
       <string name="hello_world">
         最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
 

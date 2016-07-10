@@ -47,19 +47,19 @@ public class AnswerDetailActivity extends EaseBaseActivity {
 
     @Override
     public void setOnClickListener() {
-        title_bar.setLeftLayoutClickListener(new View.OnClickListener() {
+        title_bar.setLeftImageClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        title_bar.setRightLayoutClickListener(new View.OnClickListener() {
+        title_bar.setRightImageRightClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "分享", Toast.LENGTH_SHORT).show();
             }
         });
-        title_bar.setCenterLayoutClickListener(new View.OnClickListener() {
+        title_bar.setTitleClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (tv_question_describe.getVisibility() == View.VISIBLE) {
@@ -81,6 +81,6 @@ public class AnswerDetailActivity extends EaseBaseActivity {
     public void InitView() {
         title_bar.setTitle(getIntent().getExtras().getString(ConstantString.DISSCUSS_TITLE));
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
-        title_bar.setRightImageResource(R.mipmap.ic_launcher);
+        title_bar.setRightImageRightResource(R.mipmap.ic_launcher);
     }
 }

@@ -51,13 +51,13 @@ public class AddAnswerActivity extends EaseBaseActivity implements View.OnClickL
     }
 
     public void setOnClickListener() {
-        mEaseTitleBar.setLeftLayoutClickListener(new View.OnClickListener() {
+        mEaseTitleBar.setLeftImageClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        mEaseTitleBar.setRightLayoutClickListener(new View.OnClickListener() {
+        mEaseTitleBar.setRightTextClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "发布", Toast.LENGTH_SHORT).show();

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.widget.EaseTitleBar;
@@ -54,6 +55,8 @@ public class NewActivity extends EaseBaseActivity {
 
     public void InitView() {
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
+        title_bar.setRightImageLeftResource(R.drawable.ic_launcher);
+        title_bar.setRightImageRightResource(R.mipmap.ic_launcher);
         list_frag.add(new Frag_Hot());
         list_frag.add(new Frag_Recommend());
         mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), list_frag);
@@ -66,7 +69,19 @@ public class NewActivity extends EaseBaseActivity {
     }
 
     public void setOnClickListener() {
-        title_bar.setLeftLayoutClickListener(new View.OnClickListener() {
+        title_bar.setRightImageRightClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "新增", Toast.LENGTH_SHORT).show();
+            }
+        });
+        title_bar.setRightImageLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "查找", Toast.LENGTH_SHORT).show();
+            }
+        });
+        title_bar.setLeftImageClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

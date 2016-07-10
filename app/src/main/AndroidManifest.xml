@@ -13,10 +13,7 @@
 
         <!-- 启动页面-->
         <activity android:name=".SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <!-- 登陆-->
@@ -27,8 +24,12 @@
 
         <!-- 主界面-->
         <activity
-            android:name=".MainActivity"
-            android:launchMode="singleInstance"></activity>
+            android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <!-- 税务首页-->
         <activity android:name=".Tax.TaxActivity"></activity>

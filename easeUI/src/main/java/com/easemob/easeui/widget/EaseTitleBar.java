@@ -18,14 +18,10 @@ import com.easemob.easeui.widget.switchview.SegmentView;
  */
 public class EaseTitleBar extends RelativeLayout {
 
-    protected RelativeLayout leftLayout;
     protected ImageView leftImage;
-    protected RelativeLayout rightLayout;
-    protected ImageView rightImage;
-    protected TextView titleView;
+    protected ImageView rightImage_left, rightImage_right;
     protected RelativeLayout titleLayout;
-    protected RelativeLayout centerlayout;
-    protected TextView tv_right;
+    protected TextView tv_right, title;
     protected SegmentView segmentView;
 
     public EaseTitleBar(Context context, AttributeSet attrs, int defStyle) {
@@ -44,13 +40,11 @@ public class EaseTitleBar extends RelativeLayout {
 
     private void init(Context context, AttributeSet attrs) {
         LayoutInflater.from(context).inflate(R.layout.ease_widget_title_bar, this);
-        leftLayout = (RelativeLayout) findViewById(R.id.left_layout);
         leftImage = (ImageView) findViewById(R.id.left_image);
-        rightLayout = (RelativeLayout) findViewById(R.id.right_layout);
-        rightImage = (ImageView) findViewById(R.id.right_image);
-        titleView = (TextView) findViewById(R.id.title);
+        rightImage_left = (ImageView) findViewById(R.id.right_image_left);
+        rightImage_right = (ImageView) findViewById(R.id.right_image_right);
         titleLayout = (RelativeLayout) findViewById(R.id.root);
-        centerlayout = (RelativeLayout) findViewById(R.id.center_layout);
+        title = (TextView) findViewById(R.id.title);
         tv_right = (TextView) findViewById(R.id.tv_right);
         segmentView = (SegmentView) findViewById(R.id.segmentView);
         parseStyle(context, attrs);
@@ -59,9 +53,9 @@ public class EaseTitleBar extends RelativeLayout {
     private void parseStyle(Context context, AttributeSet attrs) {
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.EaseTitleBar);
-            String title = ta.getString(R.styleable.EaseTitleBar_titleBarTitle);
-            titleView.setText(title);
-            if (title != null) {
+            String titles = ta.getString(R.styleable.EaseTitleBar_titleBarTitle);
+            title.setText(titles);
+            if (titles != null) {
                 segmentView.setVisibility(View.GONE);
             } else {
                 segmentView.setVisibility(View.VISIBLE);
@@ -72,7 +66,7 @@ public class EaseTitleBar extends RelativeLayout {
             }
             Drawable rightDrawable = ta.getDrawable(R.styleable.EaseTitleBar_titleBarRightImage);
             if (null != rightDrawable) {
-                rightImage.setImageDrawable(rightDrawable);
+                rightImage_left.setImageDrawable(rightDrawable);
             }
 
             Drawable background = ta.getDrawable(R.styleable.EaseTitleBar_titleBarBackground);
@@ -84,84 +78,133 @@ public class EaseTitleBar extends RelativeLayout {
         }
     }
 
+
+    /**
+     * 设置title——bar整体背景
+     *
+     * @param background
+     */
+    public void setTitleLayoutBackground(Drawable background) {
+        titleLayout.setBackgroundDrawable(background);
+    }
+
+    /**
+     * 设置左边图片资源
+     *
+     * @param resId
+     */
     public void setLeftImageResource(int resId) {
         leftImage.setImageResource(resId);
     }
 
-    public void setRightImageResource(int resId) {
-        rightImage.setImageResource(resId);
+
+    /**
+     * 设置左边点击事件
+     *
+     * @param clickListener
+     */
+    public void setLeftImageClickListener(OnClickListener clickListener) {
+        leftImage.setOnClickListener(clickListener);
     }
 
-    public void setRightImageClickListener(OnClickListener listener) {
-        rightImage.setOnClickListener(listener);
-    }
 
-
-    public void setLeftLayoutClickListener(OnClickListener listener) {
-        leftLayout.setOnClickListener(listener);
-    }
-
-    public void setRightLayoutClickListener(OnClickListener listener) {
-        rightLayout.setOnClickListener(listener);
-    }
-
-    public void setLeftLayoutVisibility(int visibility) {
-        leftLayout.setVisibility(visibility);
-    }
-
-    public void setRightLayoutVisibility(int visibility) {
-        rightLayout.setVisibility(visibility);
-    }
-
-    public void setTitle(String title) {
-        titleView.setText(title);
-        if (!title.equals("") || title != null) {
+    /**
+     * 设置标题文字
+     *
+     * @param strtitle
+     */
+    public void setTitle(String strtitle) {
+        title.setText(strtitle);
+        if (!strtitle.equals("") || strtitle != null) {
             segmentView.setVisibility(View.GONE);
         } else {
             segmentView.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setBackgroundColor(int color) {
-        titleLayout.setBackgroundColor(color);
-    }
-
-    public RelativeLayout getLeftLayout() {
-        return leftLayout;
-    }
-
-    public RelativeLayout getRightLayout() {
-        return rightLayout;
-    }
-
-    public void setCenterLayoutClickListener(OnClickListener listener) {
-        centerlayout.setOnClickListener(listener);
+    /**
+     * 设置中间文字的点击事件
+     *
+     * @param onClickListener
+     */
+    public void setTitleClickListener(OnClickListener onClickListener) {
+        title.setOnClickListener(onClickListener);
     }
 
 
+    /**
+     * 设置右边菜单里面的左边图片资源
+     *
+     * @param resId
+     */
+    public void setRightImageLeftResource(int resId) {
+        rightImage_left.setImageResource(resId);
+    }
+
+
+    /**
+     * 设置右边菜单左边图片点击事件
+     *
+     * @param onClickListener
+     */
+    public void setRightImageLeftClickListener(OnClickListener onClickListener) {
+        rightImage_left.setOnClickListener(onClickListener);
+    }
+
+
+    /**
+     * 设置右边菜单的右边图片资源
+     *
+     * @param resId
+     */
+    public void setRightImageRightResource(int resId) {
+        rightImage_right.setImageResource(resId);
+    }
+
+
+    /**
+     * 设置右边菜单的右边图片点击事件
+     *
+     * @param onClickListener
+     */
+    public void setRightImageRightClickListener(OnClickListener onClickListener) {
+        rightImage_right.setOnClickListener(onClickListener);
+    }
+
+    /**
+     * 设置右边文字
+     *
+     * @param rightText
+     */
     public void setRightText(String rightText) {
         tv_right.setText(rightText);
     }
 
-    public void setRightTextColor(int colorid) {
-        tv_right.setTextColor(colorid);
+    /**
+     * 设置右边文字点击事件
+     *
+     * @param onClickListener
+     */
+    public void setRightTextClickListener(OnClickListener onClickListener) {
+        tv_right.setOnClickListener(onClickListener);
+
     }
 
-    public void setRightTextClickListener(OnClickListener listener) {
-        tv_right.setOnClickListener(listener);
-    }
-
+    /**
+     * 设置标签改变监听事件
+     *
+     * @param listener
+     */
     public void setSegmentViewIndexChangedListener(SegmentView.OnIndexChangedListener listener) {
         segmentView.setOnIndexChangedListener(listener);
     }
 
-    public void setRightImageAndTextVisiable(boolean image_visiable, boolean text_visiable) {
-        rightImage.setVisibility(image_visiable ? View.VISIBLE : View.GONE);
-        tv_right.setVisibility(text_visiable ? View.VISIBLE : View.GONE);
 
-    }
-
-
+    /**
+     * 设置标签默认标签
+     *
+     * @param index
+     */
     public void setSegmentViewIndex(int index) {
         segmentView.setIndex(index);
     }

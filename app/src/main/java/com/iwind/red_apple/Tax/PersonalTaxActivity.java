@@ -59,7 +59,7 @@ public class PersonalTaxActivity extends EaseBaseActivity implements View.OnClic
 
     @Override
     public void setOnClickListener() {
-        title_bar.setLeftLayoutClickListener(new View.OnClickListener() {
+        title_bar.setLeftImageClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

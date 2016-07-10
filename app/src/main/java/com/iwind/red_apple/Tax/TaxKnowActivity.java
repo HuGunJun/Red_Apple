@@ -109,7 +109,7 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
 
     @Override
     public void setOnClickListener() {
-        title_bar.setLeftLayoutClickListener(new View.OnClickListener() {
+        title_bar.setLeftImageClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

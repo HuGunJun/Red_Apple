@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.iwind.red_apple.Find.FindActivity;
@@ -60,18 +61,18 @@ public class MainActivity extends TabActivity {
      * 设置点击事件
      */
     private void SetOnClickListener() {
-//        title_bar.setRightImageClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), Act_Add_Discuss.class));
-//            }
-//        });
-//        title_bar.setRightTextClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), Act_Message.class));
-//            }
-//        });
+        title_bar.setRightImageRightClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "新增", Toast.LENGTH_SHORT).show();
+            }
+        });
+        title_bar.setRightImageLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "查找", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -97,8 +98,9 @@ public class MainActivity extends TabActivity {
         radioderGroup = (RadioGroup) findViewById(R.id.main_radio);
         title_bar.setTitle(getResources().getString(R.string.bottom_menu_tax));
         title_bar.setBackgroundColor(getResources().getColor(R.color.titile_color));
-        title_bar.setRightImageResource(R.mipmap.ic_launcher);
-        title_bar.setRightImageAndTextVisiable(true, false);
+        title_bar.setRightImageRightResource(R.drawable.ic_launcher);
+        title_bar.setRightImageLeftResource(R.drawable.ic_launcher);
+
     }
 
     public void InitData() {
@@ -114,17 +116,14 @@ public class MainActivity extends TabActivity {
                     case R.id.mainTabs_radio_tax:
                         tabHost.setCurrentTabByTag("1");
                         title_bar.setTitle(getResources().getString(R.string.bottom_menu_tax));
-                        title_bar.setRightLayoutVisibility(View.INVISIBLE);
                         break;
                     case R.id.mainTabs_radio_find:
                         tabHost.setCurrentTabByTag("2");
                         title_bar.setTitle(getResources().getString(R.string.bottom_menu_find));
-                        title_bar.setRightLayoutVisibility(View.INVISIBLE);
                         break;
                     case R.id.mainTabs_radio_mine:
                         tabHost.setCurrentTabByTag("3");
                         title_bar.setTitle(getResources().getString(R.string.bottom_menu_mine));
-                        title_bar.setRightLayoutVisibility(View.VISIBLE);
                         break;
                 }
             }

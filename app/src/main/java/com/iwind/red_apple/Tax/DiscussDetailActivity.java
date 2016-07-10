@@ -66,7 +66,7 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
     public void InitView() {
         mEaseTitleBar.setTitle(getIntent().getExtras().getString(ConstantString.DISSCUSS_TITLE));
         mEaseTitleBar.setLeftImageResource(R.drawable.ease_mm_title_back);
-        mEaseTitleBar.setRightImageResource(R.mipmap.ic_launcher);
+        mEaseTitleBar.setRightImageRightResource(R.mipmap.ic_launcher);
         lv_discuss_detail.setPullRefreshEnable(false);
         lv_discuss_detail.setPullLoadEnable(false);
         discuss_detail_header = LayoutInflater.from(context).inflate(R.layout.view_discuss_detail_header, lv_discuss_detail, false);
@@ -92,19 +92,19 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
     }
 
     public void setOnClickListener() {
-        mEaseTitleBar.setRightLayoutClickListener(new View.OnClickListener() {
+        mEaseTitleBar.setRightImageRightClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "分享", Toast.LENGTH_SHORT).show();
             }
         });
-        mEaseTitleBar.setLeftLayoutClickListener(new View.OnClickListener() {
+        mEaseTitleBar.setLeftImageClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        mEaseTitleBar.setCenterLayoutClickListener(new View.OnClickListener() {
+        mEaseTitleBar.setTitleClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (lv_question_describe.getVisibility() == View.VISIBLE) {

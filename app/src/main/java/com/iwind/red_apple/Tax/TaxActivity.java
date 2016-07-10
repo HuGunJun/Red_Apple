@@ -64,6 +64,10 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         Init();
+        setOnClicListener();
+    }
+
+    private void setOnClicListener() {
     }
 
     private void Init() {

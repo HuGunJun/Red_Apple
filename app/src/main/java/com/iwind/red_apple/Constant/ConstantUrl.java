@@ -19,5 +19,5 @@ public class ConstantUrl {
     public static final String LOGOUT = "api/logout";
 
     //发送注册短信验证码
-    public static final String SEND_SMSCODE = "/sms/regist/sendSmsCode";
+    public static final String SEND_SMSCODE = "sms/regist/sendSmsCode";
 }

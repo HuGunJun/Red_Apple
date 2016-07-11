@@ -29,7 +29,7 @@ public class ConstantString {
     public static final String PASSWORD = "password";
 
     //userid
-    public static final String USER_ID="userid";
+    public static final String USER_ID = "userid";
 
     //数据图片key
     public static final String IV_URL = "iv";
@@ -65,7 +65,7 @@ public class ConstantString {
     public static final String RESULT_STATE = "retCode";
 
     //接口返回状态信息
-    public static final String RESULT_INFO="retInfo";
+    public static final String RESULT_INFO = "retInfo";
 
     //接口返回标志 "0000"
     public static final String STATE = "0000";

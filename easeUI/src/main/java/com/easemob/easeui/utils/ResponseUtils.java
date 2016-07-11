@@ -1,5 +1,9 @@
 package com.easemob.easeui.utils;
 
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -9,10 +13,16 @@ import org.json.JSONObject;
  * 邮箱：www.guojunkuaile@qq.com
  */
 public class ResponseUtils {
-    public static boolean isSuccess(String mark, String json, String sign) {
+    public static boolean isSuccess(Context context, String Statemark, String json, String indujesign, String resinfo) {
         try {
             JSONObject jsonObject = new JSONObject(json);
-            return jsonObject.getString(mark).equals(sign);
+            if (jsonObject.getString(Statemark).equals(indujesign)) {
+                return true;
+            } else {
+                Toast.makeText(context, jsonObject.getString(resinfo), Toast.LENGTH_SHORT).show();
+                Log.i("main", jsonObject.getString(resinfo));
+                return false;
+            }
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2013-2014 EaseMob Technologies. All rights reserved.
- * <p/>
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import com.easemob.easeui.R;
 import com.easemob.easeui.controller.EaseUI;
@@ -100,6 +101,14 @@ public abstract class EaseBaseActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Toast提示
+     *
+     * @param str
+     */
+    public void Toast(String str) {
+        Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
+    }
 
     /**
      * 打印日志

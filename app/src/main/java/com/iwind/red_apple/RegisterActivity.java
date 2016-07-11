@@ -20,6 +20,7 @@ import com.iwind.red_apple.Constant.ConstantUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
+import org.xutils.http.HttpMethod;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -84,14 +85,13 @@ public class RegisterActivity extends EaseBaseActivity {
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                if (ResponseUtils.isSuccess(ConstantString.RESULT_STATE, result, ConstantString.STATE)) {
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE, ConstantString.RESULT_INFO)) {
                     time.start();// 开始计时
                 }
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                Log("失败了");
             }
 
             @Override
@@ -138,8 +138,7 @@ public class RegisterActivity extends EaseBaseActivity {
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log(result);
-                if (ResponseUtils.isSuccess(ConstantString.RESULT_STATE, result, ConstantString.STATE)) {
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE, ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         MyApplication.getInstance().setUserId(jsonObject.getString(ConstantString.USER_ID));
@@ -150,8 +149,6 @@ public class RegisterActivity extends EaseBaseActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }
             }
 

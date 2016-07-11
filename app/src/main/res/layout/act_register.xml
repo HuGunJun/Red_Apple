@@ -19,6 +19,7 @@
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:text="18222107512"
             android:background="@color/white"
             android:drawableLeft="@drawable/ic_launcher"
             android:hint="@string/user_name"/>

@@ -253,7 +253,6 @@
             android:background="@color/diliver_line"></View>
 
         <RelativeLayout
-            style="@style/clickable_layout"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center_vertical"
@@ -286,7 +285,6 @@
             android:background="@color/diliver_line"></View>
 
         <RelativeLayout
-            style="@style/clickable_layout"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center_vertical"
@@ -319,7 +317,6 @@
             android:background="@color/diliver_line"></View>
 
         <RelativeLayout
-            style="@style/clickable_layout"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center_vertical"
@@ -352,7 +349,6 @@
             android:background="@color/diliver_line"></View>
 
         <RelativeLayout
-            style="@style/clickable_layout"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center_vertical"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,7 +12,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
+import com.iwind.red_apple.App.MyApplication;
+import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -64,14 +73,37 @@ public class RegisterActivity extends EaseBaseActivity {
      * 发送短信验证码
      */
     private void SendSmsCode() {
-        String username = et_username.getText().toString();
-        if (TextUtils.isEmpty(username)) {
+        String phone = et_username.getText().toString();
+        if (TextUtils.isEmpty(phone)) {
             Toast.makeText(context, getResources().getString(R.string.User_name_cannot_be_empty), Toast.LENGTH_SHORT).show();
             return;
         }
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEND_SMSCODE);
+        params.addBodyParameter(ConstantString.PHONE_NUM, phone);
+        params.addBodyParameter(ConstantString.TYPE, "1");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (ResponseUtils.isSuccess(ConstantString.RESULT_STATE, result, ConstantString.STATE)) {
+                    time.start();// 开始计时
+                }
+            }
 
-        time.start();// 开始计时
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log("失败了");
+            }
 
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
 
@@ -79,7 +111,6 @@ public class RegisterActivity extends EaseBaseActivity {
      * 注册方法
      */
     private void Register() {
-
         final String username = et_username.getText().toString();
         final String pass = et_pass.getText().toString();
         final String vifi_code = et_vificode.getText().toString();
@@ -99,9 +130,46 @@ public class RegisterActivity extends EaseBaseActivity {
             Toast.makeText(context, getResources().getString(R.string.please_read_introduce), Toast.LENGTH_SHORT).show();
             return;
         }
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.REGISTER);
+        params.addBodyParameter(ConstantString.PHONE_NUM, username);
+        params.addBodyParameter(ConstantString.PASSWORD, pass);
+        params.addBodyParameter(ConstantString.SMSCODE, vifi_code);
+        params.addBodyParameter(ConstantString.TYPE, "1");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(ConstantString.RESULT_STATE, result, ConstantString.STATE)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        MyApplication.getInstance().setUserId(jsonObject.getString(ConstantString.USER_ID));
+                        MyApplication.getInstance().setToken(jsonObject.getString(ConstantString.TOKEN));
+                        MyApplication.getInstance().setUserNameAndPwd(username, pass);
+                        startActivity(new Intent(context, MainActivity.class));
+                        finish();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-        startActivity(new Intent(context, MainActivity.class));
-        finish();
+
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
     @Override

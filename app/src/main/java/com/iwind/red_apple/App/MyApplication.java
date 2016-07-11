@@ -26,6 +26,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         x.Ext.init(this);
+        x.Ext.setDebug(true); // 是否输出debug日志
         instance = this;
         preferences = getSharedPreferences(ConstantString.USER_INFO, MODE_PRIVATE);
     }

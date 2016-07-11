@@ -1,80 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/bottom_menu_color"
-              android:clipToPadding="true"
-              android:fitsSystemWindows="true"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_color"
+                android:clipToPadding="true"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
 
     <com.easemob.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.easemob.easeui.widget.EaseTitleBar>
 
-    <RelativeLayout
-        android:id="@+id/rl_change_avatar"
-        style="@style/clickable_layout"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:gravity="center_vertical"
-        android:onClick="onClick">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_bar"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <RelativeLayout
+            android:id="@+id/rl_change_avatar"
+            style="@style/clickable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:onClick="onClick">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/change_avatar"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_launcher"/>
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/imageView8"
+                android:src="@drawable/ic_launcher"/>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
             android:layout_marginLeft="5dp"
-            android:gravity="center"
-            android:text="@string/change_avatar"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:background="@color/diliver_line"></View>
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_launcher"/>
+        <RelativeLayout
+            android:id="@+id/rl_change_nick"
+            style="@style/clickable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:onClick="onClick">
 
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/imageView8"
-            android:src="@drawable/ic_launcher"/>
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/nick"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
 
-    <RelativeLayout
-        android:id="@+id/rl_change_nick"
-        style="@style/clickable_layout"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="1dp"
-        android:gravity="center_vertical"
-        android:onClick="onClick">
+            <ImageView
+                android:id="@+id/iasdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_launcher"/>
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            <TextView
+                android:id="@+id/tv_nick"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/iasdf"
+                android:gravity="center"
+                android:text="驭思轻吟韵调"/>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
             android:layout_marginLeft="5dp"
-            android:gravity="center"
-            android:text="@string/nick"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:background="@color/diliver_line"></View>
 
-        <ImageView
-            android:id="@+id/iasdf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_launcher"/>
+        <RelativeLayout
+            style="@style/clickable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:onClick="onClick">
 
-        <TextView
-            android:id="@+id/tv_nick"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toStartOf="@+id/iasdf"
-            android:gravity="center"
-            android:text="adsf"/>
-    </RelativeLayout>
-</LinearLayout>
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/sex"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <ImageView
+                android:id="@+id/sdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/tv_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/sdf"
+                android:gravity="center"
+                android:text="女"/>
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:background="@color/diliver_line"></View>
+
+        <RelativeLayout
+            style="@style/clickable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:onClick="onClick">
+
+            <TextView
+                android:id="@+id/data"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/birthday"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <ImageView
+                android:id="@+id/datee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/tv_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/datee"
+                android:gravity="center"
+                android:text="19920203"/>
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:background="@color/diliver_line"></View>
+
+        <RelativeLayout
+            style="@style/clickable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:onClick="onClick">
+
+            <TextView
+                android:id="@+id/area"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="@string/area"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <ImageView
+                android:id="@+id/areaa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/tv_area"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/areaa"
+                android:gravity="center"
+                android:text="天津市-静海区"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -54,6 +54,9 @@
     <string name="please_input_new_pass">请输入新密码</string>
     <string name="comfirm_pass">确认密码</string>
     <string name="please_input_again">请再次输入</string>
+    <string name="sex">性别</string>
+    <string name="birthday">生日</string>
+    <string name="area">地区</string>
       <string name="hello_world">
         最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
 

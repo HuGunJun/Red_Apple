@@ -165,7 +165,7 @@ public class CycleViewPager extends Fragment implements OnPageChangeListener {
             showPosition = showPosition + 1;
         }
         viewPager.setCurrentItem(showPosition);
-        viewPager.setPageTransformer(true, new TransformerForViewPager_two());//
+//        viewPager.setPageTransformer(true, new TransformerForViewPager_two());//
         indicatorLayout.setBackgroundColor(Color.argb(100, 135, 135, 152));
     }
 

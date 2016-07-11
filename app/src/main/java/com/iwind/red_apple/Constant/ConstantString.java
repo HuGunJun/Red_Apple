@@ -70,5 +70,17 @@ public class ConstantString {
     //接口返回标志 "0000"
     public static final String STATE = "0000";
 
+    //接口数组返回标志
+    public static final String ARRAY = "objList";
+
+    //轮播图片ID
+    public static final String CAROUSE_ID = "carouselId";
+
+    //轮播图地址
+    public static final String CAROUSE_URL = "carouselUrl";
+
+    //轮播图标题
+    public static final String CAROUSE_NAME = "carouselName";
+
 
 }

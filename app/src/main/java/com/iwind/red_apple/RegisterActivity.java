@@ -142,7 +142,8 @@ public class RegisterActivity extends EaseBaseActivity {
             @Override
             public void onSuccess(String result) {
                 CloseLoadingDialog();
-                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE, ConstantString.RESULT_INFO)) {
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         MyApplication.getInstance().setUserId(jsonObject.getString(ConstantString.USER_ID));

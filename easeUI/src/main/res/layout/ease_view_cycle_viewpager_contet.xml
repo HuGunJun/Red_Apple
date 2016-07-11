@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
     android:id="@+id/layout_viewager_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white" >
+        android:background="@color/white">
 
         <com.easemob.easeui.widget.cycleview.BaseViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
         </com.easemob.easeui.widget.cycleview.BaseViewPager>
 
         <LinearLayout
@@ -21,8 +22,8 @@
             android:layout_height="20dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:gravity="right|center_vertical"
-            android:orientation="horizontal" >
+            android:gravity="center"
+            android:orientation="horizontal">
         </LinearLayout>
 
         <TextView
@@ -34,7 +35,7 @@
             android:layout_alignTop="@+id/layout_viewpager_indicator"
             android:layout_marginLeft="5dp"
             android:text="TextView"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
 </FrameLayout>

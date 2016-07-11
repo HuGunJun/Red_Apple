@@ -20,4 +20,7 @@ public class ConstantUrl {
 
     //发送注册短信验证码
     public static final String SEND_SMSCODE = "sms/regist/sendSmsCode";
+
+    //轮播图
+    public static final String GET_IMAGE_TURN = "main/getCarousel";
 }

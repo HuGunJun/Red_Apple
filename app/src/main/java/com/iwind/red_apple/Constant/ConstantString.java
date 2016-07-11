@@ -98,4 +98,19 @@ public class ConstantString {
     public static final String FORUMCOUNT = "forumcount";
 
 
+    /**
+     * 用户个人信息获取接口字段-------开始
+     */
+
+    //个人信息外围字段
+    public static final String OBJ = "obj";
+
+    //昵称
+    public static final String NICK_NAME = "nickName";
+
+
+    /**
+     * 用户个人信息获取接口字段-------结束
+     */
+
 }

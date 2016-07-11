@@ -60,6 +60,15 @@ public class MyApplication extends Application {
         edit.commit();
     }
 
+    /**
+     * 获取密码
+     *
+     * @return
+     */
+    public String getPass() {
+        return preferences.getString(ConstantString.PASSWORD, "");
+    }
+
 
     /**
      * 获取用户id

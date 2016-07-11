@@ -6,11 +6,18 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.actionsheetdialog.ActionSheetDialog;
+import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -47,12 +54,15 @@ public class MyInfoActivity extends EaseBaseActivity {
                 startActivityForResult(new Intent(context, EditNickActivity.class), REQUEST_CHAGE_NICK);
                 break;
             case R.id.rl_change_avatar:
-                new ActionSheetDialog(context).builder().setCancelable(false).setCanceledOnTouchOutside(false).addSheetItem(getResources().getString(R.string.photos), ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
+                new ActionSheetDialog(context).builder().setCancelable(false).setCanceledOnTouchOutside(false)
+                        .addSheetItem(getResources().getString(R.string.photos), ActionSheetDialog.SheetItemColor
+                                .Blue, new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
 
-                    }
-                }).addSheetItem(getResources().getString(R.string.take_photos), ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
+                            }
+                        }).addSheetItem(getResources().getString(R.string.take_photos), ActionSheetDialog.SheetItemColor
+                        .Blue, new ActionSheetDialog.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
 
@@ -70,7 +80,42 @@ public class MyInfoActivity extends EaseBaseActivity {
 
     @Override
     public void InitData() {
+        ShowLoadingDialog();
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GET_PERSONAL_INFO);
+        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                CloseLoadingDialog();
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONObject obj = jsonObject.getJSONObject(ConstantString.OBJ);
+                        tv_nick.setText(obj.getString(ConstantString.NICK_NAME));
 
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                CloseLoadingDialog();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
     @Override

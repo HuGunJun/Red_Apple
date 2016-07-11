@@ -16,7 +16,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 /**
- * 编辑昵称page
+ * 编辑page
  * 作者：HuGuoJun
  * 2016/6/12 17:09
  * 邮箱：www.guojunkuaile@qq.com

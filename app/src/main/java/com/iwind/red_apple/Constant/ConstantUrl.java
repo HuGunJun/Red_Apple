@@ -26,4 +26,8 @@ public class ConstantUrl {
 
     //税务页面获取最新条数
     public static final String GET_NEW = "main/getNew";
+
+    //获取个人信息
+    public static final String GET_PERSONAL_INFO = "api/users/userinfo";
+
 }

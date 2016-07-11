@@ -155,7 +155,7 @@ public abstract class EaseBaseActivity extends AppCompatActivity {
      */
     public void ShowLoadingDialog() {
         progressHUD = ZProgressHUD.getInstance(this);
-        progressHUD.setMessage("加载中");
+        progressHUD.setMessage("请稍后");
         progressHUD.setCancelable(true);
         progressHUD.setSpinnerType(ZProgressHUD.SIMPLE_ROUND_SPINNER);
         progressHUD.show();

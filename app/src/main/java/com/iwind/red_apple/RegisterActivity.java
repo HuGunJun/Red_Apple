@@ -74,6 +74,7 @@ public class RegisterActivity extends EaseBaseActivity {
      * 发送短信验证码
      */
     private void SendSmsCode() {
+        ShowLoadingDialog();
         String phone = et_username.getText().toString();
         if (TextUtils.isEmpty(phone)) {
             Toast.makeText(context, getResources().getString(R.string.User_name_cannot_be_empty), Toast.LENGTH_SHORT).show();
@@ -85,6 +86,7 @@ public class RegisterActivity extends EaseBaseActivity {
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                CloseLoadingDialog();
                 if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE, ConstantString.RESULT_INFO)) {
                     time.start();// 开始计时
                 }
@@ -130,6 +132,7 @@ public class RegisterActivity extends EaseBaseActivity {
             Toast.makeText(context, getResources().getString(R.string.please_read_introduce), Toast.LENGTH_SHORT).show();
             return;
         }
+        ShowLoadingDialog();
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.REGISTER);
         params.addBodyParameter(ConstantString.PHONE_NUM, username);
         params.addBodyParameter(ConstantString.PASSWORD, pass);
@@ -138,6 +141,7 @@ public class RegisterActivity extends EaseBaseActivity {
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                CloseLoadingDialog();
                 if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE, ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);

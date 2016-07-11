@@ -9,9 +9,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
+import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
@@ -68,36 +72,44 @@ public class LoginActivity extends EaseBaseActivity {
             return;
         }
 
+        ShowLoadingDialog();
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.LOGIN);
+        params.addBodyParameter(ConstantString.USER_NAME, username);
+        params.addBodyParameter(ConstantString.PASSWORD, pass);
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                CloseLoadingDialog();
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE, ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        MyApplication.getInstance().setUserId(jsonObject.getString(ConstantString.USER_ID));
+                        MyApplication.getInstance().setToken(jsonObject.getString(ConstantString.TOKEN));
+                        MyApplication.getInstance().setUserNameAndPwd(username, pass);
+                        startActivity(new Intent(context, MainActivity.class));
+                        finish();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
 
-//        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.LOGIN);
-//        params.addBodyParameter(ConstantString.USER_NAME, username);
-//        params.addBodyParameter(ConstantString.PASSWORD, pass);
-//        x.http().post(params, new Callback.CommonCallback<String>() {
-//            @Override
-//            public void onSuccess(String result) {
-//                Log(result);
-//            }
-//
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//                Log("错误");
-//            }
-//
-//            @Override
-//            public void onCancelled(CancelledException cex) {
-//
-//            }
-//
-//            @Override
-//            public void onFinished() {
-//
-//            }
-//        });
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log("错误");
+            }
 
-        startActivity(new Intent(context, MainActivity.class));
-        finish();
+            @Override
+            public void onCancelled(CancelledException cex) {
 
+            }
 
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
     @Override

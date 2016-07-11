@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:background="@color/background_color"
-    android:orientation="horizontal">
+              android:layout_width="match_parent"
+              android:layout_height="80dp"
+              android:background="@color/background_color"
+              android:orientation="horizontal">
 
     <LinearLayout
         android:id="@+id/lv_discuss"
@@ -27,7 +27,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
                 android:gravity="center"
                 android:text="@string/new_question"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/darkgray" />
+                android:textColor="@color/darkgray"/>
         </LinearLayout>
 
         <LinearLayout
@@ -52,9 +52,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="20"
+                android:text="0"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/titile_color" />
+                android:textColor="@color/titile_color"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                 android:gravity="center"
                 android:text="@string/piece"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/lightgray" />
+                android:textColor="@color/lightgray"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -94,7 +94,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,7 +103,7 @@
                 android:gravity="center"
                 android:text="@string/new_answer"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/darkgray" />
+                android:textColor="@color/darkgray"/>
         </LinearLayout>
 
         <LinearLayout
@@ -119,9 +119,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="20"
+                android:text="0"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/titile_color" />
+                android:textColor="@color/titile_color"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
                 android:gravity="center"
                 android:text="@string/piece"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/lightgray" />
+                android:textColor="@color/lightgray"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -162,7 +162,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                 android:gravity="center"
                 android:text="@string/new_move"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/darkgray" />
+                android:textColor="@color/darkgray"/>
         </LinearLayout>
 
         <LinearLayout
@@ -187,9 +187,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="20"
+                android:text="0"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/titile_color" />
+                android:textColor="@color/titile_color"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -198,7 +198,7 @@
                 android:gravity="center"
                 android:text="@string/piece"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/lightgray" />
+                android:textColor="@color/lightgray"/>
         </LinearLayout>
 
     </LinearLayout>

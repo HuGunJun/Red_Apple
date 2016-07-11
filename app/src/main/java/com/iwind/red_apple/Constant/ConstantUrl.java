@@ -23,4 +23,7 @@ public class ConstantUrl {
 
     //轮播图
     public static final String GET_IMAGE_TURN = "main/getCarousel";
+
+    //税务页面获取最新条数
+    public static final String GET_NEW = "main/getNew";
 }

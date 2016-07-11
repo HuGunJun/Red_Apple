@@ -10,12 +10,12 @@ package com.iwind.red_apple.Tax;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.cycleview.CycleViewPager;
@@ -36,6 +36,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,15 +60,15 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
     LinearLayout lv_should_know;
     @ViewInject(R.id.lv_imageviewturn)
     LinearLayout lv_imageviewturn;
+    //最新提问
+    @ViewInject(R.id.tv_new_question)
+    TextView tv_new_question;
+    @ViewInject(R.id.tv_new_answer)
+    TextView tv_new_answer;
+    @ViewInject(R.id.tv_new_move)
+    TextView tv_new_move;
     private CycleViewPager cycleViewPager;
     private View vhdf;
-    String[] imageUrls;
-//    String[] imageUrls = {
-//            "http://img.taodiantong.cn/v55183/infoimg/2013-07/130720115322ky.jpg",
-//            "http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg",
-//            "http://pic18.nipic.com/20111215/577405_080531548148_2.jpg",
-//            "http://pic15.nipic.com/20110722/2912365_092519919000_2.jpg",
-//            "http://pic.58pic.com/58pic/12/64/27/55U58PICrdX.jpg"};
 
 
     @Override
@@ -75,7 +76,6 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         GetImageTurn();
-        setOnClicListener();
     }
 
     /**
@@ -120,7 +120,7 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
                                 });
                         cycleViewPager.SetIndicatorResouse(R.mipmap.ic_launcher, R.mipmap.ic_launcher);
                         lv_imageviewturn.addView(vhdf);
-
+                        GetNew();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -144,8 +144,50 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
         });
     }
 
-    private void setOnClicListener() {
+    /***
+     * 获得最新条数
+     */
+    private void GetNew() {
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GET_NEW);
+        params.addBodyParameter(ConstantString.DATE, new Date().getTime() + "");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.i("main", result);
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    if (ResponseUtils.isSuccess(getApplicationContext(), ConstantString.RESULT_STATE, result,
+                            ConstantString.STATE,
+                            ConstantString.RESULT_INFO)) {
+                        tv_new_question.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
+                                .FORUMCOUNT));
+                        tv_new_answer.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
+                                .MESSAGECOUNT));
+                        tv_new_move.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
+                                .NEWSCOUNT));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
+
 
     @Override
     public void onClick(View v) {

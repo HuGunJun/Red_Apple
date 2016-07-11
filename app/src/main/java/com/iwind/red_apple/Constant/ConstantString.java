@@ -82,5 +82,20 @@ public class ConstantString {
     //轮播图标题
     public static final String CAROUSE_NAME = "carouselName";
 
+    //请求时间参数
+    public static final String DATE = "date";
+
+    //获得最新条数外围参数
+    public static final String MAP = "map";
+
+    //newscount 最新资讯参数
+    public static final String NEWSCOUNT = "newscount";
+
+    //messagecount 最新回答参数
+    public static final String MESSAGECOUNT = "messagecount";
+
+    //forumcount 最新讨论参数
+    public static final String FORUMCOUNT = "forumcount";
+
 
 }

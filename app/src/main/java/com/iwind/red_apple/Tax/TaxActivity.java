@@ -118,7 +118,7 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
 
                                     }
                                 });
-                        cycleViewPager.SetIndicatorResouse(R.mipmap.ic_launcher, R.mipmap.ic_launcher);
+                        cycleViewPager.SetIndicatorResouse(R.mipmap.iv_turn_on, R.mipmap.iv_turn_off);
                         lv_imageviewturn.addView(vhdf);
                         GetNew();
                     }

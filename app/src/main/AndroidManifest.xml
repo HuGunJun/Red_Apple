@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.iwind.red_apple"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.iwind.red_apple">
 
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
@@ -63,6 +64,9 @@
 
         <!-- 讨论页面-->
         <activity android:name=".Tax.DiscussActivity"></activity>
+
+        <!-- 新增讨论页面-->
+        <activity android:name=".Tax.AddDiscussActivity"></activity>
 
         <!-- 讨论详情页面-->
         <activity android:name=".Tax.DiscussDetailActivity"></activity>

@@ -27,7 +27,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/iv_new_question"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/iv_new_answer"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/iv_new_move"/>
 
             <TextView
                 android:layout_width="wrap_content"

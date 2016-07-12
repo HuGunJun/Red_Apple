@@ -17,24 +17,9 @@
         android:scaleType="centerInside" />
 
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/left_image"
-        android:layout_toLeftOf="@+id/relativeLayout"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:lines="1"
-        android:text="asdfdas"
-        android:textColor="#ffffff"
-        android:textSize="18sp" />
-
-
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="92dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true">
 
@@ -60,7 +45,7 @@
 
         <TextView
             android:id="@+id/tv_right"
-            android:layout_width="50dp"
+            android:layout_width="46dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:background="@drawable/ease_common_tab_bg"
@@ -68,13 +53,27 @@
             android:textColor="@color/white" />
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/relativeLayout"
+        android:layout_toRightOf="@+id/left_image"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:paddingLeft="46dp"
+        android:text="标题"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
     <com.easemob.easeui.widget.switchview.SegmentView
         android:id="@+id/segmentView"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:visibility="visible"
+        android:visibility="gone"
         app:content="左边,右边"
         app:index="0"
         app:textColorN="#0072c6"

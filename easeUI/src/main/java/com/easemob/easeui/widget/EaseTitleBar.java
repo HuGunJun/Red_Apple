@@ -3,6 +3,7 @@ package com.easemob.easeui.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -143,6 +144,15 @@ public class EaseTitleBar extends RelativeLayout {
 
 
     /**
+     * 设置右边菜单里面的左边图片按钮是否可见
+     *
+     * @param visiable
+     */
+    public void setRightImageLeftVisiable(boolean visiable) {
+        rightImage_left.setVisibility(visiable ? VISIBLE : GONE);
+    }
+
+    /**
      * 设置右边菜单左边图片点击事件
      *
      * @param onClickListener
@@ -161,6 +171,15 @@ public class EaseTitleBar extends RelativeLayout {
         rightImage_right.setImageResource(resId);
     }
 
+
+    /**
+     * 设置右边菜单里面的右边按钮可见性
+     *
+     * @param visiable
+     */
+    public void setRightImageRightVisiable(boolean visiable) {
+        rightImage_right.setVisibility(visiable ? VISIBLE : GONE);
+    }
 
     /**
      * 设置右边菜单的右边图片点击事件

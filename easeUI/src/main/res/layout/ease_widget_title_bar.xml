@@ -12,28 +12,29 @@
         android:layout_width="46dp"
         android:layout_height="46dp"
         android:layout_alignParentLeft="true"
-        android:padding="10dp"
         android:background="@drawable/ease_common_tab_bg"
+        android:padding="10dp"
         android:scaleType="centerInside" />
 
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginLeft="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/left_image"
         android:layout_toLeftOf="@+id/relativeLayout"
-        android:layout_toRightOf="@+id/left_image"
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
+        android:text="asdfdas"
         android:textColor="#ffffff"
         android:textSize="18sp" />
 
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true">
 
@@ -41,6 +42,7 @@
             android:id="@+id/right_image_left"
             android:layout_width="46dp"
             android:layout_height="46dp"
+            android:layout_toLeftOf="@+id/right_image_right"
             android:background="@drawable/ease_common_tab_bg"
             android:padding="13dp"
             android:scaleType="centerInside"
@@ -50,7 +52,7 @@
             android:id="@+id/right_image_right"
             android:layout_width="46dp"
             android:layout_height="46dp"
-            android:layout_toRightOf="@+id/right_image_left"
+            android:layout_alignParentRight="true"
             android:background="@drawable/ease_common_tab_bg"
             android:padding="13dp"
             android:scaleType="centerInside"

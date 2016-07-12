@@ -16,4 +16,7 @@
 
     <!-- 成为企业用户之后操作选项的字体颜色-->
     <color name="text_color">#666666</color>
+
+    <!-- 讨论详情页面详情字体颜色-->
+    <color name="discuss_text_color">#F38E40</color>
 </resources>

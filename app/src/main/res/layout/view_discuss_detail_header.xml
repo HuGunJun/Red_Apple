@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_marginBottom="3dp"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="3dp"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,9 +14,12 @@
         android:paddingLeft="5dp">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:src="@mipmap/iv_discuss_tab" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,7 +27,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="5dp"
             android:text="asdfadf"
-            android:textColor="@color/titile_color"/>
+            android:textColor="@color/titile_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,52 +43,58 @@
             android:id="@+id/tv_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio."/>
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio." />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="5dp"
-            android:gravity="end">
+            android:gravity="end|center_vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_margin="5dp"
+                android:src="@mipmap/iv_discuss_answer" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="1000"/>
+                android:text="1000"
+                android:textColor="@color/discuss_text_color" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_margin="5dp"
+                android:src="@mipmap/iv_share_discuss" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="1000"/>
+                android:text="1000"
+                android:textColor="@color/discuss_text_color" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_margin="5dp"
+                android:src="@mipmap/iv_look" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="1000"/>
+                android:text="1000"
+                android:textColor="@color/discuss_text_color" />
         </LinearLayout>
     </LinearLayout>
 
@@ -109,16 +118,16 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/iv_collection" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp"
-                android:text="@string/clletion_talk"/>
+                android:text="@string/clletion_talk" />
         </LinearLayout>
 
         <LinearLayout
@@ -134,16 +143,16 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/iv_add_answer" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp"
-                android:text="@string/add_answer"/>
+                android:text="@string/add_answer" />
         </LinearLayout>
     </LinearLayout>
 

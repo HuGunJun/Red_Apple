@@ -29,8 +29,8 @@ public class MyApplication extends Application {
         x.Ext.setDebug(true); // 是否输出debug日志
         instance = this;
         preferences = getSharedPreferences(ConstantString.USER_INFO, MODE_PRIVATE);
-        options = new ImageOptions.Builder().setLoadingDrawableId(R.mipmap.ic_launcher)
-                .setLoadingDrawableId(R.mipmap.ic_launcher).setUseMemCache(true).setCircular(true).build();
+        options = new ImageOptions.Builder().setFailureDrawableId(R.drawable
+                .icon_default_avatar).setUseMemCache(true).setCircular(true).build();
     }
 
     /**
@@ -132,8 +132,9 @@ public class MyApplication extends Application {
         if (options != null) {
             return options;
         }
-        return new ImageOptions.Builder().setLoadingDrawableId(R.mipmap.ic_launcher)
-                .setLoadingDrawableId(R.mipmap.ic_launcher).setUseMemCache(true).setCircular(true).build();
+        return new ImageOptions.Builder()
+                .setLoadingDrawableId(R.mipmap.ic_launcher).setFailureDrawableId(R.mipmap
+                        .icon_default_avatar).setUseMemCache(true).setCircular(true).build();
     }
 
 

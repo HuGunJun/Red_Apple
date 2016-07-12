@@ -29,6 +29,8 @@ public class MyApplication extends Application {
         x.Ext.setDebug(true); // 是否输出debug日志
         instance = this;
         preferences = getSharedPreferences(ConstantString.USER_INFO, MODE_PRIVATE);
+        options = new ImageOptions.Builder().setLoadingDrawableId(R.mipmap.ic_launcher)
+                .setLoadingDrawableId(R.mipmap.ic_launcher).setUseMemCache(true).setCircular(true).build();
     }
 
     /**

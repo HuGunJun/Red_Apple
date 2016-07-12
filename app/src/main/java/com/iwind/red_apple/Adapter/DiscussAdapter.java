@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.R;
@@ -61,8 +62,9 @@ public class DiscussAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        ImageOptions options = MyApplication.getInstance().getOptions();
-        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), options);
+//        ImageOptions options = MyApplication.getInstance().getOptions();
+//        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), options);
+        Glide.with(mContext).load(mList.get(position).get(ConstantString.IV_URL)).error(R.drawable.ic_launcher).into(holder.iv_avator);
         holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
         holder.tv_name.setText(mList.get(position).get(ConstantString.NAME));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.READ_COUNT));

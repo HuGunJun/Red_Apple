@@ -32,24 +32,24 @@
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
-        "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_conversation_normal.png",
-        "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\drawable-hdpi\\ease_conversation_normal.png"
-    },
-    {
         "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
         "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_conversation_normal.png",
+        "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\drawable-hdpi\\ease_conversation_normal.png"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_chatting_biaoqing_btn_normal.png",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\drawable-hdpi\\ease_chatting_biaoqing_btn_normal.png"
     },
     {
-        "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
-        "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_chatting_setmode_keyboard_btn_normal.png",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\EaseUi\\easeUI\\src\\main\\res\\drawable-hdpi\\ease_chatting_setmode_keyboard_btn_normal.png"
+    },
+    {
+        "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
@@ -168,16 +168,16 @@
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\src\\main\\res\\drawable-hdpi\\ee_32.png"
     },
     {
-        "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_3.png",
-        "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\drawable-hdpi\\ee_3.png"
+        "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\round_spinner_fade_01.png",
+        "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\src\\main\\res\\drawable-hdpi\\round_spinner_fade_01.png"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_chat_face_pressed.png",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\Demo\\easeUI\\src\\main\\res\\drawable-hdpi\\ease_chat_face_pressed.png"
     },
     {
-        "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\round_spinner_fade_01.png",
-        "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\src\\main\\res\\drawable-hdpi\\round_spinner_fade_01.png"
+        "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_3.png",
+        "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\drawable-hdpi\\ee_3.png"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\biz_video_pause.png",
@@ -232,24 +232,24 @@
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\drawable-hdpi\\ease_search_bar_icon_normal.png"
     },
     {
-        "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_6.png",
-        "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\src\\main\\res\\drawable-hdpi\\ee_6.png"
-    },
-    {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_default_image.png",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\drawable-hdpi\\ease_default_image.png"
+    },
+    {
+        "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_6.png",
+        "source": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\src\\main\\res\\drawable-hdpi\\ee_6.png"
     },
     {
         "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_star_half_black_16dp.png",
         "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png",
-        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
-    },
-    {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_35.png",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\drawable-hdpi\\ee_35.png"
+    },
+    {
+        "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png",
+        "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\Demo\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_svstatus_success.png",
@@ -3358,10 +3358,6 @@
     {
         "merged": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\apple_round_spinner_05.png",
         "source": "E:\\WorkSpace\\WorkSpace for AndroidStudio\\tj_tax\\easeUI\\src\\main\\res\\drawable-hdpi\\apple_round_spinner_05.png"
-    },
-    {
-        "merged": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_mm_title_back.png",
-        "source": "E:\\WorkSpace\\AndroidStudio\\red_apple\\easeUI\\src\\main\\res\\drawable-hdpi\\ease_mm_title_back.png"
     },
     {
         "merged": "E:\\WorkSpace\\AndroidStudio\\tj_tax\\tj_tax\\easeUI\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_mm_listitem_grey_normal.9.png",

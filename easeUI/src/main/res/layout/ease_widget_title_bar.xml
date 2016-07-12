@@ -9,9 +9,10 @@
 
     <ImageView
         android:id="@+id/left_image"
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
         android:layout_alignParentLeft="true"
+        android:padding="10dp"
         android:background="@drawable/ease_common_tab_bg"
         android:scaleType="centerInside" />
 

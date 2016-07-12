@@ -145,7 +145,7 @@ public class CycleViewPager extends Fragment implements OnPageChangeListener {
         indicatorLayout.removeAllViews();
         for (int i = 0; i < indicators.length; i++) {
             indicators[i] = new ImageView(getActivity());
-            LayoutParams layoutParams = new LinearLayout.LayoutParams(40, 40);
+            LayoutParams layoutParams = new LinearLayout.LayoutParams(20, 20);
             layoutParams.setMargins(5, 0, 5, 0);
             indicators[i].setLayoutParams(layoutParams);
             indicatorLayout.addView(indicators[i]);

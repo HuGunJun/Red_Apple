@@ -30,8 +30,7 @@
             android:layout_toLeftOf="@+id/right_image_right"
             android:background="@drawable/ease_common_tab_bg"
             android:padding="13dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/iv_search" />
+            android:scaleType="centerInside" />
 
         <ImageView
             android:id="@+id/right_image_right"
@@ -40,8 +39,7 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/ease_common_tab_bg"
             android:padding="13dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/iv_add" />
+            android:scaleType="centerInside" />
 
         <TextView
             android:id="@+id/tv_right"
@@ -73,7 +71,7 @@
         android:layout_height="30dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:content="左边,右边"
         app:index="0"
         app:textColorN="#0072c6"

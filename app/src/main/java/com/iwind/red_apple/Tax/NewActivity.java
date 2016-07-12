@@ -1,5 +1,6 @@
 package com.iwind.red_apple.Tax;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -55,8 +56,8 @@ public class NewActivity extends EaseBaseActivity {
 
     public void InitView() {
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
-        title_bar.setRightImageLeftResource(R.drawable.ic_launcher);
-        title_bar.setRightImageRightResource(R.mipmap.ic_launcher);
+        title_bar.setRightImageLeftResource(R.drawable.iv_search);
+        title_bar.setRightImageRightResource(R.drawable.iv_add);
         list_frag.add(new Frag_Hot());
         list_frag.add(new Frag_Recommend());
         mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), list_frag);
@@ -72,7 +73,7 @@ public class NewActivity extends EaseBaseActivity {
         title_bar.setRightImageRightClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "新增", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(context, AddDiscussActivity.class));
             }
         });
         title_bar.setRightImageLeftClickListener(new View.OnClickListener() {
@@ -95,7 +96,8 @@ public class NewActivity extends EaseBaseActivity {
         });
         vp_news.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onPageScrolled(int position, float positionOffset, int
+                    positionOffsetPixels) {
 
             }
 

@@ -98,8 +98,8 @@ public class MainActivity extends TabActivity {
         radioderGroup = (RadioGroup) findViewById(R.id.main_radio);
         title_bar.setTitle(getResources().getString(R.string.bottom_menu_tax));
         title_bar.setBackgroundColor(getResources().getColor(R.color.titile_color));
-        title_bar.setRightImageRightResource(R.drawable.ic_launcher);
-        title_bar.setRightImageLeftResource(R.drawable.ic_launcher);
+        title_bar.setRightImageRightResource(R.drawable.iv_add);
+        title_bar.setRightImageLeftResource(R.drawable.iv_search);
 
     }
 

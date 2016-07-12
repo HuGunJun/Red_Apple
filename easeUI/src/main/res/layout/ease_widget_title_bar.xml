@@ -27,7 +27,7 @@
         android:gravity="center"
         android:lines="1"
         android:textColor="#ffffff"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 
     <RelativeLayout
@@ -38,18 +38,22 @@
 
         <ImageView
             android:id="@+id/right_image_left"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
             android:background="@drawable/ease_common_tab_bg"
-            android:scaleType="centerInside" />
+            android:padding="13dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/iv_search" />
 
         <ImageView
             android:id="@+id/right_image_right"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
             android:layout_toRightOf="@+id/right_image_left"
             android:background="@drawable/ease_common_tab_bg"
-            android:scaleType="centerInside" />
+            android:padding="13dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/iv_add" />
 
         <TextView
             android:id="@+id/tv_right"

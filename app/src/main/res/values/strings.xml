@@ -61,6 +61,10 @@
     <string name="company_info">企业信息</string>
     <string name="department">部门</string>
     <string name="position">职位</string>
+    <string name="company_sess">企业小秘书</string>
+    <string name="notice">公告</string>
+    <string name="tax_pro">税务票据</string>
+    <string name="tax_table">财税报表</string>
     <string name="phone">电话</string>
       <string name="hello_world">
         最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：

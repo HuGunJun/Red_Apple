@@ -82,7 +82,8 @@ public class ViewFactory {
     public static ImageView getImageView(Context context, String url) {
         ImageView imageView = (ImageView) LayoutInflater.from(context).inflate(
                 R.layout.ease_view_banner, null);
-        Glide.with(context).load(url).error(R.drawable.ease_default_image).into(imageView);
+        Glide.with(context).load(url).error(R.drawable.iv_turn_default).into(imageView);
+//        Glide.with(context).load(url).error(R.drawable.ease_default_image).into(imageView);
         // imageView.setImageBitmap(createVideoThumbnail(url, 100, 100));
         return imageView;
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/background_color"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -23,10 +23,17 @@
                 android:orientation="horizontal"></LinearLayout>
 
             <include
-                layout="@layout/include_home_title"
+                layout="@layout/include_home_title_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7.5dp"></include>
+
+            <include
+                layout="@layout/include_home_title_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7.5dp"></include>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -43,7 +50,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:src="@mipmap/iv_be_creat"/>
+                    android:src="@mipmap/iv_be_creat" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -62,7 +69,7 @@
                         android:text="@string/info"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/darkgray"
-                        android:textSize="16dp"/>
+                        android:textSize="16dp" />
 
                     <TextView
                         android:id="@+id/textView2"
@@ -73,7 +80,7 @@
                         android:text="@string/tell_you"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/darkgray"
-                        android:textSize="16dp"/>
+                        android:textSize="16dp" />
                 </LinearLayout>
             </RelativeLayout>
 
@@ -91,7 +98,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="11.5dp"
                     android:text="@string/push_info"
-                    android:textSize="16dp"/>
+                    android:textSize="16dp" />
 
                 <LinearLayout
                     android:id="@+id/lv_tax_know"
@@ -117,7 +124,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/iv_count"/>
+                                android:src="@mipmap/iv_count" />
 
                             <TextView
                                 android:id="@+id/tv_tax_know_piece"
@@ -127,7 +134,7 @@
                                 android:gravity="center"
                                 android:text="20"
                                 android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:textColor="@color/titile_color"/>
+                                android:textColor="@color/titile_color" />
 
                             <TextView
                                 android:id="@+id/textView45"
@@ -136,7 +143,7 @@
                                 android:layout_alignParentRight="true"
                                 android:gravity="center"
                                 android:text="@string/piece"
-                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
                         </RelativeLayout>
 
                         <ImageView
@@ -145,7 +152,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:src="@mipmap/progress"/>
+                            android:src="@mipmap/progress" />
 
 
                     </RelativeLayout>
@@ -162,7 +169,7 @@
                             android:gravity="center"
                             android:text="@string/nomal_know"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="@color/darkgray"/>
+                            android:textColor="@color/darkgray" />
                     </LinearLayout>
 
                     <RelativeLayout
@@ -180,7 +187,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/iv_people"/>
+                                android:src="@mipmap/iv_people" />
 
                             <TextView
                                 android:id="@+id/tv_tax_know_people"
@@ -190,7 +197,7 @@
                                 android:gravity="center"
                                 android:text="20"
                                 android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:textColor="@color/titile_color"/>
+                                android:textColor="@color/titile_color" />
 
                             <TextView
                                 android:id="@+id/textView78"
@@ -199,7 +206,7 @@
                                 android:layout_alignParentRight="true"
                                 android:gravity="center"
                                 android:text="@string/piece"
-                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
                         </RelativeLayout>
 
                         <ImageView
@@ -208,7 +215,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:src="@mipmap/progress"/>
+                            android:src="@mipmap/progress" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -241,7 +248,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/iv_count"/>
+                                android:src="@mipmap/iv_count" />
 
                             <TextView
                                 android:id="@+id/tv_thing_know_piece"
@@ -251,7 +258,7 @@
                                 android:gravity="center"
                                 android:text="20"
                                 android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:textColor="@color/titile_color"/>
+                                android:textColor="@color/titile_color" />
 
                             <TextView
                                 android:id="@+id/textView4"
@@ -260,7 +267,7 @@
                                 android:layout_alignParentRight="true"
                                 android:gravity="center"
                                 android:text="@string/piece"
-                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
                         </RelativeLayout>
 
                         <ImageView
@@ -269,7 +276,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:src="@mipmap/progress"/>
+                            android:src="@mipmap/progress" />
 
 
                     </RelativeLayout>
@@ -286,7 +293,7 @@
                             android:gravity="center"
                             android:text="@string/do_tax_know"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="@color/darkgray"/>
+                            android:textColor="@color/darkgray" />
                     </LinearLayout>
 
                     <RelativeLayout
@@ -304,7 +311,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/iv_people"/>
+                                android:src="@mipmap/iv_people" />
 
                             <TextView
                                 android:id="@+id/tv_thing_know_people"
@@ -314,7 +321,7 @@
                                 android:gravity="center"
                                 android:text="20"
                                 android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:textColor="@color/titile_color"/>
+                                android:textColor="@color/titile_color" />
 
                             <TextView
                                 android:id="@+id/textView7d"
@@ -323,7 +330,7 @@
                                 android:layout_alignParentRight="true"
                                 android:gravity="center"
                                 android:text="@string/piece"
-                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
                         </RelativeLayout>
 
                         <ImageView
@@ -332,7 +339,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:src="@mipmap/progress"/>
+                            android:src="@mipmap/progress" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -365,7 +372,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/iv_count"/>
+                                android:src="@mipmap/iv_count" />
 
                             <TextView
                                 android:id="@+id/tv_personal_know_piece"
@@ -375,7 +382,7 @@
                                 android:gravity="center"
                                 android:text="20"
                                 android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:textColor="@color/titile_color"/>
+                                android:textColor="@color/titile_color" />
 
                             <TextView
                                 android:id="@+id/textView4d"
@@ -384,7 +391,7 @@
                                 android:layout_alignParentRight="true"
                                 android:gravity="center"
                                 android:text="@string/piece"
-                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
                         </RelativeLayout>
 
                         <ImageView
@@ -393,7 +400,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:src="@mipmap/progress"/>
+                            android:src="@mipmap/progress" />
 
 
                     </RelativeLayout>
@@ -410,7 +417,7 @@
                             android:gravity="center"
                             android:text="@string/personal_tax"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textColor="@color/darkgray"/>
+                            android:textColor="@color/darkgray" />
                     </LinearLayout>
 
                     <RelativeLayout
@@ -428,7 +435,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/iv_people"/>
+                                android:src="@mipmap/iv_people" />
 
                             <TextView
                                 android:id="@+id/tv_personal_know_people"
@@ -438,7 +445,7 @@
                                 android:gravity="center"
                                 android:text="20"
                                 android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:textColor="@color/titile_color"/>
+                                android:textColor="@color/titile_color" />
 
                             <TextView
                                 android:id="@+id/textView7"
@@ -447,7 +454,7 @@
                                 android:layout_alignParentRight="true"
                                 android:gravity="center"
                                 android:text="@string/piece"
-                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
                         </RelativeLayout>
 
                         <ImageView
@@ -456,7 +463,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:src="@mipmap/progress"/>
+                            android:src="@mipmap/progress" />
                     </RelativeLayout>
                 </LinearLayout>
 

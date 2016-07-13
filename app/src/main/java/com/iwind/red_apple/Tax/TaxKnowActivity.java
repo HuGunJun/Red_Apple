@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.widget.EaseTitleBar;
@@ -69,6 +70,8 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
     public void InitView() {
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setTitle(getResources().getString(R.string.nomal_know));
+        title_bar.setRightImageLeftResource(R.drawable.iv_search);
+        title_bar.setRightImageRightResource(R.drawable.iv_add);
         type_listview = new ListView(this);
         typeadapter = new GirdDropDownAdapter(this, Arrays.asList(citys));
         type_listview.setDividerHeight(0);
@@ -137,6 +140,18 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                 intent.putExtra(ConstantString.DISSCUSS_TITLE, "这是什么特么的标题擦擦擦啊擦擦啊擦");
                 startActivity(intent);
+            }
+        });
+        title_bar.setRightImageRightClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, AddDiscussActivity.class));
+            }
+        });
+        title_bar.setRightImageLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "查找", Toast.LENGTH_SHORT).show();
             }
         });
     }

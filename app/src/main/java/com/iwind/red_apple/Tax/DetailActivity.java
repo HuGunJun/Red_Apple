@@ -73,7 +73,7 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
     public void InitView() {
         title_bar.setTitle(getIntent().getExtras().getString(ConstantString.DISSCUSS_TITLE));
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
-        title_bar.setRightImageRightResource(R.mipmap.ic_launcher);
+        title_bar.setRightImageRightResource(R.drawable.iv_share);
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.widget.EaseTitleBar;
@@ -73,6 +74,18 @@ public class PersonalTaxActivity extends EaseBaseActivity implements View.OnClic
                 startActivity(intent);
             }
         });
+        title_bar.setRightImageRightClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, AddDiscussActivity.class));
+            }
+        });
+        title_bar.setRightImageLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "查找", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -84,7 +97,8 @@ public class PersonalTaxActivity extends EaseBaseActivity implements View.OnClic
     public void InitView() {
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setTitle(getResources().getString(R.string.personal_tax));
-
+        title_bar.setRightImageLeftResource(R.drawable.iv_search);
+        title_bar.setRightImageRightResource(R.drawable.iv_add);
         lv_personal.setPullLoadEnable(false);
         lv_personal.setPullRefreshEnable(false);
     }

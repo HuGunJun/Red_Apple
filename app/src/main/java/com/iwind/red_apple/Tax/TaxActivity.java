@@ -23,6 +23,7 @@ import com.easemob.easeui.widget.cycleview.CycleVpEntity;
 import com.easemob.easeui.widget.cycleview.ViewFactory;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
+import com.iwind.red_apple.Mine.MyQuestionActivity;
 import com.iwind.red_apple.R;
 
 import org.json.JSONArray;
@@ -205,6 +206,7 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
                 startActivity(new Intent(this, DiscussActivity.class));
                 break;
             case R.id.lv_answer:
+                startActivity(new Intent(this, MyQuestionActivity.class));
                 break;
             case R.id.lv_new_move:
                 startActivity(new Intent(this, NewActivity.class));

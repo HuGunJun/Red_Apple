@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_color"
+              android:orientation="vertical">
 
 
     <RelativeLayout
@@ -27,14 +27,14 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="@string/industry_news" />
+            android:text="@string/industry_news"/>
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher"/>
 
         <View
             android:layout_width="match_parent"
@@ -46,7 +46,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="91dp"
         android:layout_below="@+id/relativeLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
@@ -63,19 +63,20 @@
 
             <ImageView
                 android:id="@+id/asdf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_launcher" />
+                android:src="@mipmap/iv_tax_know"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/asdf"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
                 android:text="@string/nomal_know"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
 
 
         </RelativeLayout>
@@ -96,20 +97,21 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher"
-                android:layout_centerVertical="true"
+                android:id="@+id/imageView6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
-                android:id="@+id/imageView6" />
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_shold_know"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/do_tax_know"
-                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_below="@+id/imageView6"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/do_tax_know"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </RelativeLayout>
 
         <View
@@ -128,20 +130,21 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher"
-                android:layout_centerVertical="true"
+                android:id="@+id/imageView7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
-                android:id="@+id/imageView7" />
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_personal_work"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/personal_industry"
-                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_below="@+id/imageView7"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/personal_industry"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </RelativeLayout>
     </LinearLayout>
 
@@ -168,20 +171,21 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher"
-                android:layout_centerVertical="true"
+                android:id="@+id/imageView8"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
-                android:id="@+id/imageView8" />
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_video_guide"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/guide_video"
-                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_below="@+id/imageView8"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/guide_video"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         </RelativeLayout>
 
@@ -193,23 +197,23 @@
         <RelativeLayout
             style="@style/clickable_layout"
             android:layout_width="match_parent"
-            android:visibility="invisible"
             android:layout_height="match_parent"
             android:layout_weight="0.33"
             android:gravity="center"
             android:onClick="onClick"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/ic_launcher"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="税率表"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </RelativeLayout>
 
         <View
@@ -224,19 +228,19 @@
             android:layout_weight="0.33"
             android:gravity="center"
             android:onClick="onClick"
-            android:visibility="invisible"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/ic_launcher"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="税务计算器"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </RelativeLayout>
     </LinearLayout>
 

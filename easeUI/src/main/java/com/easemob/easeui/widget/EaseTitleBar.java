@@ -235,5 +235,6 @@ public class EaseTitleBar extends RelativeLayout {
      */
     public void setSegmentViewTab(String... content) {
         segmentView.setContent(content);
+        segmentView.setIndex(0);
     }
 }

@@ -33,4 +33,10 @@ public class ConstantUrl {
     //获取我的提问
     public static final String GET_MINE_QUESTION = "forum/searchForum";
 
+    //获取我的收藏
+    public static final String GET_MINE_COLLECTION = "/main/collection";
+
+    //获取我的回答
+    public static final String GET_MINE_ANSWER = "/forum/searchForumMessage";
+
 }

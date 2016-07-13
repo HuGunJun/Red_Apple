@@ -40,6 +40,7 @@ public class MyQuestionActivity extends EaseBaseActivity {
     XListView lv_question;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private MyQuestionAdapter mMyQuestionAdapter;
+    int page = 0;
 
 
     @Override
@@ -47,6 +48,7 @@ public class MyQuestionActivity extends EaseBaseActivity {
         super.onCreate(arg0);
         x.view().inject(this);
         InitView();
+        ShowLoadingDialog();
         InitData();
         setOnClickListener();
     }
@@ -58,24 +60,34 @@ public class MyQuestionActivity extends EaseBaseActivity {
 
     @Override
     public void InitView() {
+        lv_question.setPullLoadEnable(true);
+        lv_question.setPullRefreshEnable(true);
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setTitle(getResources().getString(R.string.my_question));
     }
 
     @Override
     public void InitData() {
-
-        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GET_MINE_QUESTION);
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl
+                .GET_MINE_QUESTION);
         params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
         params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
-        params.addBodyParameter(ConstantString.PAGE, "1");
-        params.addBodyParameter(ConstantString.ROWS, "1");
+        params.addBodyParameter(ConstantString.PAGE, page + "");
+        params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
+        Log(ConstantUrl.BASE_URL + ConstantUrl.GET_MINE_QUESTION + "?" + ConstantString.USER_ID +
+                "=" + MyApplication.getInstance().getUserid() + "&" + ConstantString.TOKEN + "="
+                + MyApplication.getInstance().getToken() + "&" + ConstantString.PAGE + "=" + page
+                + "&" +
+                ConstantString.ROWS + "=10");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                lv_question.stopRefresh();
+                lv_question.stopLoadMore();
                 Log(result);
                 CloseLoadingDialog();
-                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
@@ -88,17 +100,14 @@ public class MyQuestionActivity extends EaseBaseActivity {
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-
             }
 
             @Override
             public void onCancelled(CancelledException cex) {
-
             }
 
             @Override
             public void onFinished() {
-
             }
         });
 
@@ -121,6 +130,19 @@ public class MyQuestionActivity extends EaseBaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        lv_question.setXListViewListener(new XListView.IXListViewListener() {
+            @Override
+            public void onRefresh() {
+                page = 0;
+                InitData();
+            }
+
+            @Override
+            public void onLoadMore() {
+                page++;
+                InitData();
             }
         });
     }

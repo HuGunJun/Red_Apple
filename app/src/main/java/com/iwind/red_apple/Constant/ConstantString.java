@@ -98,10 +98,12 @@ public class ConstantString {
     public static final String FORUMCOUNT = "forumcount";
 
     //页
-    public static final String PAGE = "Page";
+    public static final String PAGE = "page";
 
     //页大小
-    public static final String ROWS = "Rows";
+    public static final String ROWS = "rows";
+
+    public static final String ROWCOUNT = "10";
 
 
     /**

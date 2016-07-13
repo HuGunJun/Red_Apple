@@ -73,42 +73,6 @@ public class DiscussActivity extends EaseBaseActivity {
 
     @Override
     public void InitData() {
-        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl
-                .GET_DISCUSS_LIST);
-        params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
-        params.addBodyParameter(ConstantString.PAGE, page + "");
-        params.addBodyParameter(ConstantString.SEARCH_CONTENT, "eiya");
-        x.http().post(params, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                Log(result);
-                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
-                        ConstantString.STATE,
-                        ConstantString.RESULT_INFO)) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(result);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-                CloseLoadingDialog();
-            }
-        });
 
 
         for (int i = 0; i < 20; i++) {

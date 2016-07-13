@@ -45,17 +45,4 @@ public class ConstantUrl {
     //用户反馈
     public static final String USER_CALLBACK = "main/setFeedback";
 
-    //获得模块页面
-    public static final String GET_MODEL_PAGE = "main/getPage";
-
-    //查询讨论列表
-    public static final String GET_DISCUSS_LIST = "api/forum/Search";
-
-    //获取讨论详情
-    public static final String GET_DISCUSS_DETAIL = "forum/getForum";
-
-    //查询新闻列表
-    public static final String GET_NEWS_LIST = "api/news/search";
-
-
 }

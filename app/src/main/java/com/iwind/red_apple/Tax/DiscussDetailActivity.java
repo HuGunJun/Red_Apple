@@ -9,12 +9,18 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.xlistview.XListView;
 import com.iwind.red_apple.Adapter.DiscussDetailAdapter;
 import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;

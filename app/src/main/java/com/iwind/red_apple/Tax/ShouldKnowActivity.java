@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.widget.EaseTitleBar;
@@ -98,6 +97,8 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
 
     @Override
     public void InitData() {
+
+
         for (int i = 0; i < 20; i++) {
             HashMap<String, String> hashMap = new HashMap<String, String>();
             hashMap.put(ConstantString.CONTENT, "本报讯（通讯员 吴川宁 记者 " +

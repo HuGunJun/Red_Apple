@@ -109,9 +109,6 @@ public class ConstantString {
     //提交反馈
     public static final String FEEDBACKCONTENT = "feedbackContent";
 
-    //搜索内容
-    public static final String SEARCH_CONTENT = "searContext";
-
 
     /**
      * 用户个人信息获取接口字段-------开始

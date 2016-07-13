@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.easemob.easeui.utils.EaseUserUtils;
+import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.R;
 
@@ -56,13 +57,14 @@ public class MyCollectionAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_mycollection, null);
-            x.view().inject(holder,convertView);
+            x.view().inject(holder, convertView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        EaseUserUtils.setUserAvatar(mContext, mList.get(position).get(ConstantString.IV_URL), holder.iv_avator);
 
+        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL),
+                MyApplication.getInstance().getOptions());
         holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
         holder.tv_name.setText(mList.get(position).get(ConstantString.NAME));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.READ_COUNT));

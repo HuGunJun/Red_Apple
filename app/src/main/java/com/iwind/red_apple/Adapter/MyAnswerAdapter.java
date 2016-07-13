@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.easemob.easeui.utils.EaseUserUtils;
+import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.R;
 
@@ -58,7 +58,8 @@ public class MyAnswerAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        EaseUserUtils.setUserAvatar(mContext, mList.get(position).get(ConstantString.IV_URL), holder.iv_avator);
+        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL),
+                MyApplication.getInstance().getOptions());
 
         holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
         holder.tv_name.setText(mList.get(position).get(ConstantString.NAME));

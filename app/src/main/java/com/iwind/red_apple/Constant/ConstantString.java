@@ -97,6 +97,12 @@ public class ConstantString {
     //forumcount 最新讨论参数
     public static final String FORUMCOUNT = "forumcount";
 
+    //页
+    public static final String PAGE = "Page";
+
+    //页大小
+    public static final String ROWS = "Rows";
+
 
     /**
      * 用户个人信息获取接口字段-------开始

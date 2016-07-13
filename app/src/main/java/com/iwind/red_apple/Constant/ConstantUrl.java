@@ -30,4 +30,7 @@ public class ConstantUrl {
     //获取个人信息
     public static final String GET_PERSONAL_INFO = "api/users/userinfo";
 
+    //获取我的提问
+    public static final String GET_MINE_QUESTION = "forum/searchForum";
+
 }

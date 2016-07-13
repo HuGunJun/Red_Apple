@@ -89,6 +89,11 @@
         <!-- 视频指导-->
         <activity android:name=".Video.VideoGuideActivity"></activity>
 
+        <!-- 视频详情-->
+        <activity
+            android:name=".Video.VideoDetailActivity"
+            android:configChanges="orientation|screenSize"></activity>
+
         <!-- 我的收藏-->
         <activity android:name=".Mine.MyCollectionActivity"></activity>
 

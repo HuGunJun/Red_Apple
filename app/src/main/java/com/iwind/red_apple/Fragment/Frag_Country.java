@@ -16,6 +16,7 @@ import com.iwind.red_apple.Adapter.VideoGuideAdapter;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.R;
 import com.iwind.red_apple.Tax.NewsDetailActivity;
+import com.iwind.red_apple.Video.VideoDetailActivity;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -83,7 +84,7 @@ public class Frag_Country extends Fragment {
         lv_country.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "国税", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), VideoDetailActivity.class));
             }
         });
     }

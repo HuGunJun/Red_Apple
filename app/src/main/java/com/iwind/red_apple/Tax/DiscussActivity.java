@@ -115,7 +115,7 @@ public class DiscussActivity extends EaseBaseActivity {
         title_bar.setRightImageRightClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "新增", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), AddDiscussActivity.class));
             }
         });
         title_bar.setRightImageLeftClickListener(new View.OnClickListener() {

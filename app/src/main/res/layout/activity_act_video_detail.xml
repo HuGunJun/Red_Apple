@@ -28,7 +28,8 @@
         android:id="@+id/fm_video"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@+id/tv_question_describe">
+        android:layout_below="@+id/tv_question_describe"
+        android:padding="5dp">
 
         <com.easemob.easeui.widget.videoview.SuperVideoPlayer
             android:id="@+id/video_player_item_1"

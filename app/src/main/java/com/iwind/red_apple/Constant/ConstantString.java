@@ -103,7 +103,14 @@ public class ConstantString {
     //页大小
     public static final String ROWS = "rows";
 
+    //每个页面请求数量
     public static final String ROWCOUNT = "10";
+
+    //提交反馈
+    public static final String FEEDBACKCONTENT = "feedbackContent";
+
+    //搜索内容
+    public static final String SEARCH_CONTENT = "searContext";
 
 
     /**

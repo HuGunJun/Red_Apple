@@ -75,6 +75,7 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
 
     public void InitData() {
 
+
         for (int i = 0; i < 20; i++) {
             HashMap<String, String> hashMap = new HashMap<String, String>();
             hashMap.put(ConstantString.NAME, "我商家哦张" + i);

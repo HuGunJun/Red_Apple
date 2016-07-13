@@ -59,6 +59,7 @@ public class NewActivity extends EaseBaseActivity {
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setRightImageLeftResource(R.drawable.iv_search);
         title_bar.setRightImageRightResource(R.drawable.iv_add);
+        title_bar.setSegmentViewTab(new String[]{"推荐", "热门"});
         list_frag.add(new Frag_Hot());
         list_frag.add(new Frag_Recommend());
         mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), list_frag);

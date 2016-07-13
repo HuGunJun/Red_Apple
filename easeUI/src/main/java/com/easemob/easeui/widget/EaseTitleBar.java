@@ -227,4 +227,13 @@ public class EaseTitleBar extends RelativeLayout {
     public void setSegmentViewIndex(int index) {
         segmentView.setIndex(index);
     }
+
+    /**
+     * 设置标签选项卡内容
+     *
+     * @param content
+     */
+    public void setSegmentViewTab(String... content) {
+        segmentView.setContent(content);
+    }
 }

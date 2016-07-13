@@ -56,6 +56,7 @@ public class VideoGuideActivity extends EaseBaseActivity {
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setRightImageLeftResource(R.drawable.iv_search);
         title_bar.setRightImageRightResource(R.drawable.iv_add);
+        title_bar.setSegmentViewTab(new String[]{"国税系统", "地税系统"});
         list_frag.add(new Frag_Country());
         list_frag.add(new Frag_Local());
         mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), list_frag);
@@ -86,6 +87,23 @@ public class VideoGuideActivity extends EaseBaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), SearchAcitivity.class));
+            }
+        });
+        vp_video.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int
+                    positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                title_bar.setSegmentViewIndex(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
     }

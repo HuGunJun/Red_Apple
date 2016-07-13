@@ -29,7 +29,7 @@ public class ConstantString {
     public static final String PASSWORD = "password";
 
     //userid
-    public static final String USER_ID = "userid";
+    public static final String USER_ID = "userId";
 
     //数据图片key
     public static final String IV_URL = "iv";
@@ -106,7 +106,7 @@ public class ConstantString {
     public static final String OBJ = "obj";
 
     //昵称
-    public static final String NICK_NAME = "nickName";
+    public static final String NICK_NAME = "userNickname";
 
 
     /**

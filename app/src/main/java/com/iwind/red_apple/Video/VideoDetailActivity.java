@@ -45,31 +45,13 @@ public class VideoDetailActivity extends EaseBaseActivity {
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         x.view().inject(this);
-        ArrayList<Video> videoArrayList = new ArrayList<>();
-        Video video = new Video();
-        ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
-
-        VideoUrl videoUrl1 = new VideoUrl();
-        videoUrl1.setFormatName("720P");
-        videoUrl1.setFormatUrl(TEST_URL);
-        VideoUrl videoUrl2 = new VideoUrl();
-        videoUrl2.setFormatName("480P");
-        videoUrl2.setFormatUrl(TEST_URL);
-
-        arrayList1.add(videoUrl1);
-        arrayList1.add(videoUrl2);
-        video.setVideoName("房源视频");
-        video.setVideoUrl(arrayList1);
-        videoArrayList.add(video);
-
-        mSuperVideoPlayer.loadMultipleVideo(videoArrayList);
-//        try {
-//            InitView();
-//            InitData();
-//            setOnClickListener();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            InitView();
+            InitData();
+            setOnClickListener();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -127,8 +109,24 @@ public class VideoDetailActivity extends EaseBaseActivity {
 
     @Override
     public void InitData() {
+        ArrayList<Video> videoArrayList = new ArrayList<>();
+        Video video = new Video();
+        ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
 
+        VideoUrl videoUrl1 = new VideoUrl();
+        videoUrl1.setFormatName("720P");
+        videoUrl1.setFormatUrl(TEST_URL);
+        VideoUrl videoUrl2 = new VideoUrl();
+        videoUrl2.setFormatName("480P");
+        videoUrl2.setFormatUrl(TEST_URL);
 
+        arrayList1.add(videoUrl1);
+        arrayList1.add(videoUrl2);
+        video.setVideoName("房源视频");
+        video.setVideoUrl(arrayList1);
+        videoArrayList.add(video);
+
+        mSuperVideoPlayer.loadMultipleVideo(videoArrayList);
     }
 
     @Override

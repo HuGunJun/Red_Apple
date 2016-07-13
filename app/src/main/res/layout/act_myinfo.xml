@@ -42,16 +42,20 @@
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_launcher"/>
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_in"/>
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
                 android:layout_toStartOf="@+id/imageView8"
-                android:src="@drawable/ic_launcher"/>
+                android:src="@mipmap/icon_default_avatar"/>
 
 
         </RelativeLayout>
@@ -92,8 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toStartOf="@+id/iasdf"
-                android:gravity="center"
-                android:text="驭思轻吟韵调"/>
+                android:gravity="center"/>
 
 
         </RelativeLayout>
@@ -133,8 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toStartOf="@+id/sdf"
-                android:gravity="center"
-                android:text="女"/>
+                android:gravity="center"/>
         </RelativeLayout>
 
 
@@ -173,8 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toStartOf="@+id/datee"
-                android:gravity="center"
-                android:text="19920203"/>
+                android:gravity="center"/>
         </RelativeLayout>
 
 
@@ -213,8 +214,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toStartOf="@+id/areaa"
-                android:gravity="center"
-                android:text="天津市-静海区"/>
+                android:gravity="center"/>
         </RelativeLayout>
 
         <View

@@ -20,24 +20,32 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@color/white"
-            android:drawableLeft="@drawable/ic_launcher"
             android:hint="@string/user_name"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/diliver_line"></View>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="1dp"
+            android:background="@color/white"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_get_vifi_code"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:onClick="onClick"
+                android:layout_margin="10dp"
+                android:background="@mipmap/iv_btn_get_vificode"
                 android:gravity="center"
-                android:text="@string/get_sms_code"/>
+                android:onClick="onClick"
+                android:text="@string/get_sms_code"
+                android:textColor="@color/lightgray"/>
 
             <EditText
                 android:id="@+id/et_vificode"
@@ -46,10 +54,14 @@
                 android:layout_alignParentStart="true"
                 android:layout_toLeftOf="@+id/btn_get_vifi_code"
                 android:background="@color/white"
-                android:drawableLeft="@drawable/ic_launcher"
                 android:hint="@string/vifi_code"/>
 
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/diliver_line"></View>
 
         <EditText
             android:id="@+id/et_pass"
@@ -59,11 +71,15 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="1dp"
             android:background="@color/white"
-            android:drawableLeft="@drawable/ic_launcher"
             android:hint="@string/password"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/diliver_line"></View>
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center|top"
@@ -73,19 +89,38 @@
             android:id="@+id/btn_register"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="15dp"
+            android:background="@mipmap/iv_btn_login"
             android:onClick="onClick"
-            android:text="@string/register"/>
+            android:text="@string/register"
+            android:textColor="@color/white"/>
 
-        <CheckBox
-            android:id="@+id/cb_introduce"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="已同意《注册协议》"/>
+            android:layout_below="@+id/btn_register"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <CheckBox
+                android:id="@+id/cb_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_register"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:text="已同意"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《注册协议》"
+                android:textColor="@color/discuss_text_color"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </LinearLayout>

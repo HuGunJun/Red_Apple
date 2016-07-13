@@ -74,12 +74,12 @@ public class RegisterActivity extends EaseBaseActivity {
      * 发送短信验证码
      */
     private void SendSmsCode() {
-        ShowLoadingDialog();
         String phone = et_username.getText().toString();
         if (TextUtils.isEmpty(phone)) {
             Toast.makeText(context, getResources().getString(R.string.User_name_cannot_be_empty), Toast.LENGTH_SHORT).show();
             return;
         }
+        ShowLoadingDialog();
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEND_SMSCODE);
         params.addBodyParameter(ConstantString.PHONE_NUM, phone);
         params.addBodyParameter(ConstantString.TYPE, "1");

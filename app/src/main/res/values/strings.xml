@@ -7,7 +7,7 @@
     <string name="vifi_code">验证码</string>
     <string name="vifi_code_can_not_be_empty">验证码不能为空</string>
     <string name="please_read_introduce">请阅读注册协议</string>
-    <string name="get_sms_code">获取短信验证码</string>
+    <string name="get_sms_code">获取验证码</string>
     <string name="forgot_pass">忘记密码?</string>
     <string name="piece">条</string>
     <string name="new_question">最新提问</string>

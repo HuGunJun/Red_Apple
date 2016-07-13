@@ -36,6 +36,12 @@ public class MyInfoActivity extends EaseBaseActivity {
     TextView tv_nick;
     @ViewInject(R.id.title_bar)
     EaseTitleBar title_bar;
+    @ViewInject(R.id.tv_sex)
+    TextView tv_sex;
+    @ViewInject(R.id.tv_birthday)
+    TextView tv_birth;
+    @ViewInject(R.id.tv_area)
+    TextView tv_area;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -87,14 +93,22 @@ public class MyInfoActivity extends EaseBaseActivity {
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                Log(result);
                 CloseLoadingDialog();
                 if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject obj = jsonObject.getJSONObject(ConstantString.OBJ);
-                        tv_nick.setText(obj.getString(ConstantString.NICK_NAME));
+                        tv_nick.setText(ResponseUtils.ParaseNull(obj.getString(ConstantString.NICK_NAME)));
+                        tv_sex.setText(ResponseUtils.ParaseNull(obj.getString(ConstantString.SEX)));
+                        tv_birth.setText(ResponseUtils.ParaseNull(obj.getString(ConstantString.BIRTH)));
+                        tv_area.setText(ResponseUtils.ParaseNull(obj.getString(ConstantString.CITY)) + "-" +
+                                ResponseUtils.ParaseNull(obj.getString(ConstantString.AREA)));
 
+                        /**
+                         * keep go on
+                         */
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

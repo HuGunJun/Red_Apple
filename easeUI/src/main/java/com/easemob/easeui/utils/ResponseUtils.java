@@ -13,6 +13,16 @@ import org.json.JSONObject;
  * 邮箱：www.guojunkuaile@qq.com
  */
 public class ResponseUtils {
+    /**
+     * 判断返回状态
+     *
+     * @param context
+     * @param Statemark
+     * @param json
+     * @param indujesign
+     * @param resinfo
+     * @return
+     */
     public static boolean isSuccess(Context context, String Statemark, String json, String indujesign, String resinfo) {
         try {
             JSONObject jsonObject = new JSONObject(json);
@@ -26,6 +36,20 @@ public class ResponseUtils {
         } catch (JSONException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    /**
+     * 返回数值判断空值
+     *
+     * @param json
+     * @return
+     */
+    public static String ParaseNull(String json) {
+        if (json.equals("null")) {
+            return "";
+        } else {
+            return json;
         }
     }
 }

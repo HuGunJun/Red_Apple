@@ -108,6 +108,18 @@ public class ConstantString {
     //昵称
     public static final String NICK_NAME = "userNickname";
 
+    //性别
+    public static final String SEX = "sex";
+
+    //生日
+    public static final String BIRTH = "birthday";
+
+    //地区(省市)
+    public static final String CITY = "city";
+
+    //地区（区县）
+    public static final String AREA = "area";
+
 
     /**
      * 用户个人信息获取接口字段-------结束

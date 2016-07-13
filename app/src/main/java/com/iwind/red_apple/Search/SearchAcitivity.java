@@ -44,6 +44,20 @@ public class SearchAcitivity extends EaseBaseActivity {
             case R.id.search_clear:
                 query.setText("");
                 break;
+            case R.id.search_all:
+                break;
+            case R.id.search_discuss:
+                break;
+            case R.id.search_question:
+                break;
+            case R.id.search_should_know:
+                break;
+            case R.id.search_country_client:
+                break;
+            case R.id.search_local_client:
+                break;
+            case R.id.search_news:
+                break;
         }
     }
 

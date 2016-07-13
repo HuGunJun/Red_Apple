@@ -86,6 +86,9 @@
         <!-- 我的回答-->
         <activity android:name=".Mine.MyAnswerActivity"></activity>
 
+        <!-- 视频指导-->
+        <activity android:name=".Video.VideoGuideActivity"></activity>
+
         <!-- 我的收藏-->
         <activity android:name=".Mine.MyCollectionActivity"></activity>
 

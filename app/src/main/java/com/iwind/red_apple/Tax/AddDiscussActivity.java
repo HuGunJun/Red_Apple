@@ -24,8 +24,6 @@ import org.xutils.x;
 public class AddDiscussActivity extends EaseBaseActivity {
     @ViewInject(R.id.title_bar)
     private EaseTitleBar mEaseTitleBar;
-    @ViewInject(R.id.tv_question_describe)
-    TextView tv_question_describe;
 
     @Override
     protected void onCreate(Bundle arg0) {

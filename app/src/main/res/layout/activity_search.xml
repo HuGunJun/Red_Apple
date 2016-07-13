@@ -43,6 +43,7 @@
                 android:textColor="@color/text_color"/>
 
             <Button
+                android:id="@+id/search_discuss"
                 style="@style/clickable_layout"
                 android:layout_width="111dp"
                 android:layout_height="30dp"
@@ -53,6 +54,7 @@
                 android:textColor="@color/text_color"/>
 
             <Button
+                android:id="@+id/search_question"
                 style="@style/clickable_layout"
                 android:layout_width="111dp"
                 android:layout_height="30dp"
@@ -67,6 +69,7 @@
             android:layout_marginTop="11.5dp">
 
             <Button
+                android:id="@+id/search_should_know"
                 style="@style/clickable_layout"
                 android:layout_width="111dp"
                 android:layout_height="30dp"
@@ -75,6 +78,7 @@
                 android:textColor="@color/text_color"/>
 
             <Button
+                android:id="@+id/search_country_client"
                 style="@style/clickable_layout"
                 android:layout_width="111dp"
                 android:layout_height="30dp"
@@ -85,6 +89,7 @@
                 android:textColor="@color/text_color"/>
 
             <Button
+                android:id="@+id/search_local_client"
                 style="@style/clickable_layout"
                 android:layout_width="111dp"
                 android:layout_height="30dp"
@@ -99,6 +104,7 @@
             android:layout_marginTop="11.5dp">
 
             <Button
+                android:id="@+id/search_news"
                 style="@style/clickable_layout"
                 android:layout_width="111dp"
                 android:layout_height="30dp"

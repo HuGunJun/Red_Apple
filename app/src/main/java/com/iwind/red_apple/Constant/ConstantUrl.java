@@ -39,4 +39,8 @@ public class ConstantUrl {
     //获取我的回答
     public static final String GET_MINE_ANSWER = "/forum/searchForumMessage";
 
+    //上传头像
+    public static final String UPLOAD_USER_ICON = "/upload/uploadPic";
+
+
 }

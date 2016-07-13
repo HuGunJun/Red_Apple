@@ -30,19 +30,24 @@
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_launcher"
-            />
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/iv_in"/>
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/diliver_line"></View>
 
     <RelativeLayout
         android:id="@+id/rl_clear_cache"
         style="@style/clickable_layout"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginTop="1dp"
         android:gravity="center_vertical"
         android:onClick="onClick"
         android:orientation="horizontal"
@@ -56,19 +61,25 @@
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_launcher"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/iv_in"
             />
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/diliver_line"></View>
 
     <RelativeLayout
         android:id="@+id/rl_push_message"
         style="@style/clickable_layout"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginTop="1dp"
         android:gravity="center_vertical"
         android:onClick="onClick"
         android:orientation="horizontal"
@@ -82,10 +93,12 @@
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_launcher"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/iv_in"
             />
     </RelativeLayout>
 
@@ -100,7 +113,14 @@
         android:orientation="horizontal"
         android:padding="5dp">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_above="@+id/tv"
+            android:background="@color/diliver_line"></View>
+
         <TextView
+            android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -108,11 +128,20 @@
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_launcher"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/iv_in"
             />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/tv"
+            android:background="@color/diliver_line"></View>
+
     </RelativeLayout>
 
     <Button
@@ -120,9 +149,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:onClick="onClick"
         android:layout_margin="15dp"
         android:background="@drawable/btn_quite_selector"
+        android:onClick="onClick"
         android:text="@string/exit_group"
         android:textColor="@color/white"
         android:textSize="20dp"/>

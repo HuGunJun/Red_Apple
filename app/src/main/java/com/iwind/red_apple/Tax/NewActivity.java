@@ -14,6 +14,7 @@ import com.iwind.red_apple.Adapter.ViewPagerAdapter;
 import com.iwind.red_apple.Fragment.Frag_Hot;
 import com.iwind.red_apple.Fragment.Frag_Recommend;
 import com.iwind.red_apple.R;
+import com.iwind.red_apple.Search.SearchAcitivity;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -79,7 +80,7 @@ public class NewActivity extends EaseBaseActivity {
         title_bar.setRightImageLeftClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "查找", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), SearchAcitivity.class));
             }
         });
         title_bar.setLeftImageClickListener(new View.OnClickListener() {

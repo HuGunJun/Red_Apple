@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.iwind.red_apple.Find.FindActivity;
 import com.iwind.red_apple.Mine.MineActivity;
+import com.iwind.red_apple.Search.SearchAcitivity;
 import com.iwind.red_apple.Tax.AddDiscussActivity;
 import com.iwind.red_apple.Tax.TaxActivity;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -71,7 +72,7 @@ public class MainActivity extends TabActivity {
         title_bar.setRightImageLeftClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "查找", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), SearchAcitivity.class));
             }
         });
     }

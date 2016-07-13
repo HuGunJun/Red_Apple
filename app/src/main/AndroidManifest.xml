@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.iwind.red_apple">
+    package="com.iwind.red_apple"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
@@ -18,8 +18,8 @@
         <!-- 启动页面-->
         <activity android:name=".SplashActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
@@ -88,6 +88,9 @@
 
         <!-- 我的收藏-->
         <activity android:name=".Mine.MyCollectionActivity"></activity>
+
+        <!-- 搜索页面-->
+        <activity android:name=".Search.SearchAcitivity"></activity>
 
         <!-- 用户反馈-->
         <activity android:name=".Mine.UserCallBackActivity"></activity>

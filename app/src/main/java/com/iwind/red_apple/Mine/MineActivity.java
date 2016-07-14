@@ -63,7 +63,7 @@ public class MineActivity extends AppCompatActivity {
 
                 break;
             case R.id.lv_message://消息
-
+                startActivity(new Intent(getApplicationContext(),MessageActivity.class));
                 break;
         }
     }

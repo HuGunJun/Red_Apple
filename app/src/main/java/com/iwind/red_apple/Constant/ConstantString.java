@@ -112,6 +112,18 @@ public class ConstantString {
     //修改信息类型判断
     public static final String CHAGE_INFO_TYPE = "change_type";
 
+    //系统消息id
+    public static final String TIDING_ID = "tidingsId";
+
+    //系统消息标题
+    public static final String TIDING_TITLE = "tidingsTitle";
+
+    //系统消息内容
+    public static final String TIDING_CONTENT = "tidingsContent";
+
+    //系统消息时间
+    public static final String TIDING_TIME = "tidingsTime";
+
 
     /**
      * 用户个人信息获取接口字段-------开始

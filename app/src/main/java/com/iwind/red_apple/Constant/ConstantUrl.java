@@ -54,4 +54,8 @@ public class ConstantUrl {
     //搜索
     public static final String SEARCH = "main/search";
 
+    //获取系统消息
+    public static final String GET_MESSAGE = "main/getTidings";
+
+
 }

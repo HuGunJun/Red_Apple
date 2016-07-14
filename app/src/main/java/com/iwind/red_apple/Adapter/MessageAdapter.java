@@ -61,10 +61,9 @@ public class MessageAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
-        holder.tv_name.setText(mList.get(position).get(ConstantString.NAME));
-        holder.tv_read_count.setText(mList.get(position).get(ConstantString.READ_COUNT));
-        holder.tv_type.setText(mList.get(position).get(ConstantString.TYPE));
+        holder.tv_content.setText(mList.get(position).get(ConstantString.TIDING_CONTENT));
+        holder.tv_name.setText(mList.get(position).get(ConstantString.TIDING_TITLE));
+        holder.tv_time.setText(mList.get(position).get(ConstantString.TIDING_TIME));
         return convertView;
     }
 
@@ -72,13 +71,9 @@ public class MessageAdapter extends BaseAdapter {
     private class ViewHolder {
         @ViewInject(R.id.tv_name)
         TextView tv_name;
-        @ViewInject(R.id.iv_avator)
-        ImageView iv_avator;
         @ViewInject(R.id.tv_content)
         TextView tv_content;
-        @ViewInject(R.id.tv_read_count)
-        TextView tv_read_count;
-        @ViewInject(R.id.tv_type)
-        TextView tv_type;
+        @ViewInject(R.id.tv_time)
+        TextView tv_time;
     }
 }

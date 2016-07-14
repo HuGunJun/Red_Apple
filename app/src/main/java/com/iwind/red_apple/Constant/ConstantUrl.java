@@ -48,14 +48,11 @@ public class ConstantUrl {
     //修改用户信息
     public static final String UPDATE_USERINFO = "api/users/updateUser";
 
-    //获取城市
-    public static final String GET_CITY = "main/getCity";
-
-    //搜索
-    public static final String SEARCH = "main/search";
-
     //获取系统消息
     public static final String GET_MESSAGE = "main/getTidings";
+
+    //获取提问中的标签
+    public static final String GET_LABEL = "label/loadlabel";
 
 
 }

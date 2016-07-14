@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bottom_menu_color"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bottom_menu_color"
+              android:clipToPadding="true"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
 
     <com.easemob.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
@@ -14,14 +14,14 @@
 
 
     <EditText
-        android:id="@+id/et_answer"
+        android:id="@+id/et_discuss_title"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:background="@color/white"
         android:gravity="top"
-        android:hint="@string/please_input_discuss"
-        android:padding="5dp" />
+        android:hint="@string/please_input_discuss_title"
+        android:padding="5dp"/>
 
 
 </LinearLayout>

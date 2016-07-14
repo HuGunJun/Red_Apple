@@ -87,6 +87,10 @@ public class MessageActivity extends EaseBaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        if (jsonArray.length() < 0) {
+                            Toast(getResources().getString(R.string.no_more_messages));
+                            return;
+                        }
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
                             hashMap.put(ConstantString.TIDING_ID, jsonArray.getJSONObject(i).getString(ConstantString

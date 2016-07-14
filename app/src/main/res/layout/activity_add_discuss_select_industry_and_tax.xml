@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/bottom_menu_color"
+              android:background="@color/background_color"
               android:clipToPadding="true"
               android:fitsSystemWindows="true"
               android:orientation="vertical">
@@ -84,4 +84,13 @@
             android:layout_marginLeft="5dp"
             android:background="@color/diliver_line"></View>
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_discuss_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="@color/white"
+        android:gravity="top"
+        android:hint="@string/please_input_discuss"/>
 </LinearLayout>

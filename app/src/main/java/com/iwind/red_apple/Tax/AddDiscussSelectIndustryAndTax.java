@@ -1,7 +1,9 @@
 package com.iwind.red_apple.Tax;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.widget.EaseTitleBar;
@@ -23,6 +25,8 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
     @ViewInject(R.id.title_bar)
     EaseTitleBar title_bar;
     String discussTitle;
+    @ViewInject(R.id.et_discuss_content)
+    EditText et_discuss_content;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -39,6 +43,7 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
             case R.id.rl_tax_type:
                 break;
             case R.id.rl_industry:
+                startActivity(new Intent(context, IndustrySelectActivity.class));
                 break;
         }
     }
@@ -64,6 +69,19 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
                 finish();
             }
         });
+        title_bar.setRightTextClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Commit();
+            }
+        });
 
+    }
+
+    /**
+     * 提交
+     */
+    private void Commit() {
+        ShowLoadingDialog();
     }
 }

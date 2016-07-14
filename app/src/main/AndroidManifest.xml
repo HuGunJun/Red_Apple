@@ -89,6 +89,9 @@
         <!-- 行业和税种选择完成页面-->
         <activity android:name=".Tax.AddDiscussSelectIndustryAndTax"></activity>
 
+        <!-- 行业选择-->
+        <activity android:name=".Tax.IndustrySelectActivity"></activity>
+
         <!-- 我的回答-->
         <activity android:name=".Mine.MyAnswerActivity"></activity>
 

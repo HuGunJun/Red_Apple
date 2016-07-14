@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
-import com.easemob.easeui.utils.DateUtils;
 import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.xlistview.XListView;
@@ -24,6 +23,8 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -96,12 +97,25 @@ public class MessageActivity extends EaseBaseActivity {
                             hashMap.put(ConstantString.TIDING_CONTENT, ResponseUtils.ParaseNull(jsonArray
                                     .getJSONObject(i).getString
                                             (ConstantString.TIDING_CONTENT)));
-                            hashMap.put(ConstantString.TIDING_TIME, DateUtils.ParseTimeMillisToTime(ResponseUtils
+                            hashMap.put(ConstantString.TIDING_TIME, ResponseUtils
                                     .ParaseNull(jsonArray.getJSONObject
                                             (i).getString
-                                            (ConstantString.TIDING_TIME))));
+                                            (ConstantString.TIDING_TIME)));
                             mList.add(hashMap);
                         }
+
+                        Collections.sort(mList, new Comparator<HashMap<String, String>>() {
+                            @Override
+                            public int compare(HashMap<String, String> lhs, HashMap<String, String> rhs) {
+                                if (Long.parseLong(lhs.get(ConstantString.TIDING_TIME)) > Long.parseLong(rhs.get
+                                        (ConstantString.TIDING_TIME))) {
+                                    return -1;
+                                } else {
+                                    return 1;
+                                }
+                            }
+                        });
+
                         mMessageAdapter = new MessageAdapter(context, mList);
                         lv_message.setAdapter(mMessageAdapter);
                         mMessageAdapter.notifyDataSetChanged();

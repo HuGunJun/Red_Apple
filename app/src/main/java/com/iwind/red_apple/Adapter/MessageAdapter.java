@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.easemob.easeui.utils.DateUtils;
 import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.R;
@@ -63,7 +64,7 @@ public class MessageAdapter extends BaseAdapter {
         }
         holder.tv_content.setText(mList.get(position).get(ConstantString.TIDING_CONTENT));
         holder.tv_name.setText(mList.get(position).get(ConstantString.TIDING_TITLE));
-        holder.tv_time.setText(mList.get(position).get(ConstantString.TIDING_TIME));
+        holder.tv_time.setText(DateUtils.ParseTimeMillisToTime(mList.get(position).get(ConstantString.TIDING_TIME)));
         return convertView;
     }
 

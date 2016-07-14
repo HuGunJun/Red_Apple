@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/background_color"
+              android:background="@color/titile_color"
+              android:clipToPadding="true"
+              android:fitsSystemWindows="true"
               android:orientation="vertical">
 
 
@@ -10,7 +12,7 @@
         android:id="@+id/rl_myinfo"
         style="@style/clickable_layout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:background="@color/titile_color"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -95,7 +97,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/background_color"
         android:orientation="vertical">
 
@@ -135,7 +137,7 @@
                 android:background="@color/diliver_line"></View>
 
             <LinearLayout
-                android:id="@+id/lv"
+                android:id="@+id/lv_message"
                 style="@style/clickable_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

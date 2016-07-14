@@ -59,10 +59,10 @@ public class MineActivity extends AppCompatActivity {
             case R.id.rl_setting:
                 startActivity(new Intent(getApplicationContext(), SettingActivity.class));
                 break;
-            case R.id.lv_sign:
+            case R.id.lv_sign://签到
 
                 break;
-            case R.id.lv_message:
+            case R.id.lv_message://消息
 
                 break;
         }

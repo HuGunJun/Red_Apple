@@ -124,6 +124,15 @@ public class ConstantString {
     //系统消息时间
     public static final String TIDING_TIME = "tidingsTime";
 
+    //行业或者税种标签
+    public static final String LABLETYPE = "labelType";
+
+    //级别标签
+    public static final String LABLERANK = "labelRank";
+
+    //标签名称
+    public static final String LABELNAME = "labelName";
+
 
     /**
      * 用户个人信息获取接口字段-------开始

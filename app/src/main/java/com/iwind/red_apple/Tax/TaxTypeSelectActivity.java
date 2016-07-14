@@ -41,7 +41,9 @@ public class TaxTypeSelectActivity extends EaseBaseActivity {
 
     @Override
     public void InitView() {
-
+        title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
+        title_bar.setTitle(getResources().getString(R.string.tax_type_select));
+        title_bar.setRightText(getResources().getString(R.string.done));
     }
 
     @Override
@@ -51,6 +53,17 @@ public class TaxTypeSelectActivity extends EaseBaseActivity {
 
     @Override
     public void setOnClickListener() {
+        title_bar.setLeftImageClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        title_bar.setRightTextClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
     }
 }

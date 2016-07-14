@@ -34,7 +34,9 @@
     <string name="guide_video">视频指导</string>
     <string name="industry_news">行业资讯</string>
     <string name="industry">行业</string>
+    <string name="industry_select">行业选择</string>
     <string name="tax_type">税种</string>
+    <string name="tax_type_select">税种选择</string>
     <string name="news">资讯</string>
     <string name="message">消息</string>
     <string name="local_client">地税客户端</string>

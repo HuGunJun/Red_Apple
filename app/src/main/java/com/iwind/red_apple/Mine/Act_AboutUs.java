@@ -1,6 +1,8 @@
 package com.iwind.red_apple.Mine;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
@@ -22,6 +24,13 @@ public class Act_AboutUs extends EaseBaseActivity {
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         x.view().inject(this);
+        //给页面设置工具栏
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //设置工具栏标题
+        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
+        collapsingToolbar.setTitle("cheeseName");
     }
 
     @Override

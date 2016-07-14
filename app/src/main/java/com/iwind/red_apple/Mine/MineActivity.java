@@ -59,6 +59,12 @@ public class MineActivity extends AppCompatActivity {
             case R.id.rl_setting:
                 startActivity(new Intent(getApplicationContext(), SettingActivity.class));
                 break;
+            case R.id.lv_sign:
+
+                break;
+            case R.id.lv_message:
+
+                break;
         }
     }
 }

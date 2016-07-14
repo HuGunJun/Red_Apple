@@ -79,6 +79,7 @@
     <string name="send_personal_info">私信</string>
     <string name="search_hot">热搜</string>
     <string name="search_all">全部</string>
+    <string name="sign">签到</string>
       <string name="hello_world">
         最近有不少朋友私聊问应用宝、360软件助手之类的软件详情页怎么做，刚好，最近有时间就模仿360软件助手详情页给大家做个Demo，供大家参考。嗯，关于实现呢，我写了两种方式：
 

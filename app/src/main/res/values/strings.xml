@@ -48,6 +48,9 @@
     <string name="take_photos">拍照</string>
     <string name="please_input_nick">请输入昵称</string>
     <string name="update_nick">修改昵称</string>
+    <string name="update_sex">修改性别</string>
+    <string name="update_birth">修改生日</string>
+    <string name="update_area">修改地区</string>
     <string name="done">完成</string>
     <string name="please_input_callBack_content">请输入反馈内容</string>
     <string name="call_back_sucess">反馈提交成功</string>

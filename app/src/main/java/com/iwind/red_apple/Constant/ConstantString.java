@@ -56,7 +56,7 @@ public class ConstantString {
     public static final String TIME = "time";
 
     //昵称
-    public static final String NICK = "nick";
+    public static final String NICK = "nickName";
 
     //标题
     public static final String TITLE = "title";
@@ -108,6 +108,9 @@ public class ConstantString {
 
     //提交反馈
     public static final String FEEDBACKCONTENT = "feedbackContent";
+
+    //修改信息类型判断
+    public static final String CHAGE_INFO_TYPE = "change_type";
 
 
     /**

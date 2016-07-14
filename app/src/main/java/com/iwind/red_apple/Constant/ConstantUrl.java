@@ -45,4 +45,13 @@ public class ConstantUrl {
     //用户反馈
     public static final String USER_CALLBACK = "main/setFeedback";
 
+    //修改用户信息
+    public static final String UPDATE_USERINFO = "api/users/updateUser";
+
+    //获取城市
+    public static final String GET_CITY = "main/getCity";
+
+    //搜索
+    public static final String SEARCH = "main/search";
+
 }

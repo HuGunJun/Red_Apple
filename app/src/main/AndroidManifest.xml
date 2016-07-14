@@ -77,8 +77,11 @@
         <!-- 我的信息页面-->
         <activity android:name=".Mine.MyInfoActivity"></activity>
 
+        <!-- 消息-->
+        <activity android:name=".Mine.MessageActivity"></activity>
+
         <!-- 编辑昵称页面-->
-        <activity android:name=".Mine.EditNickActivity"></activity>
+        <activity android:name=".Mine.EditUserInfoActivity"></activity>
 
         <!-- 我的提问-->
         <activity android:name=".Mine.MyQuestionActivity"></activity>

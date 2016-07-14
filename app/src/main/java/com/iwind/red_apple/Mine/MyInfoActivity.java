@@ -41,6 +41,9 @@ public class MyInfoActivity extends EaseBaseActivity {
     private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
     private static final int PHOTO_REQUEST_CUT = 3;// 结果
     private static final int REQUEST_CHAGE_NICK = 1001;//修改昵称请求
+    private static final int REQUEST_CHAGE_SEX = 1002;//修改性别
+    private static final int REQUEST_CHAGE_BIRTH = 1003;//修改生日
+    private static final int REQUEST_CHAGE_AREA = 1004;//修改地区
     @ViewInject(R.id.tv_nick)
     TextView tv_nick;
     @ViewInject(R.id.title_bar)
@@ -77,8 +80,24 @@ public class MyInfoActivity extends EaseBaseActivity {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.rl_change_area:
+                startActivityForResult(new Intent(context, EditUserInfoActivity.class).putExtra(ConstantString
+                                .CHAGE_INFO_TYPE, REQUEST_CHAGE_AREA),
+                        REQUEST_CHAGE_AREA);
+                break;
+            case R.id.rl_change_birth:
+                startActivityForResult(new Intent(context, EditUserInfoActivity.class).putExtra(ConstantString
+                                .CHAGE_INFO_TYPE, REQUEST_CHAGE_BIRTH),
+                        REQUEST_CHAGE_BIRTH);
+                break;
+            case R.id.rl_change_sex:
+                startActivityForResult(new Intent(context, EditUserInfoActivity.class).putExtra(ConstantString
+                                .CHAGE_INFO_TYPE, REQUEST_CHAGE_SEX),
+                        REQUEST_CHAGE_SEX);
+                break;
             case R.id.rl_change_nick:
-                startActivityForResult(new Intent(context, EditNickActivity.class),
+                startActivityForResult(new Intent(context, EditUserInfoActivity.class).putExtra(ConstantString
+                                .CHAGE_INFO_TYPE, REQUEST_CHAGE_NICK),
                         REQUEST_CHAGE_NICK);
                 break;
             case R.id.rl_change_avatar:
@@ -205,7 +224,13 @@ public class MyInfoActivity extends EaseBaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case REQUEST_CHAGE_NICK:
-                tv_nick.setText(data.getExtras().getString(ConstantString.NICK));
+//                tv_nick.setText(data.getExtras().getString(ConstantString.NICK));
+                break;
+            case REQUEST_CHAGE_SEX:
+                break;
+            case REQUEST_CHAGE_BIRTH:
+                break;
+            case REQUEST_CHAGE_AREA:
                 break;
             case PHOTO_REQUEST_TAKEPHOTO:
                 startPhotoZoom(Uri.fromFile(new File(FileUtils.getImagePath(

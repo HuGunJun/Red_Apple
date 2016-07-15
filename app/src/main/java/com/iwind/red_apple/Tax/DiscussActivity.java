@@ -94,7 +94,7 @@ public class DiscussActivity extends EaseBaseActivity {
                                     .getString(ConstantString.USER_NAME)));
                             hashMap.put(ConstantString.FORUM_TIME, DateUtils.ParseTimeMillisToTime(ResponseUtils
                                     .ParaseNull(jsonArray
-                                    .getJSONObject(i).getString(ConstantString.FORUM_TIME))));
+                                            .getJSONObject(i).getString(ConstantString.FORUM_TIME))));
                             hashMap.put(ConstantString.FORUM_CONTENT, ResponseUtils.ParaseNull(jsonArray
                                     .getJSONObject(i).getString(ConstantString.FORUM_CONTENT)));
                             hashMap.put(ConstantString.MESSAGE_COUNT, ResponseUtils.ParaseNull(jsonArray
@@ -102,6 +102,8 @@ public class DiscussActivity extends EaseBaseActivity {
                                     .getString(ConstantString.MESSAGE_COUNT)));
                             hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
                                     .getString(ConstantString.TAX_TYPE)));
+                            hashMap.put(ConstantString.IV_URL, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.IV_URL)));
                             mList.add(hashMap);
                         }
                         discussAdapter = new DiscussAdapter(context, mList);

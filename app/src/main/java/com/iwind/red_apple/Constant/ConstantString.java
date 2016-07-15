@@ -133,6 +133,9 @@ public class ConstantString {
     //标签名称
     public static final String LABELNAME = "labelName";
 
+    //是否选中
+    public static final String IS_SELECT = "isSelect";
+
 
     /**
      * 用户个人信息获取接口字段-------开始

@@ -2,6 +2,7 @@ package com.iwind.red_apple.Tax;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.ResponseUtils;
@@ -37,7 +38,6 @@ public class IndustrySelectActivity extends EaseBaseActivity {
     EaseTitleBar title_bar;
     @ViewInject(R.id.lv_industry_select)
     XListView lv_industry_select;
-
     private List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
     private IndustrySelectAdapter mIndustrySelectAdapter;
 
@@ -84,6 +84,7 @@ public class IndustrySelectActivity extends EaseBaseActivity {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
                             hashMap.put(ConstantString.TYPE, jsonArray.getJSONObject(i).getString(ConstantString
                                     .LABELNAME));
+                            hashMap.put(ConstantString.IS_SELECT, "0");
                             list.add(hashMap);
                         }
                         mIndustrySelectAdapter = new IndustrySelectAdapter(context, list);
@@ -126,5 +127,13 @@ public class IndustrySelectActivity extends EaseBaseActivity {
 
             }
         });
+        lv_industry_select.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                IndustrySelectAdapter.SetSelect(position - 1);
+                mIndustrySelectAdapter.notifyDataSetChanged();
+            }
+        });
     }
+
 }

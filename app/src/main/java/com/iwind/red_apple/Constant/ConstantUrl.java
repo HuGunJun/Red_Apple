@@ -8,6 +8,7 @@ package com.iwind.red_apple.Constant;
 public class ConstantUrl {
     //基地址
     public static final String BASE_URL = "http://119.254.102.77:8071/af_interface/";
+//    public static final String BASE_URL = "http://192.168.0.196:8080/af_interface/";
 
     //登陆
     public static final String LOGIN = "api/login";
@@ -48,11 +49,17 @@ public class ConstantUrl {
     //修改用户信息
     public static final String UPDATE_USERINFO = "api/users/updateUser";
 
+    //修改用户昵称
+    public static final String UPDATE_USENAME = "api/users/nickname";
+
     //获取系统消息
     public static final String GET_MESSAGE = "main/getTidings";
 
     //获取提问中的标签
     public static final String GET_LABEL = "label/loadlabel";
+
+    //讨论搜索和获取
+    public static final String GET_DISCUSS = "forum/search";
 
 
 }

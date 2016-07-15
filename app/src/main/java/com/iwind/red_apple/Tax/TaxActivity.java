@@ -161,9 +161,9 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
                             ConstantString.STATE,
                             ConstantString.RESULT_INFO)) {
                         tv_new_question.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
-                                .FORUMCOUNT));
+                                .MESSAGE_COUNT));
                         tv_new_answer.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
-                                .MESSAGECOUNT));
+                                .MESSAGE_COUNT));
                         tv_new_move.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
                                 .NEWSCOUNT));
                     }

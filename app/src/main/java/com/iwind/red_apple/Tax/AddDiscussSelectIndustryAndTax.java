@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.widget.EaseTitleBar;
@@ -22,11 +23,20 @@ import org.xutils.x;
  */
 @ContentView(R.layout.activity_add_discuss_select_industry_and_tax)
 public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
+
+
+    public static final int REQUEST_INDUSTRY = 1001;//
+    public static final int REQUEST_TYPE = 1002;//
+
     @ViewInject(R.id.title_bar)
     EaseTitleBar title_bar;
     String discussTitle;
     @ViewInject(R.id.et_discuss_content)
     EditText et_discuss_content;
+    @ViewInject(R.id.tv_industry)
+    TextView tv_industry;
+    @ViewInject(R.id.tv_type)
+    TextView tv_type;
 
     @Override
     protected void onCreate(Bundle arg0) {

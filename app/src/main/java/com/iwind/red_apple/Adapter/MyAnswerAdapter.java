@@ -62,7 +62,7 @@ public class MyAnswerAdapter extends BaseAdapter {
                 MyApplication.getInstance().getOptions());
 
         holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
-        holder.tv_name.setText(mList.get(position).get(ConstantString.NAME));
+        holder.tv_name.setText(mList.get(position).get(ConstantString.USER_NAME));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.READ_COUNT));
         holder.tv_type.setText(mList.get(position).get(ConstantString.TYPE));
         return convertView;

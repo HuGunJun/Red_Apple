@@ -107,13 +107,15 @@ public class EditUserInfoActivity extends EaseBaseActivity {
     }
 
     public void updateUserInfo(int whichinfo, int cityorarea) {
-        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_USERINFO);
+        RequestParams params;
+        if (whichinfo == REQUEST_CHAGE_NICK) {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_USENAME);
+        } else {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_USERINFO);
+        }
         params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
         params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
         switch (whichinfo) {
-            case REQUEST_CHAGE_NICK:
-                params.addBodyParameter(ConstantString.NICK, et_update_info.getText().toString());
-                break;
             case REQUEST_CHAGE_SEX:
                 params.addBodyParameter(ConstantString.SEX, et_update_info.getText().toString());
                 break;
@@ -121,14 +123,14 @@ public class EditUserInfoActivity extends EaseBaseActivity {
                 params.addBodyParameter(ConstantString.BIRTH, et_update_info.getText().toString());
                 break;
             case REQUEST_CHAGE_AREA:
-                if (cityorarea == 0) {
-                    params.addBodyParameter(ConstantString.CITY, et_update_info.getText().toString());
-                } else if (cityorarea == 1) {
-                    params.addBodyParameter(ConstantString.AREA, et_update_info.getText().toString());
-                }
+                params.addBodyParameter(ConstantString.CITY, et_update_info.getText().toString());
+                params.addBodyParameter(ConstantString.AREA, et_update_info.getText().toString());
                 break;
         }
         ShowLoadingDialog();
+//        Log(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_USERINFO + "?" + ConstantString.USER_ID + "=" + MyApplication
+//                .getInstance().getUserid() + "&" + ConstantString.TOKEN + "=" + MyApplication.getInstance().getToken
+//                () + "&" + ConstantString.CITY + "=天津市&" + ConstantString.AREA + "=天津市");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -138,6 +140,7 @@ public class EditUserInfoActivity extends EaseBaseActivity {
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
+                        finish();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

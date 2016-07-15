@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.DateUtils;
 import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.xlistview.XListView;
@@ -16,6 +16,7 @@ import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 import com.iwind.red_apple.Search.SearchAcitivity;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
@@ -74,20 +75,60 @@ public class DiscussActivity extends EaseBaseActivity {
     @Override
     public void InitData() {
 
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GET_DISCUSS);
+        params.addBodyParameter(ConstantString.PAGE, page + "");
+        params.addBodyParameter(ConstantString.SEARCH_CONTENT, "");
+        params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.USER_NAME, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.USER_NAME)));
+                            hashMap.put(ConstantString.FORUM_TIME, DateUtils.ParseTimeMillisToTime(ResponseUtils
+                                    .ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.FORUM_TIME))));
+                            hashMap.put(ConstantString.FORUM_CONTENT, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.FORUM_CONTENT)));
+                            hashMap.put(ConstantString.MESSAGE_COUNT, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i)
+                                    .getString(ConstantString.MESSAGE_COUNT)));
+                            hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.TAX_TYPE)));
+                            mList.add(hashMap);
+                        }
+                        discussAdapter = new DiscussAdapter(context, mList);
+                        lv_discuss.setAdapter(discussAdapter);
+                        discussAdapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
 
-        for (int i = 0; i < 20; i++) {
-            HashMap<String, String> hashMap = new HashMap<String, String>();
-            hashMap.put(ConstantString.NAME, "宙斯" + i * 10);
-            hashMap.put(ConstantString.CONTENT, "本报讯（通讯员 吴川宁 记者 " +
-                    "王茸）5日下午，南京交警高速六大队民警执勤时，查获9起未随车携带驾驶证驾驶机动车的交通违法行为，并对相关驾驶员予以处罚。溧阳的赵先生利用星期天驾车到南京游玩，行驶到宁杭高速南京收费站时被拦下例行检查。当交警要其出示驾驶证时，赵先生掏不出来，他解释道，自己有驾驶证，放在了平时上下班开的小车上。“今天天气好，我开了另一辆越野车带家人到南京玩，忘记把驾驶证取出来了。”他解释道，不过，他的解释并未获得交警的通融，他因没带驾驶证被罚款50元记1分。没一会儿，市民李先生也被交警查出没带驾驶证，原来他一直把证放在包里，当天出门时没带包。“我又不是无证驾驶，交警在系统里都能查");
-            hashMap.put(ConstantString.READ_COUNT, "100000");
-            hashMap.put(ConstantString.TYPE, "纳服2.3");
-            hashMap.put(ConstantString.IV_URL, "http://");
-            mList.add(hashMap);
-        }
-        discussAdapter = new DiscussAdapter(this, mList);
-        lv_discuss.setAdapter(discussAdapter);
-        discussAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                CloseLoadingDialog();
+            }
+        });
     }
 
     /**

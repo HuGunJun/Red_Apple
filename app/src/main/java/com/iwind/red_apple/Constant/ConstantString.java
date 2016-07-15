@@ -22,20 +22,20 @@ public class ConstantString {
     //Token
     public static final String TOKEN = "token";
 
-    //用户姓名
-    public static final String USER_NAME = "loginId";
+    //用户ID
+    public static final String USER_ID = "userId";
+
+    //用户登陆ID
+    public static final String LOGIND_ID = "loginId";
 
     //用户密码
     public static final String PASSWORD = "password";
-
-    //userid
-    public static final String USER_ID = "userId";
 
     //数据图片key
     public static final String IV_URL = "iv";
 
     //姓名
-    public static final String NAME = "name";
+    public static final String USER_NAME = "username";
 
     //数据内容
     public static final String CONTENT = "content";
@@ -49,17 +49,11 @@ public class ConstantString {
     //讨论标题
     public static final String DISSCUSS_TITLE = "discuss_title";
 
-    //问题标题
-    public static final String QUESTION_TITLE = "question_title";
-
     //时间
     public static final String TIME = "time";
 
     //昵称
     public static final String NICK = "nickName";
-
-    //标题
-    public static final String TITLE = "title";
 
     //接口返回标志 0000为成功 否则为失败
     public static final String RESULT_STATE = "retCode";
@@ -91,12 +85,6 @@ public class ConstantString {
     //newscount 最新资讯参数
     public static final String NEWSCOUNT = "newscount";
 
-    //messagecount 最新回答参数
-    public static final String MESSAGECOUNT = "messagecount";
-
-    //forumcount 最新讨论参数
-    public static final String FORUMCOUNT = "forumcount";
-
     //页
     public static final String PAGE = "page";
 
@@ -105,6 +93,9 @@ public class ConstantString {
 
     //每个页面请求数量
     public static final String ROWCOUNT = "10";
+
+    //搜索关键
+    public static final String SEARCH_CONTENT = "searContext";
 
     //提交反馈
     public static final String FEEDBACKCONTENT = "feedbackContent";
@@ -135,6 +126,21 @@ public class ConstantString {
 
     //是否选中
     public static final String IS_SELECT = "isSelect";
+
+    //讨论标题
+    public static final String FORUM_TITLE = "forumTitle";
+
+    //讨论内容
+    public static final String FORUM_CONTENT = "forumContent";
+
+    //讨论时间
+    public static final String FORUM_TIME = "forumTime";
+
+    //讨论税种
+    public static final String TAX_TYPE = "label";
+
+    //留言次数
+    public static final String MESSAGE_COUNT = "messageCount";
 
 
     /**

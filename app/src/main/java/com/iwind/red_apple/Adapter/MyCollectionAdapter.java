@@ -66,7 +66,7 @@ public class MyCollectionAdapter extends BaseAdapter {
         x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL),
                 MyApplication.getInstance().getOptions());
         holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
-        holder.tv_name.setText(mList.get(position).get(ConstantString.NAME));
+        holder.tv_name.setText(mList.get(position).get(ConstantString.USER_NAME));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.READ_COUNT));
         holder.tv_type.setText(mList.get(position).get(ConstantString.TYPE));
         return convertView;

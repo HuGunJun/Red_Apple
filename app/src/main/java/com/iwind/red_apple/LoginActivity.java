@@ -76,7 +76,7 @@ public class LoginActivity extends EaseBaseActivity {
 
         ShowLoadingDialog();
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.LOGIN);
-        params.addBodyParameter(ConstantString.USER_NAME, username);
+        params.addBodyParameter(ConstantString.LOGIND_ID, username);
         params.addBodyParameter(ConstantString.PASSWORD, pass);
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override

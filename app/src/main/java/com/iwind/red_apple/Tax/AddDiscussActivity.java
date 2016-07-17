@@ -74,7 +74,7 @@ public class AddDiscussActivity extends EaseBaseActivity {
                     return;
                 }
                 startActivity(new Intent(context, AddDiscussSelectIndustryAndTax.class).putExtra(ConstantString
-                        .DISSCUSS_TITLE, et_discuss_title.getText().toString()));
+                        .FORUM_TITLE, et_discuss_title.getText().toString()));
             }
         });
     }

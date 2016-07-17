@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.easemob.easeui.utils.DateUtils;
 import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.R;
@@ -17,6 +18,7 @@ import org.xutils.image.ImageOptions;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -64,10 +66,12 @@ public class DiscussAdapter extends BaseAdapter {
         }
         ImageOptions options = MyApplication.getInstance().getOptions();
         x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), options);
-        holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
+        holder.tv_content.setText(mList.get(position).get(ConstantString.FORUM_TITLE));
         holder.tv_name.setText(mList.get(position).get(ConstantString.USER_NAME));
-        holder.tv_read_count.setText(mList.get(position).get(ConstantString.READ_COUNT));
-        holder.tv_type.setText(mList.get(position).get(ConstantString.TYPE));
+        holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
+        holder.tv_type.setText(mList.get(position).get(ConstantString.TAX_TYPE));
+        holder.tv_time.setText(mList.get(position).get
+                (ConstantString.FORUM_TIME));
         return convertView;
     }
 
@@ -83,5 +87,7 @@ public class DiscussAdapter extends BaseAdapter {
         TextView tv_read_count;
         @ViewInject(R.id.tv_type)
         TextView tv_type;
+        @ViewInject(R.id.tv_time)
+        TextView tv_time;
     }
 }

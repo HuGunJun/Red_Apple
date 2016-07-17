@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
@@ -17,6 +18,7 @@ import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
@@ -44,8 +46,13 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
     LinearLayout lv_question_describe;
     @ViewInject(R.id.lv_discuss_detail)
     XListView lv_discuss_detail;
+    @ViewInject(R.id.tv_question_describe)
+    TextView tv_question_describe;
     View discuss_detail_header;
-
+    TextView tv_label;
+    TextView tv_messagecount;
+    TextView tv_seeknumber;
+    TextView tv_sharenumber;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private DiscussDetailAdapter mDiscussDetailAdapter;
 
@@ -54,7 +61,8 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         InitView();
-        InitData();
+        ShowLoadingDialog();
+        UpdateDiscuss(1);
         setOnClickListener();
     }
 
@@ -70,34 +78,148 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
     }
 
     public void InitView() {
-        mEaseTitleBar.setTitle(getIntent().getExtras().getString(ConstantString.DISSCUSS_TITLE));
         mEaseTitleBar.setLeftImageResource(R.drawable.ease_mm_title_back);
         mEaseTitleBar.setRightImageRightResource(R.drawable.iv_share);
         lv_discuss_detail.setPullRefreshEnable(false);
         lv_discuss_detail.setPullLoadEnable(false);
         discuss_detail_header = LayoutInflater.from(context).inflate(R.layout
                 .view_discuss_detail_header, lv_discuss_detail, false);
+        tv_label = (TextView) discuss_detail_header.findViewById(R.id.tv_label);
+        tv_messagecount = (TextView) discuss_detail_header.findViewById(R.id
+                .tv_messagecount);
+        tv_seeknumber = (TextView) discuss_detail_header.findViewById(R.id.tv_seeknumber);
+        tv_sharenumber = (TextView) discuss_detail_header.findViewById(R.id
+                .tv_sharenumber);
+
+//        tv_label.setText(getIntent().getExtras().getString(ConstantString.TAX_TYPE));
+//        tv_messagecount.setText(getIntent().getExtras().getString(ConstantString.MESSAGE_COUNT));
+//        tv_question_describe.setText(getIntent().getExtras().getString(ConstantString
+//                .FORUM_TITLE));
+//        tv_seeknumber.setText(getIntent().getExtras().getString(ConstantString.SEEKNUMBER));
+//        tv_sharenumber.setText(getIntent().getExtras().getString(ConstantString.SHARENUMBER));
     }
 
     public void InitData() {
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl
+                .GET_DISCUSS_DETAIL);
+        params.addBodyParameter(ConstantString.FORUM_ID, getIntent().getExtras().getString
+                (ConstantString.FORUM_ID));
+        Log(ConstantUrl.BASE_URL + ConstantUrl.GET_DISCUSS_DETAIL + "?" + ConstantString.FORUM_ID
+                + "=" + getIntent().getExtras().getString
+                (ConstantString.FORUM_ID));
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONObject OBJ = jsonObject.getJSONObject(ConstantString.OBJ);
+                        tv_label.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
+                                .TAX_TYPE)));
+                        tv_question_describe.setText(ResponseUtils.ParaseNull(OBJ.getString
+                                (ConstantString.FORUM_TITLE)));
+                        tv_messagecount.setText(ResponseUtils.ParaseNull(OBJ.getString
+                                (ConstantString.MESSAGE_COUNT)).equals("") ? "0" : ResponseUtils
+                                .ParaseNull(OBJ.getString
+                                        (ConstantString.MESSAGE_COUNT)));
+                        tv_seeknumber.setText(ResponseUtils.ParaseNull(OBJ.getString
+                                (ConstantString.SEEKNUMBER)).equals("") ? "0" : ResponseUtils
+                                .ParaseNull(OBJ.getString
+                                        (ConstantString.SEEKNUMBER)));
+                        tv_sharenumber.setText(ResponseUtils.ParaseNull(OBJ.getString
+                                (ConstantString.SHARENUMBER)).equals("") ? "0" : ResponseUtils
+                                .ParaseNull(OBJ.getString
+                                        (ConstantString.SHARENUMBER)));
+                        mEaseTitleBar.setTitle(ResponseUtils.ParaseNull(OBJ.getString
+                                (ConstantString.FORUM_TITLE)));
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.USERNAME, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString
+                                            .USERNAME)));
+                            hashMap.put(ConstantString.USER_PIC, jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.USER_PIC));
+                            hashMap.put(ConstantString.FORUMMESSAGEID, jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.FORUMMESSAGEID));
+                            mList.add(hashMap);
+                        }
+                        mDiscussDetailAdapter = new DiscussDetailAdapter(context, mList);
+                        lv_discuss_detail.removeHeaderView(discuss_detail_header);
+                        lv_discuss_detail.addHeaderView(discuss_detail_header);
+                        lv_discuss_detail.setAdapter(mDiscussDetailAdapter);
+                        mDiscussDetailAdapter.notifyDataSetChanged();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                CloseLoadingDialog();
+            }
+        });
 
 
-        for (int i = 0; i < 20; i++) {
-            HashMap<String, String> hashMap = new HashMap<String, String>();
-            hashMap.put(ConstantString.USER_NAME, "我商家哦张" + i);
-            hashMap.put(ConstantString.CONTENT, "本报讯（通讯员 吴川宁 记者 " +
-                    "王茸）5日下午，南京交警高速六大队民警执勤时，查获9起未随车携带驾驶证驾驶机动车的交通违法行为，并对相关驾驶员予以处罚。溧阳的赵先生利用星期天驾车到南京游玩，行驶到宁杭高速南京收费站时被拦下例行检查。当交警要其出示驾驶证时，赵先生掏不出来，他解释道，自己有驾驶证，放在了平时上下班开的小车上。“今天天气好，我开了另一辆越野车带家人到南京玩，忘记把驾驶证取出来了。”他解释道，不过，他的解释并未获得交警的通融，他因没带驾驶证被罚款50元记1分。没一会儿，市民李先生也被交警查出没带驾驶证，原来他一直把证放在包里，当天出门时没带包。“我又不是无证驾驶，交警在系统里都能查");
-            hashMap.put(ConstantString.READ_COUNT, i * 20 + "");
-            hashMap.put(ConstantString.TYPE, "地税");
-            hashMap.put(ConstantString.IV_URL, "http://");
-            mList.add(hashMap);
-        }
-        mDiscussDetailAdapter = new DiscussDetailAdapter(this, mList);
-        lv_discuss_detail.removeHeaderView(discuss_detail_header);
-        lv_discuss_detail.addHeaderView(discuss_detail_header);
-        lv_discuss_detail.setAdapter(mDiscussDetailAdapter);
-        mDiscussDetailAdapter.notifyDataSetChanged();
+    }
 
+    /**
+     * 修改讨论对象  1  为增加查看次数  2为增加分享次数
+     *
+     * @param which
+     */
+    private void UpdateDiscuss(int which) {
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_DISCUSS);
+        params.addBodyParameter(ConstantString.FORUM_ID, getIntent().getExtras().getString
+                (ConstantString.FORUM_ID));
+        params.addBodyParameter(ConstantString.TYPE, which + "");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                InitData();
+            }
+        });
     }
 
     public void setOnClickListener() {
@@ -128,9 +250,19 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position > 1) {
                     Intent intent = new Intent(context, AnswerDetailActivity.class);
-                    intent.putExtra(ConstantString.DISSCUSS_TITLE, "这是什么特么的标题擦擦擦啊擦擦啊擦");
+                    intent.putExtra(ConstantString.FORUMMESSAGEID, mList.get(position - 2).get
+                            (ConstantString.FORUMMESSAGEID));
+                    intent.putExtra(ConstantString.FORUM_TITLE, tv_question_describe.getText()
+                            .toString());
                     startActivity(intent);
                 }
+            }
+        });
+        mEaseTitleBar.setRightImageRightClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowLoadingDialog();
+                UpdateDiscuss(2);
             }
         });
     }

@@ -61,7 +61,7 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
 
     @Override
     public void InitView() {
-        discussTitle = getIntent().getStringExtra(ConstantString.DISSCUSS_TITLE);
+        discussTitle = getIntent().getStringExtra(ConstantString.FORUM_TITLE);
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setTitle(getResources().getString(R.string.add_discuss));
         title_bar.setRightText(getResources().getString(R.string.done));

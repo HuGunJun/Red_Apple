@@ -2,14 +2,21 @@ package com.iwind.red_apple.Tax;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -27,6 +34,16 @@ public class AnswerDetailActivity extends EaseBaseActivity {
     private EaseTitleBar title_bar;
     @ViewInject(R.id.tv_question_describe)
     TextView tv_question_describe;
+    @ViewInject(R.id.tv_name)
+    TextView tv_name;
+    @ViewInject(R.id.iv_avator)
+    ImageView iv_avator;
+    @ViewInject(R.id.tv_userdescirbe)
+    TextView tv_userdescirbe;
+    @ViewInject(R.id.tv_great_count)
+    TextView tv_great_count;
+    @ViewInject(R.id.tv_downcount)
+    TextView tv_downcount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +51,7 @@ public class AnswerDetailActivity extends EaseBaseActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         InitView();
+        ShowLoadingDialog();
         InitData();
         setOnClickListener();
 
@@ -42,7 +60,14 @@ public class AnswerDetailActivity extends EaseBaseActivity {
 
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()) {
+            case R.id.lv_great:
+                break;
+            case R.id.lv_down:
+                break;
+            case R.id.lv_collection:
+                break;
+        }
     }
 
     @Override
@@ -74,12 +99,65 @@ public class AnswerDetailActivity extends EaseBaseActivity {
 
     @Override
     public void InitData() {
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl
+                .GET_ANSWER_DETAIL);
+        params.addBodyParameter(ConstantString.FORUMMESSAGEID, getIntent().getExtras().getString
+                (ConstantString.FORUMMESSAGEID));
+        Log(ConstantUrl.BASE_URL + ConstantUrl
+                .GET_ANSWER_DETAIL + "?" + ConstantString.FORUMMESSAGEID + "=" + getIntent()
+                .getExtras()
+                .getString
+                        (ConstantString.FORUMMESSAGEID));
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONObject OBJ = jsonObject.getJSONObject(ConstantString.OBJ);
+                        x.image().bind(iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC +
+                                OBJ.getString(ConstantString.USER_PIC));
+                        tv_name.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
+                                .USERNAME)));
+                        tv_great_count.setText(ResponseUtils.ParaseNull(OBJ.getString
+                                (ConstantString.ZANCOUTN)).equals("") ? "0" : ResponseUtils
+                                .ParaseNull(OBJ.getString
+                                        (ConstantString.ZANCOUTN)));
+                        tv_downcount.setText(ResponseUtils.ParaseNull(OBJ.getString
+                                (ConstantString.CAICOUNT)).equals("") ? "0" : ResponseUtils
+                                .ParaseNull(OBJ.getString
+                                        (ConstantString.CAICOUNT)));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
 
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                CloseLoadingDialog();
+            }
+        });
     }
 
     @Override
     public void InitView() {
-        title_bar.setTitle(getIntent().getExtras().getString(ConstantString.DISSCUSS_TITLE));
+        title_bar.setTitle(getIntent().getExtras().getString(ConstantString.FORUM_TITLE));
+        tv_question_describe.setText(getIntent().getExtras().getString(ConstantString.FORUM_TITLE));
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setRightImageRightResource(R.drawable.iv_share);
     }

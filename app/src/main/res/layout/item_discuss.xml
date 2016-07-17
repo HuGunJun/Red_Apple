@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/background_color">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_color">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:id="@+id/iv_avator"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/icon_default_avatar" />
+                android:src="@mipmap/icon_default_avatar"/>
         </LinearLayout>
 
         <RelativeLayout
@@ -52,7 +52,7 @@
                     android:text="姓名"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/text_color"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"/>
 
                 <TextView
                     android:id="@+id/tv_time"
@@ -63,7 +63,7 @@
                     android:gravity="center"
                     android:text="2016-6-5 12:00"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/lightgray" />
+                    android:textColor="@color/lightgray"/>
             </RelativeLayout>
 
 
@@ -80,7 +80,7 @@
                 android:lines="2"
                 android:text="@string/hello_world"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/darkgray" />
+                android:textColor="@color/darkgray"/>
 
             <RelativeLayout
                 android:id="@+id/rl_bottom"
@@ -96,7 +96,7 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:src="@mipmap/iv_discuss_tab" />
+                    android:src="@mipmap/iv_discuss_tab"/>
 
                 <TextView
                     android:id="@+id/tv_type"
@@ -107,7 +107,8 @@
                     android:layout_toEndOf="@+id/imageView"
                     android:gravity="center"
                     android:text="种类"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/titile_color"/>
 
                 <TextView
                     android:id="@+id/tv_read_count"
@@ -117,7 +118,7 @@
                     android:layout_alignParentEnd="true"
                     android:gravity="center"
                     android:text="1000"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -126,7 +127,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="7.5dp"
                     android:layout_toStartOf="@+id/tv_read_count"
-                    android:src="@mipmap/iv_discuss_answer" />
+                    android:src="@mipmap/iv_discuss_answer"/>
             </RelativeLayout>
         </RelativeLayout>
 

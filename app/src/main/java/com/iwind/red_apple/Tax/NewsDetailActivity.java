@@ -45,7 +45,7 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
 
     @Override
     public void InitView() {
-        title_bar.setTitle(getIntent().getExtras().getString(ConstantString.DISSCUSS_TITLE));
+        title_bar.setTitle(getIntent().getExtras().getString(ConstantString.FORUM_TITLE));
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setRightImageRightResource(R.drawable.iv_share);
     }

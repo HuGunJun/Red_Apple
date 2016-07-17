@@ -62,9 +62,6 @@ public class NewsAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), MyApplication.getInstance().getOptions());
-        holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
-        holder.tv_read_count.setText(mList.get(position).get(ConstantString.READ_COUNT));
-        holder.tv_time.setText(mList.get(position).get(ConstantString.TIME));
         return convertView;
     }
 

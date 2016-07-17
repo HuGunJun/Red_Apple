@@ -82,27 +82,58 @@ public class DiscussActivity extends EaseBaseActivity {
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+
                 Log(result);
-                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
-                            hashMap.put(ConstantString.USER_NAME, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
-                                    .getString(ConstantString.USER_NAME)));
-                            hashMap.put(ConstantString.FORUM_TIME, DateUtils.ParseTimeMillisToTime(ResponseUtils
-                                    .ParaseNull(jsonArray
-                                            .getJSONObject(i).getString(ConstantString.FORUM_TIME))));
-                            hashMap.put(ConstantString.FORUM_CONTENT, ResponseUtils.ParaseNull(jsonArray
-                                    .getJSONObject(i).getString(ConstantString.FORUM_CONTENT)));
-                            hashMap.put(ConstantString.MESSAGE_COUNT, ResponseUtils.ParaseNull(jsonArray
-                                    .getJSONObject(i)
-                                    .getString(ConstantString.MESSAGE_COUNT)));
-                            hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
-                                    .getString(ConstantString.TAX_TYPE)));
-//                            hashMap.put(ConstantString.IV_URL, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                            hashMap.put(ConstantString.FORUM_ID, jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.FORUM_ID));
+                            hashMap.put(ConstantString.FORUM_TITLE, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString
+                                            .FORUM_TITLE)));
+                            hashMap.put(ConstantString.USER_NAME, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i)
+                                            .getString(ConstantString.USER_NAME)));
+                            hashMap.put(ConstantString.FORUM_TIME, DateUtils
+                                    .ParseTimeMillisToTime(ResponseUtils
+                                            .ParaseNull(jsonArray
+                                                    .getJSONObject(i).getString(ConstantString
+                                                            .FORUM_TIME))));
+                            hashMap.put(ConstantString.FORUM_CONTENT, ResponseUtils.ParaseNull
+                                    (jsonArray
+                                            .getJSONObject(i).getString(ConstantString
+                                                    .FORUM_CONTENT)));
+                            hashMap.put(ConstantString.MESSAGE_COUNT, ResponseUtils.ParaseNull
+                                    (jsonArray
+                                            .getJSONObject(i)
+                                            .getString(ConstantString.MESSAGE_COUNT)));
+                            hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i)
+                                            .getString(ConstantString.TAX_TYPE)));
+
+                            hashMap.put(ConstantString.SEEKNUMBER, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString
+                                            .SEEKNUMBER)).equals("") ? "0" : ResponseUtils
+                                    .ParaseNull
+                                            (jsonArray.getJSONObject(i).getString(ConstantString
+                                                    .SEEKNUMBER)));
+
+                            hashMap.put(ConstantString.SHARENUMBER, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString
+                                            .SHARENUMBER)).equals("") ? "0" : ResponseUtils
+                                    .ParaseNull
+                                            (jsonArray.getJSONObject(i).getString(ConstantString
+                                                    .SHARENUMBER)));
+
+
+//                            hashMap.put(ConstantString.IV_URL, ResponseUtils.ParaseNull
+// (jsonArray.getJSONObject(i)
 //                                    .getString(ConstantString.IV_URL)));
                             mList.add(hashMap);
                         }
@@ -128,6 +159,8 @@ public class DiscussActivity extends EaseBaseActivity {
 
             @Override
             public void onFinished() {
+                lv_discuss.stopLoadMore();
+                lv_discuss.stopRefresh();
                 CloseLoadingDialog();
             }
         });
@@ -142,6 +175,7 @@ public class DiscussActivity extends EaseBaseActivity {
             @Override
             public void onRefresh() {
                 page = 0;
+                mList.clear();
                 InitData();
             }
 
@@ -156,7 +190,18 @@ public class DiscussActivity extends EaseBaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(context, DiscussDetailActivity.class);
-                intent.putExtra(ConstantString.DISSCUSS_TITLE, "这是什么特么的标题擦擦擦啊擦擦啊擦");
+                intent.putExtra(ConstantString.FORUM_ID, mList.get(position - 1).get(ConstantString
+                        .FORUM_ID));
+                intent.putExtra(ConstantString.FORUM_TITLE, mList.get(position - 1).get
+                        (ConstantString.FORUM_TITLE));
+//                intent.putExtra(ConstantString.TAX_TYPE, mList.get(position - 1).get
+//                        (ConstantString.TAX_TYPE));
+//                intent.putExtra(ConstantString.SEEKNUMBER, mList.get(position - 1).get
+//                        (ConstantString.SEEKNUMBER));
+//                intent.putExtra(ConstantString.SHARENUMBER, mList.get(position - 1).get
+//                        (ConstantString.SHARENUMBER));
+//                intent.putExtra(ConstantString.MESSAGE_COUNT, mList.get(position - 1).get
+//                        (ConstantString.MESSAGE_COUNT));
                 startActivity(intent);
             }
         });

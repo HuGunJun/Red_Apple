@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
 import org.xutils.view.annotation.ViewInject;
@@ -61,12 +62,14 @@ public class DiscussDetailAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-//        EaseUserUtils.setUserAvatar(mContext, mList.get(position).get(ConstantString.IV_URL), holder.iv_avator);
-        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), MyApplication.getInstance().getOptions());
-        holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
-        holder.tv_name.setText(mList.get(position).get(ConstantString.USER_NAME));
-        holder.tv_read_count.setText(mList.get(position).get(ConstantString.READ_COUNT));
-        holder.tv_type.setText(mList.get(position).get(ConstantString.TYPE));
+
+        x.image().bind(holder.iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC + mList.get
+                        (position).get(ConstantString.USER_PIC),
+                MyApplication.getInstance().getOptions());
+
+        holder.tv_name.setText(mList.get(position).get(ConstantString.USERNAME));
+
+
         return convertView;
     }
 

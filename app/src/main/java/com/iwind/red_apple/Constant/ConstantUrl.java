@@ -64,5 +64,14 @@ public class ConstantUrl {
     //用户头像地址
     public static final String USER_PIC = "pic/userpic/";
 
+    //获取讨论详情页面
+    public static final String GET_DISCUSS_DETAIL = "forum/getForum";
+
+    //修改讨论对象 （分享/查看次数增加）
+    public static final String UPDATE_DISCUSS = "forum/updateForum";
+
+    //获取回答详情
+    public static final String GET_ANSWER_DETAIL = "forum/messageInfo";
+
 
 }

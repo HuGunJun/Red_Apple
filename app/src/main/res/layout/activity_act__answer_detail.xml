@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_color"
+                android:clipToPadding="true"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
 
     <com.easemob.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
@@ -21,7 +21,7 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:paddingTop="5dp"
-        android:text="为什么美国有那么多肌肉极其强大的肌肉男？" />
+        android:text="为什么美国有那么多肌肉极其强大的肌肉男？"/>
 
     <LinearLayout
         android:id="@+id/lv_answer"
@@ -41,20 +41,20 @@
             android:padding="5dp">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/iv_avator"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/icon_default_avatar" />
+                android:src="@mipmap/icon_default_avatar"/>
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11.5dp"
                 android:ellipsize="end"
                 android:lines="1"
                 android:text="姓名"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
         <LinearLayout
@@ -66,20 +66,20 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_userdescirbe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:lines="1"
                 android:text="某个集团的会计师"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
 
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_marginLeft="11.5dp"
-                android:src="@mipmap/iv_renzheng" />
+                android:src="@mipmap/iv_renzheng"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -108,7 +108,7 @@
                 android:id="@+id/tv_answer_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/hello_world" />
+                android:text="@string/hello_world"/>
         </LinearLayout>
     </ScrollView>
 
@@ -127,6 +127,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/lv_great"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -138,15 +139,16 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/iv_up" />
+                android:src="@mipmap/iv_up"/>
 
             <TextView
+                android:id="@+id/tv_great_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="3dp"
                 android:text="@string/up"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
         <View
@@ -157,6 +159,7 @@
             android:background="@color/diliver_line"></View>
 
         <LinearLayout
+            android:id="@+id/lv_down"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -168,15 +171,16 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/iv_down" />
+                android:src="@mipmap/iv_down"/>
 
             <TextView
+                android:id="@+id/tv_downcount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="3dp"
                 android:text="@string/down"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
         <View
@@ -187,6 +191,7 @@
             android:background="@color/diliver_line"></View>
 
         <LinearLayout
+            android:id="@+id/lv_collection"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -198,7 +203,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/iv_answer_detail_collection" />
+                android:src="@mipmap/iv_answer_detail_collection"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -206,7 +211,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="3dp"
                 android:text="@string/collection"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
     </LinearLayout>

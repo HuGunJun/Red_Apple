@@ -60,8 +60,6 @@ public class MyQuestionAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.tv_content.setText(list.get(position).get(ConstantString.CONTENT));
-        holder.tv_type.setText(list.get(position).get(ConstantString.TYPE));
 
         return convertView;
     }

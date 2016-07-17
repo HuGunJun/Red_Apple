@@ -37,20 +37,11 @@ public class ConstantString {
     //姓名
     public static final String USER_NAME = "username";
 
-    //数据内容
-    public static final String CONTENT = "content";
+    //姓名大写
+    public static final String USERNAME = "userName";
 
     //类型
     public static final String TYPE = "type";
-
-    //阅读数量
-    public static final String READ_COUNT = "read_count";
-
-    //讨论标题
-    public static final String DISSCUSS_TITLE = "discuss_title";
-
-    //时间
-    public static final String TIME = "time";
 
     //昵称
     public static final String NICK = "nickName";
@@ -88,10 +79,10 @@ public class ConstantString {
     public static final String NEWSCOUNT = "newscount";
 
     //messagecount 最新消息数量
-    public static final String MESSAGECOUNT="messagecount";
+    public static final String MESSAGECOUNT = "messagecount";
 
     //forumcount 最新问题数量
-    public static final String FORUMCOUNT="forumcount";
+    public static final String FORUMCOUNT = "forumcount";
 
     //页
     public static final String PAGE = "page";
@@ -135,6 +126,9 @@ public class ConstantString {
     //是否选中
     public static final String IS_SELECT = "isSelect";
 
+    //讨论id
+    public static final String FORUM_ID = "forumId";
+
     //讨论标题
     public static final String FORUM_TITLE = "forumTitle";
 
@@ -149,6 +143,21 @@ public class ConstantString {
 
     //留言次数
     public static final String MESSAGE_COUNT = "messageCount";
+
+    //查看次数
+    public static final String SEEKNUMBER = "seeNmber";
+
+    //分享次数
+    public static final String SHARENUMBER = "shareNumber";
+
+    //回答消息ID
+    public static final String FORUMMESSAGEID = "forumMessageId";
+
+    //赞
+    public static final String ZANCOUTN = "zancount";
+
+    //踩
+    public static final String CAICOUNT = "caicount";
 
 
     /**

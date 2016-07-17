@@ -153,11 +153,17 @@ public class ConstantString {
     //回答消息ID
     public static final String FORUMMESSAGEID = "forumMessageId";
 
+    //回答消息内容
+    public static final String FORUMMESSAGE = "forumMessage";
+
     //赞
-    public static final String ZANCOUTN = "zancount";
+    public static final String ZANCOUTN = "zanCount";
 
     //踩
-    public static final String CAICOUNT = "caicount";
+    public static final String CAICOUNT = "caiCount";
+
+    //踩赞类型
+    public static final String CAIZANTYPE = "forumCaizanType";
 
 
     /**

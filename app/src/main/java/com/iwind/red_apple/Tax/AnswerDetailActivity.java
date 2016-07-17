@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
+import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
@@ -45,6 +46,8 @@ public class AnswerDetailActivity extends EaseBaseActivity {
     @ViewInject(R.id.tv_downcount)
     TextView tv_downcount;
 
+    String forummessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -62,12 +65,67 @@ public class AnswerDetailActivity extends EaseBaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.lv_great:
+                MethodCaiOrZan(2);
                 break;
             case R.id.lv_down:
+                MethodCaiOrZan(1);
                 break;
             case R.id.lv_collection:
                 break;
         }
+    }
+
+    /**
+     * 讨论回答踩赞
+     *
+     * @param i
+     */
+    private void MethodCaiOrZan(final int i) {
+        ShowLoadingDialog();
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.FORUM_ZAIORCAI);
+        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
+        params.addBodyParameter(ConstantString.CAIZANTYPE, i + "");
+        params.addBodyParameter(ConstantString.FORUMMESSAGEID, getIntent().getExtras().getString
+                (ConstantString.FORUMMESSAGEID));
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        if (i == 1) {
+                            tv_great_count.setText(Integer.parseInt(tv_great_count.getText()
+                                    .toString()) + 1 + "");
+                        } else if (i == 2) {
+                            tv_downcount.setText(Integer.parseInt(tv_downcount.getText()
+                                    .toString()) + 1 + "");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                CloseLoadingDialog();
+            }
+        });
+
     }
 
     @Override
@@ -118,8 +176,6 @@ public class AnswerDetailActivity extends EaseBaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject OBJ = jsonObject.getJSONObject(ConstantString.OBJ);
-                        x.image().bind(iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC +
-                                OBJ.getString(ConstantString.USER_PIC));
                         tv_name.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
                                 .USERNAME)));
                         tv_great_count.setText(ResponseUtils.ParaseNull(OBJ.getString
@@ -130,6 +186,11 @@ public class AnswerDetailActivity extends EaseBaseActivity {
                                 (ConstantString.CAICOUNT)).equals("") ? "0" : ResponseUtils
                                 .ParaseNull(OBJ.getString
                                         (ConstantString.CAICOUNT)));
+                        forummessage = ResponseUtils.ParaseNull(OBJ.getString(ConstantString
+                                .FORUMMESSAGE));
+//                        x.image().bind(iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC +
+//                                OBJ.getString(ConstantString.USER_PIC), MyApplication.getInstance
+//                                ().getOptions());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

@@ -73,5 +73,8 @@ public class ConstantUrl {
     //获取回答详情
     public static final String GET_ANSWER_DETAIL = "forum/messageInfo";
 
+    //讨论回答踩赞
+    public static final String FORUM_ZAIORCAI = "forum/messageCaiZan";
+
 
 }

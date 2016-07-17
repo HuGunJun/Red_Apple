@@ -61,5 +61,8 @@ public class ConstantUrl {
     //讨论搜索和获取
     public static final String GET_DISCUSS = "forum/search";
 
+    //用户头像地址
+    public static final String USER_PIC = "pic/userpic/";
+
 
 }

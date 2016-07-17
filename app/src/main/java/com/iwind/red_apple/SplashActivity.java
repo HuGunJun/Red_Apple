@@ -88,19 +88,29 @@ public class SplashActivity extends EaseBaseActivity {
     private void Login() {
 
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.LOGIN);
-        params.addBodyParameter(ConstantString.LOGIND_ID, MyApplication.getInstance().getUserName());
+        params.addBodyParameter(ConstantString.LOGIND_ID, MyApplication.getInstance().getUserName
+                ());
         params.addBodyParameter(ConstantString.PASSWORD, MyApplication.getInstance().getPass());
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 Log(result);
                 CloseLoadingDialog();
-                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
                         ConstantString.RESULT_INFO)) {
                     try {
-                        JSONObject jsonObject = new JSONObject(result);
-                        MyApplication.getInstance().setUserId(jsonObject.getString(ConstantString.USER_ID));
-                        MyApplication.getInstance().setToken(jsonObject.getString(ConstantString.TOKEN));
+                        JSONObject jsonObject1 = new JSONObject(result);
+                        JSONObject jsonObject = jsonObject1.getJSONObject(ConstantString.OBJ);
+                        MyApplication.getInstance().setUserId(jsonObject1.getString(ConstantString
+                                .USER_ID));
+                        MyApplication.getInstance().setToken(jsonObject1.getString(ConstantString
+                                .TOKEN));
+                        MyApplication.getInstance().setNickName(ResponseUtils.ParaseNull
+                                (jsonObject.getString
+                                        (ConstantString.NICK_NAME)));
+                        MyApplication.getInstance().setUserPic(ResponseUtils.ParaseNull
+                                (jsonObject.getString(ConstantString.USER_PIC)));
                         startActivity(new Intent(context, MainActivity.class));
                         finish();
                     } catch (JSONException e) {

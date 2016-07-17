@@ -89,7 +89,8 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
             public void onSuccess(String result) {
                 try {
                     JSONObject object = new JSONObject(result);
-                    if (ResponseUtils.isSuccess(getApplicationContext(), ConstantString.RESULT_STATE, result,
+                    if (ResponseUtils.isSuccess(getApplicationContext(), ConstantString
+                                    .RESULT_STATE, result,
                             ConstantString.STATE, ConstantString.RESULT_INFO)) {
                         JSONArray jsonArray = object.getJSONArray(ConstantString.ARRAY);
 
@@ -97,11 +98,14 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
                         for (int i = 0; i < jsonArray.length(); i++) {
                             CycleVpEntity cyc = new CycleVpEntity();
                             //图片id
-                            cyc.setId(jsonArray.getJSONObject(i).getString(ConstantString.CAROUSE_ID));
+                            cyc.setId(jsonArray.getJSONObject(i).getString(ConstantString
+                                    .CAROUSE_ID));
                             //图片地址
-                            cyc.setIurl(jsonArray.getJSONObject(i).getString(ConstantString.CAROUSE_URL));
+                            cyc.setIurl(jsonArray.getJSONObject(i).getString(ConstantString
+                                    .CAROUSE_URL));
                             //图片名称
-                            cyc.setTitle(jsonArray.getJSONObject(i).getString(ConstantString.CAROUSE_NAME));
+                            cyc.setTitle(jsonArray.getJSONObject(i).getString(ConstantString
+                                    .CAROUSE_NAME));
                             list.add(cyc);
                         }
                         /**
@@ -119,7 +123,8 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
 
                                     }
                                 });
-                        cycleViewPager.SetIndicatorResouse(R.mipmap.iv_turn_off, R.mipmap.iv_turn_on);
+                        cycleViewPager.SetIndicatorResouse(R.mipmap.iv_turn_off, R.mipmap
+                                .iv_turn_on);
                         lv_imageviewturn.addView(vhdf);
                         GetNew();
                     }
@@ -157,14 +162,18 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
                 Log.i("main", result);
                 try {
                     JSONObject jsonObject = new JSONObject(result);
-                    if (ResponseUtils.isSuccess(getApplicationContext(), ConstantString.RESULT_STATE, result,
+                    if (ResponseUtils.isSuccess(getApplicationContext(), ConstantString
+                                    .RESULT_STATE, result,
                             ConstantString.STATE,
                             ConstantString.RESULT_INFO)) {
-                        tv_new_question.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
-                                .MESSAGE_COUNT));
-                        tv_new_answer.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
-                                .MESSAGE_COUNT));
-                        tv_new_move.setText(jsonObject.getJSONObject(ConstantString.MAP).getString(ConstantString
+                        tv_new_question.setText(jsonObject.getJSONObject(ConstantString.MAP)
+                                .getString(ConstantString
+                                .FORUMCOUNT));
+                        tv_new_answer.setText(jsonObject.getJSONObject(ConstantString.MAP)
+                                .getString(ConstantString
+                                .MESSAGECOUNT));
+                        tv_new_move.setText(jsonObject.getJSONObject(ConstantString.MAP)
+                                .getString(ConstantString
                                 .NEWSCOUNT));
                     }
                 } catch (JSONException e) {

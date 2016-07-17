@@ -64,12 +64,14 @@ public class LoginActivity extends EaseBaseActivity {
         final String username = et_username.getText().toString();
         final String pass = et_pass.getText().toString();
         if (TextUtils.isEmpty(username)) {
-            Toast.makeText(context, getResources().getString(R.string.User_name_cannot_be_empty), Toast.LENGTH_SHORT)
+            Toast.makeText(context, getResources().getString(R.string.User_name_cannot_be_empty),
+                    Toast.LENGTH_SHORT)
                     .show();
             return;
         }
         if (TextUtils.isEmpty(pass)) {
-            Toast.makeText(context, getResources().getString(R.string.Password_cannot_be_empty), Toast.LENGTH_SHORT)
+            Toast.makeText(context, getResources().getString(R.string.Password_cannot_be_empty),
+                    Toast.LENGTH_SHORT)
                     .show();
             return;
         }
@@ -83,13 +85,21 @@ public class LoginActivity extends EaseBaseActivity {
             public void onSuccess(String result) {
                 Log(result);
                 CloseLoadingDialog();
-                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
                         ConstantString.RESULT_INFO)) {
                     try {
-                        JSONObject jsonObject = new JSONObject(result);
-                        MyApplication.getInstance().setUserId(jsonObject.getString(ConstantString.USER_ID));
-                        MyApplication.getInstance().setToken(jsonObject.getString(ConstantString.TOKEN));
+                        JSONObject jsonObject1 = new JSONObject(result);
+                        JSONObject jsonObject = jsonObject1.getJSONObject(ConstantString.OBJ);
+                        MyApplication.getInstance().setUserId(jsonObject1.getString(ConstantString
+                                .USER_ID));
+                        MyApplication.getInstance().setToken(jsonObject1.getString(ConstantString
+                                .TOKEN));
                         MyApplication.getInstance().setUserNameAndPwd(username, pass);
+                        MyApplication.getInstance().setNickName(ResponseUtils.ParaseNull
+                                (jsonObject.getString(ConstantString.NICK_NAME)));
+                        MyApplication.getInstance().setUserPic(ResponseUtils.ParaseNull
+                                (jsonObject.getString(ConstantString.USER_PIC)));
                         startActivity(new Intent(context, MainActivity.class));
                         finish();
                     } catch (JSONException e) {

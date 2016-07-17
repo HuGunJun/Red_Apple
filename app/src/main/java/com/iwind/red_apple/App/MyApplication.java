@@ -63,6 +63,47 @@ public class MyApplication extends Application {
     }
 
     /**
+     * 获取用户头像
+     *
+     * @return
+     */
+    public String getUserPic() {
+        return preferences.getString(ConstantString.USER_PIC, "");
+    }
+
+    /**
+     * 设置用户头像
+     *
+     * @param pic
+     */
+    public void setUserPic(String pic) {
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString(ConstantString.USER_PIC, pic);
+        edit.commit();
+    }
+
+    /**
+     * 设置用户昵称
+     *
+     * @param nickName
+     */
+    public void setNickName(String nickName) {
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString(ConstantString.NICK, nickName);
+        edit.commit();
+    }
+
+    /**
+     * 获取用户昵称
+     *
+     * @return
+     */
+    public String getNickName() {
+        return
+                preferences.getString(ConstantString.NICK, "");
+    }
+
+    /**
      * 获取密码
      *
      * @return

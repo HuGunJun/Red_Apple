@@ -81,9 +81,17 @@ public class ConstantString {
 
     //获得最新条数外围参数
     public static final String MAP = "map";
-
+    /**
+     * 获取最新数量
+     */
     //newscount 最新资讯参数
     public static final String NEWSCOUNT = "newscount";
+
+    //messagecount 最新消息数量
+    public static final String MESSAGECOUNT="messagecount";
+
+    //forumcount 最新问题数量
+    public static final String FORUMCOUNT="forumcount";
 
     //页
     public static final String PAGE = "page";
@@ -164,6 +172,9 @@ public class ConstantString {
 
     //地区（区县）
     public static final String AREA = "area";
+
+    //用户头像
+    public static final String USER_PIC = "userPic";
 
 
     /**

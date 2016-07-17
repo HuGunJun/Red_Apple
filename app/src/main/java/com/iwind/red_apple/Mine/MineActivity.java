@@ -3,8 +3,11 @@ package com.iwind.red_apple.Mine;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Toast;
 
+import com.easemob.easeui.widget.EaseAlertDialog;
 import com.iwind.red_apple.R;
 
 import org.xutils.view.annotation.ContentView;
@@ -19,6 +22,7 @@ import org.xutils.x;
  */
 @ContentView(R.layout.activity_act__mine)
 public class MineActivity extends AppCompatActivity {
+    private long exitTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +67,26 @@ public class MineActivity extends AppCompatActivity {
 
                 break;
             case R.id.lv_message://消息
-                startActivity(new Intent(getApplicationContext(),MessageActivity.class));
+                startActivity(new Intent(getApplicationContext(), MessageActivity.class));
                 break;
         }
+    }
+
+    // 监听两次返回键
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string
+                        .again_login_out), Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+                return true;
+            } else {
+                finish();
+            }
+            return super.onKeyDown(keyCode, event);
+        }
+        return false;
     }
 }

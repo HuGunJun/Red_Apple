@@ -102,8 +102,8 @@ public class DiscussActivity extends EaseBaseActivity {
                                     .getString(ConstantString.MESSAGE_COUNT)));
                             hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
                                     .getString(ConstantString.TAX_TYPE)));
-                            hashMap.put(ConstantString.IV_URL, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
-                                    .getString(ConstantString.IV_URL)));
+//                            hashMap.put(ConstantString.IV_URL, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+//                                    .getString(ConstantString.IV_URL)));
                             mList.add(hashMap);
                         }
                         discussAdapter = new DiscussAdapter(context, mList);

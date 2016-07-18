@@ -147,8 +147,11 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
                                     (ConstantString.WORK_LABEL));
                             hashMap.put(ConstantString.WORK_TITLE, jsonArray.getJSONObject(i).getString
                                     (ConstantString.WORK_TITLE));
-                            hashMap.put(ConstantString.MESSAGE_COUNT, jsonArray.getJSONObject(i).getString
-                                    (ConstantString.MESSAGE_COUNT));
+                            hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString
+                                    (ConstantString.ZANCOUTN)).equals("") ? "0" : ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString
+                                    (ConstantString.ZANCOUTN)));
                             mList.add(hashMap);
                         }
                         mNewsAdapter = new ShouldKnowAdapter(context, mList);

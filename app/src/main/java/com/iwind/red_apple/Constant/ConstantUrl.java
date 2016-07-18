@@ -83,7 +83,13 @@ public class ConstantUrl {
     public static final String ADD_ANSWER = "forum/addmessage";
 
     //办税须知
-    public static final String TAX_SHOULDKNOW="work/search";
+    public static final String TAX_SHOULDKNOW = "work/search";
+
+    //获取办税须知详情
+    public static final String GET_WORK_DETAIL = "work/getWork";
+
+    //修改办税须知
+    public static final String UPDATE_WORK = "work/updateWork";
 
 
 }

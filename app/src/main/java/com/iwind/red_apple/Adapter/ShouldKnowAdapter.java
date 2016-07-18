@@ -61,7 +61,7 @@ public class ShouldKnowAdapter extends BaseAdapter {
 
 
         holder.tv_content.setText(mList.get(position).get(ConstantString.WORK_CONTENT));
-        holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
+        holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
         holder.tv_type.setText(mList.get(position).get(ConstantString.WORK_LABEL));
 
 

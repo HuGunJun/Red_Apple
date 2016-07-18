@@ -64,11 +64,9 @@ public class DiscussDetailAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        x.image().bind(holder.iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC + mList.get
+        x.image().bind(holder.iv_avator, ConstantUrl.USER_PIC + mList.get
                         (position).get(ConstantString.USER_PIC),
                 MyApplication.getInstance().getOptions());
-        Log.i("main", ConstantUrl.BASE_URL + ConstantUrl.USER_PIC + mList.get
-                (position).get(ConstantString.USER_PIC));
         holder.tv_name.setText(mList.get(position).get(ConstantString.NICK_NAME));
         holder.tv_type.setText(mList.get(position).get(ConstantString.POSITON));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));

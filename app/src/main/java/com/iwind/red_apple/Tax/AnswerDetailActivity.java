@@ -187,7 +187,7 @@ public class AnswerDetailActivity extends EaseBaseActivity {
                         tv_answer_content.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
                                 .FORUMMESSAGE)));
                         tv_userdescirbe.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString.POSITON)));
-                        x.image().bind(iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC +
+                        x.image().bind(iv_avator, ConstantUrl.USER_PIC +
                                 OBJ.getString(ConstantString.USER_PIC), MyApplication.getInstance
                                 ().getOptions());
                     } catch (JSONException e) {

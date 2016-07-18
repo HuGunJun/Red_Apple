@@ -1,6 +1,7 @@
 package com.iwind.red_apple.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.easemob.easeui.utils.DateUtils;
 import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
 import org.xutils.image.ImageOptions;
@@ -65,7 +67,10 @@ public class DiscussAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         ImageOptions options = MyApplication.getInstance().getOptions();
-        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.USER_PIC), options);
+        x.image().bind(holder.iv_avator, ConstantUrl.USER_PIC + mList.get(position).get
+                (ConstantString.USER_PIC), options);
+        Log.i("main", ConstantUrl.BASE_URL + mList.get(position).get
+                (ConstantString.USER_PIC));
         holder.tv_content.setText(mList.get(position).get(ConstantString.FORUM_CONTENT));
 
         if (mList.get(position).get(ConstantString.NICK_NAME).equals("")) {

@@ -6,9 +6,12 @@ package com.iwind.red_apple.Constant;
  * 邮箱：www.guojunkuaile@qq.com
  */
 public class ConstantUrl {
+
+    public static final String BASE = "http://119.254.102.77:8071/";
+
     //基地址
-//    public static final String BASE_URL = "http://119.254.102.77:8071/af_interface/";
-    public static final String BASE_URL = "http://192.168.0.197:8080/af_interface/";
+    public static final String BASE_URL = BASE + "af_interface/";
+//    public static final String BASE_URL = BASE+"af_interface/";
 
     //登陆
     public static final String LOGIN = "api/login";
@@ -62,7 +65,7 @@ public class ConstantUrl {
     public static final String GET_DISCUSS = "forum/search";
 
     //用户头像地址
-    public static final String USER_PIC = "pic/userpic/";
+    public static final String USER_PIC = BASE + "pic/userpic/";
 
     //获取讨论详情页面
     public static final String GET_DISCUSS_DETAIL = "forum/getForum";

@@ -174,7 +174,7 @@ public class MyApplication extends Application {
             return options;
         }
         return new ImageOptions.Builder()
-                .setLoadingDrawableId(R.mipmap.ic_launcher).setFailureDrawableId(R.mipmap
+                .setLoadingDrawableId(R.mipmap.icon_default_avatar).setFailureDrawableId(R.mipmap
                         .icon_default_avatar).setUseMemCache(true).setCircular(true).build();
     }
 

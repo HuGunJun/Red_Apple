@@ -44,7 +44,7 @@ public class MyQuestionActivity extends EaseBaseActivity {
     XListView lv_question;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private MyQuestionAdapter mMyQuestionAdapter;
-    int page = 0;
+    int page = 1;
 
 
     @Override
@@ -144,7 +144,7 @@ public class MyQuestionActivity extends EaseBaseActivity {
         lv_question.setXListViewListener(new XListView.IXListViewListener() {
             @Override
             public void onRefresh() {
-                page = 0;
+                page = 1;
                 mList.clear();
                 InitData();
             }

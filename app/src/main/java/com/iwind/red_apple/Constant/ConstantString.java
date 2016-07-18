@@ -144,6 +144,9 @@ public class ConstantString {
     //讨论时间
     public static final String FORUM_TIME = "forumTime";
 
+    //行业
+    public static final String HLABEL = "hlabel";
+
     //讨论税种
     public static final String TAX_TYPE = "label";
 

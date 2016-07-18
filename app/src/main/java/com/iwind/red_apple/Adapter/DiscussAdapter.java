@@ -66,10 +66,11 @@ public class DiscussAdapter extends BaseAdapter {
         }
         ImageOptions options = MyApplication.getInstance().getOptions();
         x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), options);
-        holder.tv_content.setText(mList.get(position).get(ConstantString.FORUM_TITLE));
+        holder.tv_content.setText(mList.get(position).get(ConstantString.FORUM_CONTENT));
         holder.tv_name.setText(mList.get(position).get(ConstantString.USER_NAME));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
-        holder.tv_type.setText(mList.get(position).get(ConstantString.TAX_TYPE));
+        holder.tv_type.setText(mList.get(position).get(ConstantString.HLABEL) + "-" + mList.get(position).get
+                (ConstantString.TAX_TYPE));
         holder.tv_time.setText(mList.get(position).get
                 (ConstantString.FORUM_TIME));
         return convertView;

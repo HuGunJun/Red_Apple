@@ -113,6 +113,8 @@ public class DiscussActivity extends EaseBaseActivity {
                                     (jsonArray
                                             .getJSONObject(i)
                                             .getString(ConstantString.MESSAGE_COUNT)));
+                            hashMap.put(ConstantString.HLABEL, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.HLABEL)));
                             hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull
                                     (jsonArray.getJSONObject(i)
                                             .getString(ConstantString.TAX_TYPE)));

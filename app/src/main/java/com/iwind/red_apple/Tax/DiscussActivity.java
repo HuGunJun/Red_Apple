@@ -82,7 +82,8 @@ public class DiscussActivity extends EaseBaseActivity {
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-
+                lv_discuss.stopLoadMore();
+                lv_discuss.stopRefresh();
                 Log(result);
                 if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
                         ConstantString.STATE,
@@ -136,11 +137,9 @@ public class DiscussActivity extends EaseBaseActivity {
                                     .ParaseNull
                                             (jsonArray.getJSONObject(i).getString(ConstantString
                                                     .SHARENUMBER)));
-
-
-//                            hashMap.put(ConstantString.IV_URL, ResponseUtils.ParaseNull
-// (jsonArray.getJSONObject(i)
-//                                    .getString(ConstantString.IV_URL)));
+                            hashMap.put(ConstantString.USER_PIC, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.USER_PIC)));
                             mList.add(hashMap);
                         }
                         discussAdapter = new DiscussAdapter(context, mList);

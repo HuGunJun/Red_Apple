@@ -65,7 +65,7 @@ public class DiscussAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         ImageOptions options = MyApplication.getInstance().getOptions();
-        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), options);
+        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.USER_PIC), options);
         holder.tv_content.setText(mList.get(position).get(ConstantString.FORUM_CONTENT));
 
         if (mList.get(position).get(ConstantString.NICK_NAME).equals("")) {

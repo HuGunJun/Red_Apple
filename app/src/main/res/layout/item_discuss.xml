@@ -103,6 +103,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentBottom="true"
+                    android:lines="1"
+                    android:ellipsize="end"
                     android:layout_marginLeft="7.5dp"
                     android:layout_toEndOf="@+id/imageView"
                     android:gravity="center"

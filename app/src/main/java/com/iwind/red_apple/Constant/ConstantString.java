@@ -178,15 +178,22 @@ public class ConstantString {
     public static final String WORK_ID = "workId";
 
     //办税须知内容
-    public static final String WORK_CONTENT="workContent";
+    public static final String WORK_CONTENT = "workContent";
 
     //办税须知标签
-    public static final String WORK_LABEL="workLabels";
+    public static final String WORK_LABEL = "workLabels";
 
     //办税须知title
-    public static final String WORK_TITLE="workTitle";
+    public static final String WORK_TITLE = "workTitle";
 
+    //客户端id
+    public static final String CLIENT_ID = "clientId";
 
+    //客户端标题
+    public static final String CLIENT_TITLE = "clientTitle";
+
+    //客户端内容
+    public static final String CLIENT_CONTENT = "clientContent";
 
     /**
      * 用户个人信息获取接口字段-------开始

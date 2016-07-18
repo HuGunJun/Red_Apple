@@ -91,5 +91,8 @@ public class ConstantUrl {
     //修改办税须知
     public static final String UPDATE_WORK = "work/updateWork";
 
+    //搜索客户端
+    public static final String GETCLIENT = "client/search";
+
 
 }

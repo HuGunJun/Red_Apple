@@ -26,11 +26,12 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ * 地税客户端
  * 作者：HuGuoJun
  * 2016/6/12 11:46
  * 邮箱：www.guojunkuaile@qq.com
  */
-public class Frag_Local extends Fragment {
+public class Frag_Local extends BaseFragment {
 
     View view;
     @ViewInject(R.id.lv_local)

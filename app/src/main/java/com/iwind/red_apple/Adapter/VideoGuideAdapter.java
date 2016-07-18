@@ -58,6 +58,11 @@ public class VideoGuideAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+
+        holder.tv_type.setText(mList.get(position).get(ConstantString.TAX_TYPE));
+        holder.tv_content.setText(mList.get(position).get(ConstantString.CLIENT_CONTENT));
+        holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
+
         return convertView;
     }
 

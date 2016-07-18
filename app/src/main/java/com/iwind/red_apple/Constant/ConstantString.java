@@ -43,6 +43,12 @@ public class ConstantString {
     //姓名大写
     public static final String USERNAME = "userName";
 
+    //模块id
+    public static final String MOUDEL_ID = "moudleId";
+
+    //模块类型
+    public static final String MOUDEL_TYPE = "moudleType";
+
     //类型
     public static final String TYPE = "type";
 

@@ -72,6 +72,13 @@ public class DiscussActivity extends EaseBaseActivity {
         lv_discuss.setPullRefreshEnable(true);
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        InitData();
+    }
+
     @Override
     public void InitData() {
 

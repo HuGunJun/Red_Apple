@@ -2,6 +2,7 @@ package com.iwind.red_apple.Tax;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.print.PageRange;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +15,7 @@ import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.xlistview.XListView;
 import com.iwind.red_apple.Adapter.DiscussDetailAdapter;
+import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
@@ -27,6 +29,7 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,6 +59,7 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
     TextView tv_answer;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private DiscussDetailAdapter mDiscussDetailAdapter;
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +86,51 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
                         getIntent().getExtras().getString
                                 (ConstantString.FORUM_ID)));
                 break;
-            case R.id.lv_collection_talk:
+            case R.id.lv_collection_talk://话题收藏
+                CollectionTalk();
                 break;
         }
+    }
+
+    /**
+     * 收藏话题
+     */
+    private void CollectionTalk() {
+        ShowLoadingDialog();
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.COLLECTION);
+        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
+        params.addBodyParameter(ConstantString.MOUDEL_ID, getIntent().getExtras().getString
+                (ConstantString.FORUM_ID));
+        params.addBodyParameter(ConstantString.MOUDEL_TYPE, "3");//3为讨论详情页面收藏
+        x.http().post(params, new Callback.CommonCallback<String>() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Log(result);
+                        if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                                ConstantString.STATE,
+                                ConstantString.RESULT_INFO)) {
+                            Toast("操作成功");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable ex, boolean isOnCallback) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(CancelledException cex) {
+
+                    }
+
+                    @Override
+                    public void onFinished() {
+                        CloseLoadingDialog();
+                    }
+                }
+
+        );
     }
 
     public void InitView() {

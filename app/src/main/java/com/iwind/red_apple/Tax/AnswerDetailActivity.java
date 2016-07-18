@@ -72,8 +72,51 @@ public class AnswerDetailActivity extends EaseBaseActivity {
                 MethodCaiOrZan(1);
                 break;
             case R.id.lv_collection:
+                CollectionAnswer();
                 break;
         }
+    }
+
+
+    /**
+     * 收藏话题
+     */
+    private void CollectionAnswer() {
+        ShowLoadingDialog();
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.COLLECTION);
+        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
+        params.addBodyParameter(ConstantString.MOUDEL_ID, getIntent().getExtras().getString
+                (ConstantString.FORUMMESSAGEID));
+        params.addBodyParameter(ConstantString.MOUDEL_TYPE, "4");//4为回答详情页面收藏
+        x.http().post(params, new Callback.CommonCallback<String>() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Log(result);
+                        if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                                ConstantString.STATE,
+                                ConstantString.RESULT_INFO)) {
+                            Toast("操作成功");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable ex, boolean isOnCallback) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(CancelledException cex) {
+
+                    }
+
+                    @Override
+                    public void onFinished() {
+                        CloseLoadingDialog();
+                    }
+                }
+
+        );
     }
 
     /**

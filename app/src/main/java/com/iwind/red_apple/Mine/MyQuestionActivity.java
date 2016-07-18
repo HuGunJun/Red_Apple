@@ -1,7 +1,9 @@
 package com.iwind.red_apple.Mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.ResponseUtils;
@@ -12,6 +14,7 @@ import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
+import com.iwind.red_apple.Tax.DiscussDetailActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -150,6 +153,14 @@ public class MyQuestionActivity extends EaseBaseActivity {
             public void onLoadMore() {
                 page++;
                 InitData();
+            }
+        });
+        lv_question.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(context, DiscussDetailActivity.class).putExtra(ConstantString.FORUM_ID,
+                                mList.get(position - 1).get(ConstantString.FORUM_ID))
+                );
             }
         });
     }

@@ -51,12 +51,25 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_tax_type:
-                startActivity(new Intent(context, TaxTypeSelectActivity.class));
+                startActivityForResult(new Intent(context, TaxTypeSelectActivity.class), REQUEST_TYPE);
                 break;
             case R.id.rl_industry:
-                startActivity(new Intent(context, IndustrySelectActivity.class));
+                startActivityForResult(new Intent(context, IndustrySelectActivity.class), REQUEST_INDUSTRY);
                 break;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_INDUSTRY:
+                tv_industry.setText(data.getExtras().getString(REQUEST_INDUSTRY + ""));
+                break;
+            case REQUEST_TYPE:
+                tv_type.setText(data.getExtras().getString(REQUEST_TYPE + ""));
+                break;
+        }
+
     }
 
     @Override

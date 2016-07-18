@@ -132,6 +132,7 @@ public class MyAnswerActivity extends EaseBaseActivity {
             @Override
             public void onRefresh() {
                 page = 0;
+                mList.clear();
                 InitData();
             }
 

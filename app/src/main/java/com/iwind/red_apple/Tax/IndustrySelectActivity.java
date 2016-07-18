@@ -1,8 +1,10 @@
 package com.iwind.red_apple.Tax;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.ResponseUtils;
@@ -34,12 +36,17 @@ import java.util.List;
  */
 @ContentView(R.layout.activity_act_industryselect)
 public class IndustrySelectActivity extends EaseBaseActivity {
+
+    public static final int REQUEST_INDUSTRY = 1001;//
+    public static final int REQUEST_TYPE = 1002;//
+
     @ViewInject(R.id.title_bar)
     EaseTitleBar title_bar;
     @ViewInject(R.id.lv_industry_select)
     XListView lv_industry_select;
     private List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
     private IndustrySelectAdapter mIndustrySelectAdapter;
+    private String selectString;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -124,7 +131,14 @@ public class IndustrySelectActivity extends EaseBaseActivity {
         title_bar.setRightTextClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (selectString.equals("")) {
+                    Toast("请选择行业");
+                } else {
+                    Intent in = new Intent();
+                    in.putExtra(REQUEST_INDUSTRY + "", selectString);
+                    setResult(RESULT_OK, in);
+                    finish();
+                }
             }
         });
         lv_industry_select.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -132,6 +146,7 @@ public class IndustrySelectActivity extends EaseBaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 IndustrySelectAdapter.SetSelect(position - 1);
                 mIndustrySelectAdapter.notifyDataSetChanged();
+                selectString = list.get(position - 1).get(ConstantString.TYPE);
             }
         });
     }

@@ -7,8 +7,11 @@ package com.iwind.red_apple.Constant;
  */
 public class ConstantString {
 
-    //手机号
+    //注册手机号
     public static final String PHONE_NUM = "phone";
+
+    //解析用户手机号
+    public static final String USER_PHONE = "userPhone";
 
     //验证码
     public static final String SMSCODE = "smsCode";

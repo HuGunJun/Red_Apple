@@ -7,8 +7,8 @@ package com.iwind.red_apple.Constant;
  */
 public class ConstantUrl {
     //基地址
-    public static final String BASE_URL = "http://119.254.102.77:8071/af_interface/";
-//    public static final String BASE_URL = "http://192.168.0.196:8080/af_interface/";
+//    public static final String BASE_URL = "http://119.254.102.77:8071/af_interface/";
+    public static final String BASE_URL = "http://192.168.0.197:8080/af_interface/";
 
     //登陆
     public static final String LOGIN = "api/login";

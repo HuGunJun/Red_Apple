@@ -67,7 +67,12 @@ public class DiscussAdapter extends BaseAdapter {
         ImageOptions options = MyApplication.getInstance().getOptions();
         x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), options);
         holder.tv_content.setText(mList.get(position).get(ConstantString.FORUM_CONTENT));
-        holder.tv_name.setText(mList.get(position).get(ConstantString.USER_NAME));
+
+        if (mList.get(position).get(ConstantString.NICK_NAME).equals("")) {
+            holder.tv_name.setText(mList.get(position).get(ConstantString.USER_PHONE));
+        } else {
+            holder.tv_name.setText(mList.get(position).get(ConstantString.NICK_NAME));
+        }
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
         holder.tv_type.setText(mList.get(position).get(ConstantString.HLABEL) + "-" + mList.get(position).get
                 (ConstantString.TAX_TYPE));

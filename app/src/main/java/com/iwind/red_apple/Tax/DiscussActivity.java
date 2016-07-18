@@ -100,6 +100,10 @@ public class DiscussActivity extends EaseBaseActivity {
                             hashMap.put(ConstantString.USER_NAME, ResponseUtils.ParaseNull
                                     (jsonArray.getJSONObject(i)
                                             .getString(ConstantString.USER_NAME)));
+                            hashMap.put(ConstantString.NICK_NAME, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.NICK_NAME)));
+                            hashMap.put(ConstantString.USER_PHONE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.USER_PHONE)));
                             hashMap.put(ConstantString.FORUM_TIME, DateUtils
                                     .ParseTimeMillisToTime(ResponseUtils
                                             .ParaseNull(jsonArray

@@ -77,7 +77,10 @@ public class ConstantUrl {
     public static final String FORUM_ZAIORCAI = "forum/messageCaiZan";
 
     //添加讨论（添加问题)
-    public static final String ADD_FORUM="forum/addforum";
+    public static final String ADD_FORUM = "forum/addforum";
+
+    //添加回答
+    public static final String ADD_ANSWER = "forum/addmessage";
 
 
 }

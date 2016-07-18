@@ -70,7 +70,9 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.lv_add_answer:
-                startActivity(new Intent(context, AddAnswerActivity.class));
+                startActivity(new Intent(context, AddAnswerActivity.class).putExtra(ConstantString.FORUM_ID,
+                        getIntent().getExtras().getString
+                        (ConstantString.FORUM_ID)));
                 break;
             case R.id.lv_collection_talk:
                 break;

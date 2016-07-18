@@ -35,7 +35,7 @@ import java.util.List;
  * 邮箱：www.guojunkuaile@qq.com
  */
 @ContentView(R.layout.activity_act_industryselect)
-public class IndustrySelectActivity extends EaseBaseActivity {
+public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
 
     public static final int REQUEST_INDUSTRY = 1001;//
     public static final int REQUEST_TYPE = 1002;//

@@ -54,7 +54,7 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
                 startActivityForResult(new Intent(context, TaxTypeSelectActivity.class), REQUEST_TYPE);
                 break;
             case R.id.rl_industry:
-                startActivityForResult(new Intent(context, IndustrySelectActivity.class), REQUEST_INDUSTRY);
+                startActivityForResult(new Intent(context, IndustryAndTypeSelectActivity.class), REQUEST_INDUSTRY);
                 break;
         }
     }

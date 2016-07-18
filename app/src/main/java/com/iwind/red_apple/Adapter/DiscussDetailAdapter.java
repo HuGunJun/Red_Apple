@@ -1,6 +1,7 @@
 package com.iwind.red_apple.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,10 +67,12 @@ public class DiscussDetailAdapter extends BaseAdapter {
         x.image().bind(holder.iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC + mList.get
                         (position).get(ConstantString.USER_PIC),
                 MyApplication.getInstance().getOptions());
-
-        holder.tv_name.setText(mList.get(position).get(ConstantString.USERNAME));
-
-
+        Log.i("main", ConstantUrl.BASE_URL + ConstantUrl.USER_PIC + mList.get
+                (position).get(ConstantString.USER_PIC));
+        holder.tv_name.setText(mList.get(position).get(ConstantString.NICK_NAME));
+        holder.tv_type.setText(mList.get(position).get(ConstantString.POSITON));
+        holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
+        holder.tv_content.setText(mList.get(position).get(ConstantString.FORUMMESSAGE));
         return convertView;
     }
 

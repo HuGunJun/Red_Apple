@@ -45,7 +45,8 @@ public class AnswerDetailActivity extends EaseBaseActivity {
     TextView tv_great_count;
     @ViewInject(R.id.tv_downcount)
     TextView tv_downcount;
-
+    @ViewInject(R.id.tv_answer_content)
+    TextView tv_answer_content;
     String forummessage;
 
     @Override
@@ -170,8 +171,9 @@ public class AnswerDetailActivity extends EaseBaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject OBJ = jsonObject.getJSONObject(ConstantString.OBJ);
+
                         tv_name.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
-                                .USERNAME)));
+                                .NICK_NAME)));
                         tv_great_count.setText(ResponseUtils.ParaseNull(OBJ.getString
                                 (ConstantString.ZANCOUTN)).equals("") ? "0" : ResponseUtils
                                 .ParaseNull(OBJ.getString
@@ -182,9 +184,12 @@ public class AnswerDetailActivity extends EaseBaseActivity {
                                         (ConstantString.CAICOUNT)));
                         forummessage = ResponseUtils.ParaseNull(OBJ.getString(ConstantString
                                 .FORUMMESSAGE));
-//                        x.image().bind(iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC +
-//                                OBJ.getString(ConstantString.USER_PIC), MyApplication.getInstance
-//                                ().getOptions());
+                        tv_answer_content.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
+                                .FORUMMESSAGE)));
+                        tv_userdescirbe.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString.POSITON)));
+                        x.image().bind(iv_avator, ConstantUrl.BASE_URL + ConstantUrl.USER_PIC +
+                                OBJ.getString(ConstantString.USER_PIC), MyApplication.getInstance
+                                ().getOptions());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

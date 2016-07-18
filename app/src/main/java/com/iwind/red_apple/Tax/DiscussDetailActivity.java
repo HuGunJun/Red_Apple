@@ -155,8 +155,8 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
                                     .getString(ConstantString.USER_PIC)));
                             hashMap.put(ConstantString.FORUMMESSAGEID, jsonArray.getJSONObject(i)
                                     .getString(ConstantString.FORUMMESSAGEID));
-//                            hashMap.put(ConstantString.NICK_NAME, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
-//                                    .getString(ConstantString.NICK_NAME)));
+                            hashMap.put(ConstantString.NICK_NAME, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.NICK_NAME)));
                             hashMap.put(ConstantString.FORUMMESSAGE, ResponseUtils.ParaseNull(jsonArray.getJSONObject
                                     (i).getString(ConstantString.FORUMMESSAGE)));
                             hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
@@ -165,6 +165,8 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
                                     .getJSONObject(i)
                                     .getString(ConstantString
                                             .ZANCOUTN)));
+                            hashMap.put(ConstantString.POSITON, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.POSITON)));
                             mList.add(hashMap);
                         }
                         mDiscussDetailAdapter = new DiscussDetailAdapter(context, mList);

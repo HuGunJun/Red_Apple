@@ -201,6 +201,8 @@ public class ConstantString {
     //客户端内容
     public static final String CLIENT_CONTENT = "clientContent";
 
+    //用户职位
+    public static final String POSITON = "position";
     /**
      * 用户个人信息获取接口字段-------开始
      */

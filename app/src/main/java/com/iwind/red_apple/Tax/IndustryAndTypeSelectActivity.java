@@ -46,7 +46,8 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
     XListView lv_industry_select;
     private List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
     private IndustrySelectAdapter mIndustrySelectAdapter;
-    private String selectString;
+    private String selectString = "";
+    List<String> selectid = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -66,7 +67,12 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
     @Override
     public void InitView() {
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
-        title_bar.setTitle(getResources().getString(R.string.industry_select));
+        if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_INDUSTRY) {
+            title_bar.setTitle(getResources().getString(R.string.industry_select));
+        }
+        if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_TYPE) {
+            title_bar.setTitle(getResources().getString(R.string.tax_type_select));
+        }
         title_bar.setRightText(getResources().getString(R.string.done));
         lv_industry_select.setPullLoadEnable(false);
         lv_industry_select.setPullRefreshEnable(false);
@@ -76,7 +82,13 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
     public void InitData() {
         ShowLoadingDialog();
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GET_LABEL);
-        params.addBodyParameter(ConstantString.LABLETYPE, "1");
+        if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_INDUSTRY) {
+            params.addBodyParameter(ConstantString.LABLETYPE, "1");
+        }
+        if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_TYPE) {
+            params.addBodyParameter(ConstantString.LABLETYPE, "2");
+        }
+
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -131,22 +143,51 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
         title_bar.setRightTextClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (selectString.equals("")) {
-                    Toast("请选择行业");
-                } else {
-                    Intent in = new Intent();
-                    in.putExtra(REQUEST_INDUSTRY + "", selectString);
-                    setResult(RESULT_OK, in);
-                    finish();
+                if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_INDUSTRY) {
+                    if (selectString.equals("")) {
+                        Toast("请选择行业");
+                    } else {
+                        Intent in = new Intent();
+                        in.putExtra(REQUEST_INDUSTRY + "", selectString);
+                        setResult(RESULT_OK, in);
+                        finish();
+                    }
+                }
+                if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_TYPE) {
+                    if (selectString.equals("")) {
+                        Toast("请选择税种");
+                    } else {
+                        Intent in = new Intent();
+                        in.putExtra(REQUEST_TYPE + "", selectString);
+                        setResult(RESULT_OK, in);
+                        finish();
+                    }
                 }
             }
         });
         lv_industry_select.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                IndustrySelectAdapter.SetSelect(position - 1);
-                mIndustrySelectAdapter.notifyDataSetChanged();
-                selectString = list.get(position - 1).get(ConstantString.TYPE);
+                if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_INDUSTRY) {
+                    IndustrySelectAdapter.SetSelect(position - 1);
+                    mIndustrySelectAdapter.notifyDataSetChanged();
+                    selectString = list.get(position - 1).get(ConstantString.TYPE);
+                }
+                if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_TYPE) {
+                    if (selectid.size() > 1) {
+                        Toast("税种最多选择两项");
+                        return;
+                    }
+                    if (!selectid.contains(position + "")) {
+                        selectid.add(position + "");
+                        list.get(position - 1).put(ConstantString.IS_SELECT, "1");
+                        selectString = selectString + list.get(position - 1).get(ConstantString.TYPE) + ",";
+                    } else {
+                        list.get(position - 1).put(ConstantString.IS_SELECT, "0");
+                        selectid.remove(position + "");
+                    }
+                    mIndustrySelectAdapter.notifyDataSetChanged();
+                }
             }
         });
     }

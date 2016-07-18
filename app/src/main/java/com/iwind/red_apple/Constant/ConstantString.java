@@ -123,6 +123,12 @@ public class ConstantString {
     //标签名称
     public static final String LABELNAME = "labelName";
 
+    //标签
+    public static final String LABLES="labels";
+
+    //关键字
+    public static final String KEYWORD="keywords";
+
     //是否选中
     public static final String IS_SELECT = "isSelect";
 

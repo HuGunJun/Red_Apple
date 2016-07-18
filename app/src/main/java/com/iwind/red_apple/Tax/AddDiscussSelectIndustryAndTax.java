@@ -2,15 +2,23 @@ package com.iwind.red_apple.Tax;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
+import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -112,6 +120,60 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
      * 提交
      */
     private void Commit() {
-        ShowLoadingDialog();
+        if (TextUtils.isEmpty(discussTitle)) {
+            Toast(getResources().getString(R.string.please_input_discuss_title));
+            return;
+        }
+        if (TextUtils.isEmpty(tv_industry.getText().toString())) {
+            Toast("请进行" + getResources().getString(R.string.industry_select));
+            return;
+        }
+        if (TextUtils.isEmpty(tv_type.getText().toString())) {
+            Toast("请进行" + getResources().getString(R.string.tax_type_select));
+            return
+                    ;
+        }
+        if (TextUtils.isEmpty(et_discuss_content.getText().toString())) {
+            Toast(getResources().getString(R.string.please_input_discuss));
+            return;
+        }
+
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.ADD_FORUM);
+        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
+        params.addBodyParameter(ConstantString.FORUM_TITLE, discussTitle);
+        params.addBodyParameter(ConstantString.FORUM_CONTENT, et_discuss_content.getText().toString());
+        params.addBodyParameter(ConstantString.LABLES, tv_industry.getText().toString());
+        params.addBodyParameter(ConstantString.KEYWORD, tv_type.getText().toString());
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result, ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                ShowLoadingDialog();
+            }
+        });
+
     }
 }

@@ -76,5 +76,8 @@ public class ConstantUrl {
     //讨论回答踩赞
     public static final String FORUM_ZAIORCAI = "forum/messageCaiZan";
 
+    //添加讨论（添加问题)
+    public static final String ADD_FORUM="forum/addforum";
+
 
 }

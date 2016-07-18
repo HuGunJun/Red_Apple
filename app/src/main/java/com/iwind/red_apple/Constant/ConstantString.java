@@ -174,6 +174,19 @@ public class ConstantString {
     //我的提问中列表标签
     public static final String FORUMKEYWORD = "forumKeyword";
 
+    //办税须知Id
+    public static final String WORK_ID = "workId";
+
+    //办税须知内容
+    public static final String WORK_CONTENT="workContent";
+
+    //办税须知标签
+    public static final String WORK_LABEL="workLabels";
+
+    //办税须知title
+    public static final String WORK_TITLE="workTitle";
+
+
 
     /**
      * 用户个人信息获取接口字段-------开始

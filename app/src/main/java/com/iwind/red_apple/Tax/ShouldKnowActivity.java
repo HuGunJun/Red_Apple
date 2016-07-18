@@ -6,13 +6,20 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.xlistview.XListView;
 import com.iwind.red_apple.Adapter.ShouldKnowAdapter;
 import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 import com.iwind.red_apple.Search.SearchAcitivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -37,13 +44,14 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
 
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private ShouldKnowAdapter mNewsAdapter;
-
+    private int page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         InitView();
+        ShowLoadingDialog();
         InitData();
         setOnClickListener();
     }
@@ -61,7 +69,8 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-                intent.putExtra(ConstantString.FORUM_TITLE, "这是什么特么的标题擦擦擦啊擦擦啊擦");
+                intent.putExtra(ConstantString.WORK_TITLE, mList.get(position - 1).get(ConstantString.WORK_TITLE));
+                intent.putExtra(ConstantString.WORK_ID, mList.get(position - 1).get(ConstantString.WORK_ID));
                 startActivity(intent);
             }
         });
@@ -75,6 +84,20 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), SearchAcitivity.class));
+            }
+        });
+        lv_should_know.setXListViewListener(new XListView.IXListViewListener() {
+            @Override
+            public void onRefresh() {
+                page = 0;
+                mList.clear();
+                InitData();
+            }
+
+            @Override
+            public void onLoadMore() {
+                page++;
+                InitData();
             }
         });
     }
@@ -91,20 +114,69 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
         title_bar.setTitle(getResources().getString(R.string.should_know));
         title_bar.setRightImageRightResource(R.drawable.iv_add);
         title_bar.setRightImageLeftResource(R.drawable.iv_search);
-        lv_should_know.setPullLoadEnable(false);
-        lv_should_know.setPullRefreshEnable(false);
+        lv_should_know.setPullLoadEnable(true);
+        lv_should_know.setPullRefreshEnable(true);
     }
 
     @Override
     public void InitData() {
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.TAX_SHOULDKNOW);
+        params.addBodyParameter(ConstantString.SEARCH_CONTENT, "");
+        params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
+        params.addBodyParameter(ConstantString.PAGE, page + "");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                lv_should_know.stopRefresh();
+                lv_should_know.stopLoadMore();
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.WORK_ID, jsonArray.getJSONObject(i).getString(ConstantString
+                                    .WORK_ID));
+                            hashMap.put(ConstantString.WORK_CONTENT, ResponseUtils.ParaseNull(jsonArray.getJSONObject
+                                    (i).getString
+                                    (ConstantString.WORK_CONTENT)));
+                            hashMap.put(ConstantString.WORK_LABEL, jsonArray.getJSONObject(i).getString
+                                    (ConstantString.WORK_LABEL));
+                            hashMap.put(ConstantString.WORK_TITLE, jsonArray.getJSONObject(i).getString
+                                    (ConstantString.WORK_TITLE));
+                            hashMap.put(ConstantString.MESSAGE_COUNT, jsonArray.getJSONObject(i).getString
+                                    (ConstantString.MESSAGE_COUNT));
+                            mList.add(hashMap);
+                        }
+                        mNewsAdapter = new ShouldKnowAdapter(context, mList);
+                        lv_should_know.setAdapter(mNewsAdapter);
+                        mNewsAdapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                CloseLoadingDialog();
+            }
+        });
 
 
-        for (int i = 0; i < 20; i++) {
-            HashMap<String, String> hashMap = new HashMap<String, String>();
-            mList.add(hashMap);
-        }
-        mNewsAdapter = new ShouldKnowAdapter(getApplicationContext(), mList);
-        lv_should_know.setAdapter(mNewsAdapter);
-        mNewsAdapter.notifyDataSetChanged();
     }
 }

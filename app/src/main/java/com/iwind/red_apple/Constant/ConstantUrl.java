@@ -82,5 +82,8 @@ public class ConstantUrl {
     //添加回答
     public static final String ADD_ANSWER = "forum/addmessage";
 
+    //办税须知
+    public static final String TAX_SHOULDKNOW="work/search";
+
 
 }

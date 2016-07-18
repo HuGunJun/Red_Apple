@@ -124,10 +124,10 @@ public class ConstantString {
     public static final String LABELNAME = "labelName";
 
     //标签
-    public static final String LABLES="labels";
+    public static final String LABLES = "labels";
 
     //关键字
-    public static final String KEYWORD="keywords";
+    public static final String KEYWORD = "keywords";
 
     //是否选中
     public static final String IS_SELECT = "isSelect";
@@ -170,6 +170,9 @@ public class ConstantString {
 
     //踩赞类型
     public static final String CAIZANTYPE = "forumCaizanType";
+
+    //我的提问中列表标签
+    public static final String FORUMKEYWORD = "forumKeyword";
 
 
     /**

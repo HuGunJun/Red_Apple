@@ -61,6 +61,13 @@ public class MyQuestionAdapter extends BaseAdapter {
         }
 
 
+
+        holder.tv_content.setText(list.get(position).get(ConstantString.FORUM_CONTENT));
+        holder.tv_type.setText(list.get(position).get(ConstantString.FORUMKEYWORD));
+
+
+
+
         return convertView;
     }
 

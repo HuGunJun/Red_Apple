@@ -138,6 +138,7 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
             return;
         }
 
+        ShowLoadingDialog();
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.ADD_FORUM);
         params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
         params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
@@ -171,7 +172,7 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
 
             @Override
             public void onFinished() {
-                ShowLoadingDialog();
+                CloseLoadingDialog();
             }
         });
 

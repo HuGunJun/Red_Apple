@@ -13,6 +13,7 @@ import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
@@ -91,7 +92,22 @@ public class MyQuestionActivity extends EaseBaseActivity {
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
-
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.FORUM_ID, jsonArray.getJSONObject(i).getString(ConstantString
+                                    .FORUM_ID));
+                            hashMap.put(ConstantString.FORUM_CONTENT, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString
+                                            (ConstantString.FORUM_CONTENT)));
+                            hashMap.put(ConstantString.FORUMKEYWORD, ResponseUtils.ParaseNull(jsonArray.getJSONObject
+                                    (i).getString
+                                    (ConstantString.FORUMKEYWORD)));
+                            mList.add(hashMap);
+                        }
+                        mMyQuestionAdapter = new MyQuestionAdapter(context, mList);
+                        lv_question.setAdapter(mMyQuestionAdapter);
+                        mMyQuestionAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -112,13 +128,6 @@ public class MyQuestionActivity extends EaseBaseActivity {
         });
 
 
-        for (int i = 0; i < 20; i++) {
-            HashMap<String, String> hashMap = new HashMap<String, String>();
-            mList.add(hashMap);
-        }
-        mMyQuestionAdapter = new MyQuestionAdapter(this, mList);
-        lv_question.setAdapter(mMyQuestionAdapter);
-        mMyQuestionAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -133,6 +142,7 @@ public class MyQuestionActivity extends EaseBaseActivity {
             @Override
             public void onRefresh() {
                 page = 0;
+                mList.clear();
                 InitData();
             }
 

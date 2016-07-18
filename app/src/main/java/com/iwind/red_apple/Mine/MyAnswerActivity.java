@@ -13,6 +13,7 @@ import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
@@ -89,7 +90,7 @@ public class MyAnswerActivity extends EaseBaseActivity {
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
-
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

@@ -22,8 +22,7 @@
         <TextView
             android:id="@+id/tv_question_describe"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="国税是指国家上缴的税 ！地税这两个税有什么联系和区别？具体税种分开征收的依据是什么？" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <com.easemob.easeui.widget.xlistview.XListView

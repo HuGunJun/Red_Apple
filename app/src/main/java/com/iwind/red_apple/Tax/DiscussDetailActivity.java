@@ -53,6 +53,7 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
     TextView tv_messagecount;
     TextView tv_seeknumber;
     TextView tv_sharenumber;
+    TextView tv_answer;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private DiscussDetailAdapter mDiscussDetailAdapter;
 
@@ -99,7 +100,7 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
         tv_seeknumber = (TextView) discuss_detail_header.findViewById(R.id.tv_seeknumber);
         tv_sharenumber = (TextView) discuss_detail_header.findViewById(R.id
                 .tv_sharenumber);
-
+        tv_answer = (TextView) discuss_detail_header.findViewById(R.id.tv_answer);
 //        tv_label.setText(getIntent().getExtras().getString(ConstantString.TAX_TYPE));
 //        tv_messagecount.setText(getIntent().getExtras().getString(ConstantString.MESSAGE_COUNT));
 //        tv_question_describe.setText(getIntent().getExtras().getString(ConstantString
@@ -126,8 +127,9 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject OBJ = jsonObject.getJSONObject(ConstantString.OBJ);
+                        tv_answer.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString.FORUM_CONTENT)));
                         tv_label.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
-                                .TAX_TYPE)));
+                                .HLABEL)) + "-" + ResponseUtils.ParaseNull(OBJ.getString(ConstantString.TAX_TYPE)));
                         tv_question_describe.setText(ResponseUtils.ParaseNull(OBJ.getString
                                 (ConstantString.FORUM_TITLE)));
                         tv_messagecount.setText(ResponseUtils.ParaseNull(OBJ.getString

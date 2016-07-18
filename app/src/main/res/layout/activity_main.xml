@@ -38,7 +38,7 @@
         <RadioGroup
             android:id="@+id/main_radio"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="48dp"
             android:layout_gravity="left"
             android:background="@color/white"
             android:gravity="left"

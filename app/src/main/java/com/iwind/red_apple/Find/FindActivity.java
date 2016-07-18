@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.iwind.red_apple.R;
 import com.iwind.red_apple.Tax.NewActivity;
@@ -53,4 +55,25 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+    long exitTime = 0;
+
+    // 监听两次返回键
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string
+                        .again_login_out), Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+                return true;
+            } else {
+                finish();
+            }
+            return super.onKeyDown(keyCode, event);
+        }
+        return false;
+    }
+
 }

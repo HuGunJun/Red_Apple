@@ -13,9 +13,11 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.cycleview.CycleViewPager;
@@ -168,13 +170,13 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
                             ConstantString.RESULT_INFO)) {
                         tv_new_question.setText(jsonObject.getJSONObject(ConstantString.MAP)
                                 .getString(ConstantString
-                                .FORUMCOUNT));
+                                        .FORUMCOUNT));
                         tv_new_answer.setText(jsonObject.getJSONObject(ConstantString.MAP)
                                 .getString(ConstantString
-                                .MESSAGECOUNT));
+                                        .MESSAGECOUNT));
                         tv_new_move.setText(jsonObject.getJSONObject(ConstantString.MAP)
                                 .getString(ConstantString
-                                .NEWSCOUNT));
+                                        .NEWSCOUNT));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -228,4 +230,25 @@ public class TaxActivity extends AppCompatActivity implements View.OnClickListen
         super.onResume();
         LogUtil.i("预留");
     }
+
+    long exitTime = 0;
+
+    // 监听两次返回键
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string
+                        .again_login_out), Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+                return true;
+            } else {
+                finish();
+            }
+            return super.onKeyDown(keyCode, event);
+        }
+        return false;
+    }
+
 }

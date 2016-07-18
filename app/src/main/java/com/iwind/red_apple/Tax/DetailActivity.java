@@ -98,7 +98,7 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
 
             @Override
             public void onFinished() {
-
+                CloseLoadingDialog();
             }
         });
     }
@@ -155,7 +155,6 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject object = jsonObject.getJSONObject(ConstantString.OBJ);
-                        tv_describe.setText(ResponseUtils.ParaseNull(jsonObject.getString(ConstantString.WORK_TITLE)));
                         tv_content.setText(ResponseUtils.ParaseNull(object.getString(ConstantString.WORK_CONTENT)));
                         tv_great_count.setText(ResponseUtils.ParaseNull(object.getString(ConstantString.ZANCOUTN))
                                 .equals("") ? "0" : ResponseUtils.ParaseNull(object.getString(ConstantString
@@ -192,8 +191,10 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
         title_bar.setRightTextClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ShowLoadingDialog();
+                Update(2);
             }
         });
     }
+
 }

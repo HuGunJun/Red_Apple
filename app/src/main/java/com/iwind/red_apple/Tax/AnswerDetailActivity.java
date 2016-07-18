@@ -97,13 +97,6 @@ public class AnswerDetailActivity extends EaseBaseActivity {
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
-                        if (i == 1) {
-                            tv_great_count.setText(Integer.parseInt(tv_great_count.getText()
-                                    .toString()) + 1 + "");
-                        } else if (i == 2) {
-                            tv_downcount.setText(Integer.parseInt(tv_downcount.getText()
-                                    .toString()) + 1 + "");
-                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -122,7 +115,8 @@ public class AnswerDetailActivity extends EaseBaseActivity {
 
             @Override
             public void onFinished() {
-                CloseLoadingDialog();
+                ShowLoadingDialog();
+                InitData();
             }
         });
 

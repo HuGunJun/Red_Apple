@@ -100,7 +100,7 @@ public class AddAnswerActivity extends EaseBaseActivity implements View.OnClickL
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
-
+                        finish();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

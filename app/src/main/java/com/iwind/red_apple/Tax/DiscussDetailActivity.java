@@ -67,12 +67,19 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        ShowLoadingDialog();
+        InitData();
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.lv_add_answer:
                 startActivity(new Intent(context, AddAnswerActivity.class).putExtra(ConstantString.FORUM_ID,
                         getIntent().getExtras().getString
-                        (ConstantString.FORUM_ID)));
+                                (ConstantString.FORUM_ID)));
                 break;
             case R.id.lv_collection_talk:
                 break;
@@ -138,15 +145,26 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
                         mEaseTitleBar.setTitle(ResponseUtils.ParaseNull(OBJ.getString
                                 (ConstantString.FORUM_TITLE)));
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        mList.clear();
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
                             hashMap.put(ConstantString.USERNAME, ResponseUtils.ParaseNull
                                     (jsonArray.getJSONObject(i).getString(ConstantString
                                             .USERNAME)));
-                            hashMap.put(ConstantString.USER_PIC, jsonArray.getJSONObject(i)
-                                    .getString(ConstantString.USER_PIC));
+                            hashMap.put(ConstantString.USER_PIC, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.USER_PIC)));
                             hashMap.put(ConstantString.FORUMMESSAGEID, jsonArray.getJSONObject(i)
                                     .getString(ConstantString.FORUMMESSAGEID));
+//                            hashMap.put(ConstantString.NICK_NAME, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+//                                    .getString(ConstantString.NICK_NAME)));
+                            hashMap.put(ConstantString.FORUMMESSAGE, ResponseUtils.ParaseNull(jsonArray.getJSONObject
+                                    (i).getString(ConstantString.FORUMMESSAGE)));
+                            hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString
+                                            .ZANCOUTN)).equals("") ? "0" : ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i)
+                                    .getString(ConstantString
+                                            .ZANCOUTN)));
                             mList.add(hashMap);
                         }
                         mDiscussDetailAdapter = new DiscussDetailAdapter(context, mList);

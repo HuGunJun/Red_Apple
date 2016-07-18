@@ -41,7 +41,7 @@ public class ConstantUrl {
     public static final String COLLECTION = "main/collection";
 
     //我的收藏
-    public static final String GET_MINE_COLLECTION = "";
+    public static final String GET_MINE_COLLECTION = "main/myCollection";
 
     //获取我的回答
     public static final String GET_MINE_ANSWER = "forum/searchForumMessage";

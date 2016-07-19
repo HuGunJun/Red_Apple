@@ -98,12 +98,14 @@ public class MyCollectionActivity extends EaseBaseActivity {
 
                             hashMap.put(ConstantString.COLLECTION_ID, jsonArray.getJSONObject(i).getString
                                     (ConstantString.COLLECTION_ID));
-                            hashMap.put(ConstantString.COLLECTION_TIME, DateUtils.ParseTimeMillisToTime(ResponseUtils
-                                    .ParaseNull(jsonArray
-                                            .getJSONObject(i).getString(ConstantString.COLLECTION_TIME))));
-                            hashMap.put(ConstantString.USER_PIC, jsonArray.getJSONObject(i).getString(ConstantString
-                                    .USER_PIC));
-
+                            hashMap.put(ConstantString.HLABEL, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.HLABEL)));
+                            hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.TAX_TYPE)));
+                            hashMap.put(ConstantString.MESSAGE_COUNT, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.MESSAGE_COUNT)).equals("") ? "0" :
+                                    ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.MESSAGE_COUNT)));
                             mList.add(hashMap);
                         }
                         mHomePageAdapter = new MyCollectionAdapter(context, mList);

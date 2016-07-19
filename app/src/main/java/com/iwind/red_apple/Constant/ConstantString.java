@@ -213,10 +213,6 @@ public class ConstantString {
     //收藏id
     public static final String COLLECTION_ID="collectionId ";
 
-    //收藏时间
-    public static final String COLLECTION_TIME="collectionTime ";
-
-    //
     /**
      * 用户个人信息获取接口字段-------开始
      */

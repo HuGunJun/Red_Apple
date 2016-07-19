@@ -63,17 +63,15 @@ public class MyCollectionAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.USER_PIC),MyApplication.getInstance().getOptions());
 
+        holder.tv_type.setText(mList.get(position).get(ConstantString.HLABEL) + "-" + mList.get(position).get
+                (ConstantString.TAX_TYPE));
+        holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
         return convertView;
     }
 
 
     private class ViewHolder {
-        @ViewInject(R.id.tv_name)
-        TextView tv_name;
-        @ViewInject(R.id.iv_avator)
-        ImageView iv_avator;
         @ViewInject(R.id.tv_content)
         TextView tv_content;
         @ViewInject(R.id.tv_read_count)

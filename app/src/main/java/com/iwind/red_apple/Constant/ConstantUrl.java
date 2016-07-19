@@ -116,4 +116,7 @@ public class ConstantUrl {
     //搜索问题库
     public static final String SEARCH_PROBLEM = "problem/search" ;
 
+    //修改问题库
+    public static final String UPDATE_PROBLEM="problem/updateProblem";
+
 }

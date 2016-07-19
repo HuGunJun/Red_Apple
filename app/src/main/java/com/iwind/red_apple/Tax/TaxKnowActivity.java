@@ -195,6 +195,8 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.PROBLEM_ID, jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.PROBLEM_ID));
                             hashMap.put(ConstantString.HLABEL, ResponseUtils.ParaseNull(jsonArray
                                     .getJSONObject(i).getString(ConstantString.HLABEL)));
                             hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull
@@ -267,7 +269,8 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-                intent.putExtra(ConstantString.FORUM_TITLE, "这是什么特么的标题擦擦擦啊擦擦啊擦");
+                intent.putExtra(ConstantString.PROBLEM_ID, mList.get(position - 1).get
+                        (ConstantString.PROBLEM_ID));
                 startActivity(intent);
             }
         });

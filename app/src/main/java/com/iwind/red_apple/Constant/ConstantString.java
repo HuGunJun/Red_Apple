@@ -234,8 +234,14 @@ public class ConstantString {
     //收藏title
     public static final String TITLE = "title";
 
+    //问题标题
+    public static final String PROBLEM_TITLE="problemTitle";
+
     //问题内容
     public static final String PROBLEM_CONTENT = "problemContent";
+
+    //问题id
+    public static final String PROBLEM_ID = "problemId";
 
     /**
      * 用户个人信息获取接口字段-------开始

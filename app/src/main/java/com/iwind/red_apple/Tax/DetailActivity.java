@@ -11,6 +11,7 @@ import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.iwind.red_apple.Adapter.ShouldKnowAdapter;
+import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
@@ -52,15 +53,29 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         InitView();
-//        ShowLoadingDialog();
-//        Update(1);
+        ShowLoadingDialog();
+        Update(1);
         setonClickListener();
     }
 
 
+    /**
+     * 1查看 2分享
+     *
+     * @param i
+     */
     private void Update(final int i) {
-        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_WORK);
-        params.addBodyParameter(ConstantString.WORK_ID, getIntent().getExtras().getString(ConstantString.WORK_ID));
+        RequestParams params = null;
+        if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_PROBLEM);
+            params.addBodyParameter(ConstantString.PROBLEM_ID, getIntent().getExtras().getString
+                    (ConstantString.PROBLEM_ID));
+        }
+        if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_WORK);
+            params.addBodyParameter(ConstantString.WORK_ID, getIntent().getExtras().getString
+                    (ConstantString.WORK_ID));
+        }
         if (i == 1) {
             params.addBodyParameter(ConstantString.TYPE, i + "");
         }
@@ -131,20 +146,142 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.lv_collection:
+                Collection();
+                break;
+            case R.id.lv_cai:
+                MethodCaiOrZan(1);
+                break;
+            case R.id.lv_zan:
+                MethodCaiOrZan(2);
+                break;
+            case R.id.lv_personal:
+                break;
+        }
+    }
+
+    /**
+     * 讨论回答踩赞
+     *
+     * @param i
+     */
+    private void MethodCaiOrZan(final int i) {
+        ShowLoadingDialog();
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.FORUM_ZAIORCAI);
+        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
+        params.addBodyParameter(ConstantString.CAIZANTYPE, i + "");
+        if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
+            params.addBodyParameter(ConstantString.PROBLEM_ID, getIntent().getExtras().getString
+                    (ConstantString.PROBLEM_ID));
+        }
+        if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
+            params.addBodyParameter(ConstantString.WORK_ID, getIntent().getExtras().getString
+                    (ConstantString.WORK_ID));
+        }
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                InitData();
+            }
+        });
 
     }
 
+
+    /**
+     * 收藏
+     */
+    private void Collection() {
+        ShowLoadingDialog();
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.COLLECTION);
+        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
+        if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
+            params.addBodyParameter(ConstantString.MOUDEL_ID, getIntent().getExtras().getString
+                    (ConstantString.PROBLEM_ID));
+            params.addBodyParameter(ConstantString.MOUDEL_TYPE, "2");//2为问题详情收藏
+        }
+        if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
+            params.addBodyParameter(ConstantString.MOUDEL_ID, getIntent().getExtras().getString
+                    (ConstantString.WORK_ID));
+            params.addBodyParameter(ConstantString.MOUDEL_TYPE, "1");//1为办税须知详情收藏
+        }
+        x.http().post(params, new Callback.CommonCallback<String>() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Log(result);
+                        if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                                ConstantString.STATE,
+                                ConstantString.RESULT_INFO)) {
+                            Toast("操作成功");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable ex, boolean isOnCallback) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(CancelledException cex) {
+
+                    }
+
+                    @Override
+                    public void onFinished() {
+                        CloseLoadingDialog();
+                    }
+                }
+
+        );
+    }
+
+
     @Override
     public void InitView() {
-//        title_bar.setTitle(getIntent().getExtras().getString(ConstantString.WORK_TITLE));
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setRightImageRightResource(R.drawable.iv_share);
     }
 
     @Override
     public void InitData() {
-        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GET_WORK_DETAIL);
-        params.addBodyParameter(ConstantString.WORK_ID, getIntent().getExtras().getString(ConstantString.WORK_ID));
+        RequestParams params = null;
+        if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl
+                    .GET_WORK_DETAIL);
+            params.addBodyParameter(ConstantString.PROBLEM_ID, getIntent().getExtras().getString
+                    (ConstantString.PROBLEM_ID));
+        }
+        if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
+            params.addBodyParameter(ConstantString.WORK_ID, getIntent().getExtras().getString
+                    (ConstantString.WORK_ID));
+        }
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -155,13 +292,36 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject object = jsonObject.getJSONObject(ConstantString.OBJ);
-                        tv_content.setText(ResponseUtils.ParaseNull(object.getString(ConstantString.WORK_CONTENT)));
-                        tv_great_count.setText(ResponseUtils.ParaseNull(object.getString(ConstantString.ZANCOUTN))
-                                .equals("") ? "0" : ResponseUtils.ParaseNull(object.getString(ConstantString
-                                .ZANCOUTN)));
-                        tv_down_count.setText(ResponseUtils.ParaseNull(object.getString(ConstantString.CAICOUNT))
-                                .equals("") ? "0" : ResponseUtils.ParaseNull(object.getString(ConstantString
-                                .CAICOUNT)));
+                        if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
+                            tv_content.setText(ResponseUtils.ParaseNull
+                                    (object.getString
+                                            (ConstantString.PROBLEM_CONTENT)));
+                            title_bar.setTitle(ResponseUtils.ParaseNull(jsonObject.getString
+                                    (ConstantString.PROBLEM_TITLE)));
+                            tv_describe.setText(ResponseUtils.ParaseNull(jsonObject.getString
+                                    (ConstantString.PROBLEM_TITLE)));
+                        }
+                        if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
+                            tv_content.setText(ResponseUtils.ParaseNull
+                                    (object.getString
+                                            (ConstantString.WORK_CONTENT)));
+                            title_bar.setTitle(ResponseUtils.ParaseNull(jsonObject.getString
+                                    (ConstantString.WORK_TITLE)));
+                            tv_describe.setText(ResponseUtils.ParaseNull(jsonObject.getString
+                                    (ConstantString.WORK_TITLE)));
+                        }
+
+
+                        tv_great_count.setText(ResponseUtils.ParaseNull(object.getString
+                                (ConstantString.ZANCOUTN))
+                                .equals("") ? "0" : ResponseUtils.ParaseNull(object.getString
+                                (ConstantString
+                                        .ZANCOUTN)));
+                        tv_down_count.setText(ResponseUtils.ParaseNull(object.getString
+                                (ConstantString.CAICOUNT))
+                                .equals("") ? "0" : ResponseUtils.ParaseNull(object.getString
+                                (ConstantString
+                                        .CAICOUNT)));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

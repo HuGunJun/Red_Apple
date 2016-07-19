@@ -8,18 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 
+import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.R;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.util.HashMap;
 import java.util.List;
 
 
 public class GirdDropDownAdapter extends BaseAdapter {
 
     private Context context;
-    private List<String> list;
+    private List<HashMap<String, String>> list;
     private int checkItemPosition = 0;
 
     public void setCheckItem(int position) {
@@ -27,7 +29,7 @@ public class GirdDropDownAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public GirdDropDownAdapter(Context context, List<String> list) {
+    public GirdDropDownAdapter(Context context, List<HashMap<String, String>> list) {
         this.context = context;
         this.list = list;
     }
@@ -62,13 +64,16 @@ public class GirdDropDownAdapter extends BaseAdapter {
     }
 
     private void fillValue(int position, ViewHolder viewHolder) {
-        viewHolder.mText.setText(list.get(position));
+        viewHolder.mText.setText(list.get(position).get(ConstantString.TAX_TYPE));
         if (checkItemPosition != -1) {
             if (checkItemPosition == position) {
-                viewHolder.mText.setTextColor(context.getResources().getColor(R.color.drop_down_selected));
-                viewHolder.mText.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.drop_down_checked), null);
+                viewHolder.mText.setTextColor(context.getResources().getColor(R.color
+                        .drop_down_selected));
+                viewHolder.mText.setCompoundDrawablesWithIntrinsicBounds(null, null, context
+                        .getResources().getDrawable(R.drawable.drop_down_checked), null);
             } else {
-                viewHolder.mText.setTextColor(context.getResources().getColor(R.color.drop_down_unselected));
+                viewHolder.mText.setTextColor(context.getResources().getColor(R.color
+                        .drop_down_unselected));
                 viewHolder.mText.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
             }
         }

@@ -28,7 +28,6 @@
                 android:ellipsize="end"
                 android:lineSpacingExtra="5dp"
                 android:lines="2"
-                android:text="@string/hello_world"
                 android:textColor="@color/black"/>
 
             <RelativeLayout
@@ -52,8 +51,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_toEndOf="@+id/imageView"
                     android:gravity="center_vertical"
-                    android:text="种类"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/titile_color"/>
 
                 <TextView
                     android:id="@+id/tv_read_count"
@@ -62,7 +60,6 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:gravity="center_vertical"
-                    android:text="1000"
                     android:textColor="@color/black"/>
 
                 <ImageView

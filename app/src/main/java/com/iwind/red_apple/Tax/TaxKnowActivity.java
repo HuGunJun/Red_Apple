@@ -9,18 +9,25 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.dropdownmenu.DropDownMenu;
 import com.easemob.easeui.widget.xlistview.XListView;
 import com.iwind.red_apple.Adapter.GirdDropDownAdapter;
+import com.iwind.red_apple.Adapter.IndustrySelectAdapter;
 import com.iwind.red_apple.Adapter.TaxKnowAdapter;
 import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 import com.iwind.red_apple.Search.SearchAcitivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -46,20 +53,89 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
     DropDownMenu mDropDownMenu;
     private String headers[] = {"行业", "税种"};
     private GirdDropDownAdapter typeadapter, industryadapter;
-    private String citys[] = {"不限", "武汉", "北京", "上海", "成都", "广州", "深圳", "重庆", "天津", "西安", "南京", "杭州"};
-    private String industrys[] = {"不限", "one", "two", "three", "four"};
+    private List<HashMap<String, String>> list_industry = new ArrayList<HashMap<String, String>>();
+    private List<HashMap<String, String>> list_type = new ArrayList<HashMap<String, String>>();
     private List<View> popupViews = new ArrayList<>();
     private ListView type_listview, industry_listview;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private TaxKnowAdapter mNewsAdapter;
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         x.view().inject(this);
         InitView();
-        InitData();
+        ShowLoadingDialog();
+        InitLabelAndType(1);
         setOnClickListener();
+    }
+
+    /**
+     * 初始化行业和税种标签
+     */
+    private void InitLabelAndType(final int i) {
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GET_LABEL);
+        params.addBodyParameter(ConstantString.LABLETYPE, i + "");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                CloseLoadingDialog();
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        if (i == 1) {
+                            HashMap<String, String> hashMap1 = new HashMap<>();
+                            hashMap1.put(ConstantString
+                                    .TAX_TYPE, "不限");
+                            list_industry.add(hashMap1);
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                HashMap<String, String> hashMap = new HashMap<String, String>();
+                                hashMap.put(ConstantString.TAX_TYPE, jsonArray.getJSONObject(i)
+                                        .getString(ConstantString.LABELNAME));
+                                list_industry.add(hashMap);
+                            }
+                            InitLabelAndType(2);
+                            industryadapter.notifyDataSetChanged();
+                        }
+                        if (i == 2) {
+                            HashMap<String, String> hashMap1 = new HashMap<>();
+                            hashMap1.put(ConstantString
+                                    .TAX_TYPE, "不限");
+                            list_type.add(hashMap1);
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                HashMap<String, String> hashMap = new HashMap<String, String>();
+                                hashMap.put(ConstantString.TAX_TYPE, jsonArray.getJSONObject(i)
+                                        .getString(ConstantString.LABELNAME));
+                                list_type.add(hashMap);
+                            }
+                            typeadapter.notifyDataSetChanged();
+                            InitData();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+            }
+        });
     }
 
     @Override
@@ -74,12 +150,12 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
         title_bar.setRightImageLeftResource(R.drawable.iv_search);
         title_bar.setRightImageRightResource(R.drawable.iv_add);
         type_listview = new ListView(this);
-        typeadapter = new GirdDropDownAdapter(this, Arrays.asList(citys));
+        typeadapter = new GirdDropDownAdapter(this, list_industry);
         type_listview.setDividerHeight(0);
         type_listview.setAdapter(typeadapter);
 
         industry_listview = new ListView(this);
-        industryadapter = new GirdDropDownAdapter(this, Arrays.asList(industrys));
+        industryadapter = new GirdDropDownAdapter(this, list_type);
         industry_listview.setDividerHeight(0);
         industry_listview.setAdapter(industryadapter);
 
@@ -87,7 +163,8 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
         popupViews.add(industry_listview);
 
         TextView contentView = new TextView(this);
-        contentView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        contentView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams
+                .MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         contentView.setText("内容显示区域");
         contentView.setGravity(Gravity.CENTER);
         contentView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 0);
@@ -99,13 +176,65 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
 
     @Override
     public void InitData() {
-        for (int i = 0; i < 20; i++) {
-            HashMap<String, String> hashMap = new HashMap<String, String>();
-            mList.add(hashMap);
-        }
-        mNewsAdapter = new TaxKnowAdapter(getApplicationContext(), mList);
-        lv_news.setAdapter(mNewsAdapter);
-        mNewsAdapter.notifyDataSetChanged();
+
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEARCH_PROBLEM);
+        params.addBodyParameter(ConstantString.SEARCH_CONTENT, "");
+        params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
+        params.addBodyParameter(ConstantString.PAGE, page + "");
+        params.addBodyParameter(ConstantString.HLABEL, "");
+        params.addBodyParameter(ConstantString.TAX_TYPE, "");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.HLABEL, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.HLABEL)));
+                            hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString
+                                            .TAX_TYPE)));
+                            hashMap.put(ConstantString.PROBLEM_CONTENT, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString
+                                            .PROBLEM_CONTENT)));
+                            hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString
+                                            .ZANCOUTN)).equals("") ? "0" : ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString
+                                            .ZANCOUTN)));
+                            mList.add(hashMap);
+                        }
+                        mNewsAdapter = new TaxKnowAdapter(getApplicationContext(), mList);
+                        lv_news.setAdapter(mNewsAdapter);
+                        mNewsAdapter.notifyDataSetChanged();
+                        CloseLoadingDialog();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                CloseLoadingDialog();
+            }
+        });
     }
 
     @Override
@@ -120,7 +249,8 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 typeadapter.setCheckItem(position);
-                mDropDownMenu.setTabText(position == 0 ? headers[0] : citys[position]);
+                mDropDownMenu.setTabText(position == 0 ? headers[0] : list_industry.get(position)
+                        .get(ConstantString.TAX_TYPE));
                 mDropDownMenu.closeMenu();
             }
         });
@@ -128,7 +258,8 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 industryadapter.setCheckItem(position);
-                mDropDownMenu.setTabText(position == 0 ? headers[1] : industrys[position]);
+                mDropDownMenu.setTabText(position == 0 ? headers[1] : list_type.get(position).get
+                        (ConstantString.TAX_TYPE));
                 mDropDownMenu.closeMenu();
             }
         });

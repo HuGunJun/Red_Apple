@@ -234,8 +234,8 @@ public class ConstantString {
     //收藏title
     public static final String TITLE = "title";
 
-    //系统消息内容
-    public static final String MESSAGE_CONTENT = "message_content";
+    //问题内容
+    public static final String PROBLEM_CONTENT = "problemContent";
 
     /**
      * 用户个人信息获取接口字段-------开始

@@ -211,10 +211,19 @@ public class ConstantString {
     public static final String POSITON = "position";
 
     //收藏id
-    public static final String COLLECTION_ID="collectionId";
+    public static final String COLLECTION_ID = "collectionId";
 
     //收藏内容
-    public static final String CONTENT="content";
+    public static final String CONTENT = "content";
+
+    //新闻id
+    public static final String NEW_ID = "newsId";
+
+    //新闻内容
+    public static final String NEW_CONTENT = "newsContent";
+
+    //新闻时间
+    public static final String NEW_TIME="newsTime";
 
     /**
      * 用户个人信息获取接口字段-------开始

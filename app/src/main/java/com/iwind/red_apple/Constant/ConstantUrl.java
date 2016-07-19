@@ -101,5 +101,8 @@ public class ConstantUrl {
     //搜索客户端
     public static final String GETCLIENT = "client/search";
 
+    //搜索新闻
+    public static final String SEARCH_NEWS = "news/search";
+
 
 }

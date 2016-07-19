@@ -2,25 +2,35 @@ package com.iwind.red_apple.Tax;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.support.v4.view.PagerAdapter;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.DateUtils;
+import com.easemob.easeui.utils.ResponseUtils;
+import com.easemob.easeui.widget.EaseChatMessageList;
 import com.easemob.easeui.widget.EaseTitleBar;
-import com.easemob.easeui.widget.switchview.SegmentView;
-import com.iwind.red_apple.Adapter.ViewPagerAdapter;
-import com.iwind.red_apple.Fragment.Frag_Hot;
-import com.iwind.red_apple.Fragment.Frag_Recommend;
+import com.easemob.easeui.widget.xlistview.XListView;
+import com.iwind.red_apple.Adapter.NewsAdapter;
+import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 import com.iwind.red_apple.Search.SearchAcitivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xmlpull.v1.XmlSerializer;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -31,19 +41,19 @@ import java.util.List;
  */
 @ContentView(R.layout.activity_act_news)
 public class NewActivity extends EaseBaseActivity {
-
+    @ViewInject(R.id.lv_news)
+    XListView lv_news;
     @ViewInject(R.id.title_bar)
     EaseTitleBar title_bar;
-    @ViewInject(R.id.vp_news)
-    ViewPager vp_news;
-
-    private List<Fragment> list_frag = new ArrayList<Fragment>();
-    private ViewPagerAdapter mAdapter;
+    NewsAdapter mNewsAdapter;
+    List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         x.view().inject(this);
+        ShowLoadingDialog();
         InitView();
         InitData();
         setOnClickListener();
@@ -56,19 +66,69 @@ public class NewActivity extends EaseBaseActivity {
 
 
     public void InitView() {
+        title_bar.setTitle("资讯");
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setRightImageLeftResource(R.drawable.iv_search);
         title_bar.setRightImageRightResource(R.drawable.iv_add);
-        title_bar.setSegmentViewTab(new String[]{"推荐", "热门"});
-        list_frag.add(new Frag_Hot());
-        list_frag.add(new Frag_Recommend());
-        mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), list_frag);
-        vp_news.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
     }
 
     public void InitData() {
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEARCH_NEWS);
+        params.addBodyParameter(ConstantString.SEARCH_CONTENT, "");
+        params.addBodyParameter(ConstantString.PAGE, page + "");
+        params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        if (jsonArray.length() < 0) {
+                            Toast(getResources().getString(R.string.no_more_data));
+                            return;
+                        }
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.NEW_ID, jsonArray.getJSONObject(i).getString(ConstantString
+                                    .NEW_ID));
+                            hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.ZANCOUTN)).equals("") ? "0" : ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i)
+                                            .getString(ConstantString.ZANCOUTN)));
+                            hashMap.put(ConstantString.NEW_CONTENT, ResponseUtils.ParaseNull(jsonArray.getJSONObject
+                                    (i).getString(ConstantString.NEW_CONTENT)));
+                            hashMap.put(ConstantString.NEW_TIME, DateUtils.ParseTimeMillisToTime(ResponseUtils
+                                    .ParaseNull(jsonArray.getJSONObject(i).getString(ConstantString.NEW_TIME))));
+                            mList.add(hashMap);
+                        }
+                        mNewsAdapter = new NewsAdapter(context, mList);
+                        lv_news.setAdapter(mNewsAdapter);
+                        mNewsAdapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
 
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                CloseLoadingDialog();
+            }
+        });
     }
 
     public void setOnClickListener() {
@@ -90,27 +150,24 @@ public class NewActivity extends EaseBaseActivity {
                 finish();
             }
         });
-        title_bar.setSegmentViewIndexChangedListener(new SegmentView.OnIndexChangedListener() {
+        lv_news.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onChanged(SegmentView view, int index) {
-                vp_news.setCurrentItem(index);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
             }
         });
-        vp_news.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        lv_news.setXListViewListener(new XListView.IXListViewListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int
-                    positionOffsetPixels) {
-
+            public void onRefresh() {
+                page = 1;
+                mList.clear();
+                InitData();
             }
 
             @Override
-            public void onPageSelected(int position) {
-                title_bar.setSegmentViewIndex(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
+            public void onLoadMore() {
+                page++;
+                InitData();
             }
         });
     }

@@ -113,4 +113,7 @@ public class ConstantUrl {
     //更新新闻
     public static final String UPDATE_NEW = "news/updateNews";
 
+    //搜索问题库
+    public static final String SEARCH_PROBLEM = "problem/search";
+
 }

@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="7.5dp"
         android:background="@drawable/btn_selector"
         android:orientation="horizontal"
@@ -56,11 +55,12 @@
 
                 <TextView
                     android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/tv_type"
+                    android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:lines="1"
                     android:text="姓名"
                     android:textAppearance="?android:attr/textAppearanceSmall"/>
 
@@ -71,7 +71,7 @@
                     android:layout_alignBottom="@+id/tv_name"
                     android:layout_alignParentEnd="true"
                     android:gravity="center_vertical"
-                    android:text="某个集团的会计师"
+                    android:text="回答了该问题"
                     android:textAppearance="?android:attr/textAppearanceSmall"/>
 
             </RelativeLayout>

@@ -2,6 +2,7 @@ package com.iwind.red_apple.Mine;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.DateUtils;
@@ -93,19 +94,23 @@ public class MyCollectionActivity extends EaseBaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        if (jsonArray.length() < 0) {
+                            Toast(getResources().getString(R.string.no_more_data));
+                            return;
+                        }
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
 
                             hashMap.put(ConstantString.COLLECTION_ID, jsonArray.getJSONObject(i).getString
                                     (ConstantString.COLLECTION_ID));
-                            hashMap.put(ConstantString.HLABEL, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
-                                    .getString(ConstantString.HLABEL)));
-                            hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
-                                    .getString(ConstantString.TAX_TYPE)));
-                            hashMap.put(ConstantString.MESSAGE_COUNT, ResponseUtils.ParaseNull(jsonArray
-                                    .getJSONObject(i).getString(ConstantString.MESSAGE_COUNT)).equals("") ? "0" :
+                            hashMap.put(ConstantString.LABLES, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.LABLES)));
+                            hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.ZANCOUTN)).equals("") ? "0" :
                                     ResponseUtils.ParaseNull(jsonArray
-                                    .getJSONObject(i).getString(ConstantString.MESSAGE_COUNT)));
+                                            .getJSONObject(i).getString(ConstantString.ZANCOUTN)));
+                            hashMap.put(ConstantString.CONTENT, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.CONTENT)));
                             mList.add(hashMap);
                         }
                         mHomePageAdapter = new MyCollectionAdapter(context, mList);

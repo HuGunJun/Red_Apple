@@ -1,5 +1,6 @@
 package com.iwind.red_apple.Mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
+import com.iwind.red_apple.Tax.AnswerDetailActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -94,10 +96,21 @@ public class MyAnswerActivity extends EaseBaseActivity {
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.FORUMMESSAGEID, jsonArray.getJSONObject(i).getString
+                                    (ConstantString.FORUMMESSAGEID));
+                            hashMap.put(ConstantString.FORUM_TITLE, ResponseUtils.ParaseNull(jsonArray.getJSONObject
+                                    (i).getString(ConstantString.FORUM_TITLE)));
+                            hashMap.put(ConstantString.FORUMMESSAGE, ResponseUtils.ParaseNull(jsonArray.getJSONObject
+                                    (i).getString(ConstantString.FORUMMESSAGE)));
                             hashMap.put(ConstantString.USER_PIC, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
                                     .getString(ConstantString.USER_PIC)));
                             hashMap.put(ConstantString.NICK_NAME, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
                                     .getString(ConstantString.NICK_NAME)));
+                            hashMap.put(ConstantString.USER_PHONE, jsonArray.getJSONObject(i).getString
+                                    (ConstantString.USER_PHONE));
+                            hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.ZANCOUTN)).equals("") ? "0" : ResponseUtils.ParaseNull
+                                    (jsonArray.getJSONObject(i).getString(ConstantString.ZANCOUTN)));
                             mList.add(hashMap);
                         }
                         mMyAnswerAdapter = new MyAnswerAdapter(context, mList);
@@ -150,7 +163,9 @@ public class MyAnswerActivity extends EaseBaseActivity {
         lv_myanswer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                
+                startActivity(new Intent(context, AnswerDetailActivity.class).putExtra(ConstantString.FORUMMESSAGEID,
+                        mList.get(position - 1).get(ConstantString.FORUMMESSAGEID)).putExtra(ConstantString
+                        .FORUM_TITLE, mList.get(position - 1).get(ConstantString.FORUM_TITLE)));
             }
         });
     }

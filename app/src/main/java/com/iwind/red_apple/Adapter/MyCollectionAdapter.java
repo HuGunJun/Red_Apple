@@ -64,9 +64,10 @@ public class MyCollectionAdapter extends BaseAdapter {
         }
 
 
-        holder.tv_type.setText(mList.get(position).get(ConstantString.HLABEL) + "-" + mList.get(position).get
-                (ConstantString.TAX_TYPE));
-        holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
+        holder.tv_type.setText(mList.get(position).get(ConstantString.LABLES) + "-" + mList.get(position).get
+                (ConstantString.LABLES));
+        holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
+        holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
         return convertView;
     }
 

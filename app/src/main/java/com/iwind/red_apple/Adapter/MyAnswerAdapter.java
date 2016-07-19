@@ -61,7 +61,8 @@ public class MyAnswerAdapter extends BaseAdapter {
         x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.USER_PIC),
                 MyApplication.getInstance().getOptions());
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
-
+        holder.tv_name.setText(mList.get(position).get(ConstantString.NICK_NAME));
+        holder.tv_content.setText(mList.get(position).get(ConstantString.FORUMMESSAGE));
         return convertView;
     }
 

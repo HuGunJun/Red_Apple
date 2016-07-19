@@ -43,7 +43,7 @@ public class Frag_Local extends BaseFragment {
     View view;
     @ViewInject(R.id.lv_local)
     XListView lv_local;
-    int page;
+    int page=1;
 
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private VideoGuideAdapter mHomePageAdapter;
@@ -144,7 +144,7 @@ public class Frag_Local extends BaseFragment {
             @Override
             public void onRefresh() {
                 mList.clear();
-                page = 0;
+                page = 1;
                 InitData();
             }
 

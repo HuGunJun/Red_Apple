@@ -45,7 +45,7 @@ public class Frag_Country extends BaseFragment {
     View view;
     @ViewInject(R.id.lv_country)
     XListView lv_country;
-    int page;
+    int page=1;
 
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private VideoGuideAdapter mHomePageAdapter;
@@ -147,7 +147,7 @@ public class Frag_Country extends BaseFragment {
             @Override
             public void onRefresh() {
                 mList.clear();
-                page = 0;
+                page = 1;
                 InitData();
             }
 

@@ -43,7 +43,7 @@ public class MyCollectionActivity extends EaseBaseActivity {
     XListView lv_mycollection;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private MyCollectionAdapter mHomePageAdapter;
-    int page = 0;
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -147,7 +147,7 @@ public class MyCollectionActivity extends EaseBaseActivity {
         lv_mycollection.setXListViewListener(new XListView.IXListViewListener() {
             @Override
             public void onRefresh() {
-                page = 0;
+                page = 1;
                 mList.clear();
                 InitData();
             }

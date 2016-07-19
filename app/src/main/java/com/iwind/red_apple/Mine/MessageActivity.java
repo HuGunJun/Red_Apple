@@ -41,7 +41,7 @@ public class MessageActivity extends EaseBaseActivity {
     XListView lv_message;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private MessageAdapter mMessageAdapter;
-    int page = 0;
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -158,7 +158,7 @@ public class MessageActivity extends EaseBaseActivity {
         lv_message.setXListViewListener(new XListView.IXListViewListener() {
             @Override
             public void onRefresh() {
-                page = 0;
+                page = 1;
                 mList.clear();
                 InitData();
             }

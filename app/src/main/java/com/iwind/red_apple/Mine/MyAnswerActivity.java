@@ -43,7 +43,7 @@ public class MyAnswerActivity extends EaseBaseActivity {
     XListView lv_myanswer;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private MyAnswerAdapter mMyAnswerAdapter;
-    int page = 0;
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -149,7 +149,7 @@ public class MyAnswerActivity extends EaseBaseActivity {
         lv_myanswer.setXListViewListener(new XListView.IXListViewListener() {
             @Override
             public void onRefresh() {
-                page = 0;
+                page =1;
                 mList.clear();
                 InitData();
             }

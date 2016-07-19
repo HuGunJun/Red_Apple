@@ -63,6 +63,8 @@ public class MyCollectionAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.USER_PIC),MyApplication.getInstance().getOptions());
+
         return convertView;
     }
 

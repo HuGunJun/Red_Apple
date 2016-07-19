@@ -91,6 +91,14 @@ public class MyAnswerActivity extends EaseBaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        for (int i = 0; i < 20; i++) {
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
+                            mList.add(hashMap);
+                        }
+                        mMyAnswerAdapter = new MyAnswerAdapter(context, mList);
+                        lv_myanswer.setAdapter(mMyAnswerAdapter);
+                        mMyAnswerAdapter.notifyDataSetChanged();
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -109,15 +117,6 @@ public class MyAnswerActivity extends EaseBaseActivity {
             public void onFinished() {
             }
         });
-
-        for (int i = 0; i < 20; i++) {
-            HashMap<String, String> hashMap = new HashMap<String, String>();
-            mList.add(hashMap);
-        }
-        mMyAnswerAdapter = new MyAnswerAdapter(this, mList);
-        lv_myanswer.setAdapter(mMyAnswerAdapter);
-        mMyAnswerAdapter.notifyDataSetChanged();
-
     }
 
     @Override

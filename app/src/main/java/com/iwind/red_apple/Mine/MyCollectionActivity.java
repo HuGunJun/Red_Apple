@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.DateUtils;
 import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.xlistview.XListView;
@@ -13,6 +14,7 @@ import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
@@ -90,7 +92,23 @@ public class MyCollectionActivity extends EaseBaseActivity {
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
+                        JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
 
+                            hashMap.put(ConstantString.COLLECTION_ID, jsonArray.getJSONObject(i).getString
+                                    (ConstantString.COLLECTION_ID));
+                            hashMap.put(ConstantString.COLLECTION_TIME, DateUtils.ParseTimeMillisToTime(ResponseUtils
+                                    .ParaseNull(jsonArray
+                                            .getJSONObject(i).getString(ConstantString.COLLECTION_TIME))));
+                            hashMap.put(ConstantString.USER_PIC, jsonArray.getJSONObject(i).getString(ConstantString
+                                    .USER_PIC));
+
+                            mList.add(hashMap);
+                        }
+                        mHomePageAdapter = new MyCollectionAdapter(context, mList);
+                        lv_mycollection.setAdapter(mHomePageAdapter);
+                        mHomePageAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -109,15 +127,6 @@ public class MyCollectionActivity extends EaseBaseActivity {
             public void onFinished() {
             }
         });
-
-
-        for (int i = 0; i < 20; i++) {
-            HashMap<String, String> hashMap = new HashMap<String, String>();
-            mList.add(hashMap);
-        }
-        mHomePageAdapter = new MyCollectionAdapter(this, mList);
-        lv_mycollection.setAdapter(mHomePageAdapter);
-        mHomePageAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -132,6 +141,7 @@ public class MyCollectionActivity extends EaseBaseActivity {
             @Override
             public void onRefresh() {
                 page = 0;
+                mList.clear();
                 InitData();
             }
 

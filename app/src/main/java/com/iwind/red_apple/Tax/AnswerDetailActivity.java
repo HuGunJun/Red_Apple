@@ -230,6 +230,8 @@ public class AnswerDetailActivity extends EaseBaseActivity {
                         tv_answer_content.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
                                 .FORUMMESSAGE)));
                         tv_userdescirbe.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString.POSITON)));
+                        title_bar.setTitle(ResponseUtils.ParaseNull(OBJ.getString(ConstantString.FORUM_TITLE)));
+                        tv_question_describe.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString.FORUM_TITLE)));
                         x.image().bind(iv_avator, ConstantUrl.USER_PIC +
                                 OBJ.getString(ConstantString.USER_PIC), MyApplication.getInstance
                                 ().getOptions());
@@ -259,8 +261,6 @@ public class AnswerDetailActivity extends EaseBaseActivity {
 
     @Override
     public void InitView() {
-        title_bar.setTitle(getIntent().getExtras().getString(ConstantString.FORUM_TITLE));
-        tv_question_describe.setText(getIntent().getExtras().getString(ConstantString.FORUM_TITLE));
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setRightImageRightResource(R.drawable.iv_share);
     }

@@ -1,7 +1,9 @@
 package com.iwind.red_apple.Mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.ResponseUtils;
@@ -167,6 +169,15 @@ public class MessageActivity extends EaseBaseActivity {
             public void onLoadMore() {
                 page++;
                 InitData();
+            }
+        });
+        lv_message.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(context, MessageDetailActivity.class).putExtra(ConstantString
+                        .TIDING_CONTENT, mList.get(position - 1).get(ConstantString.TIDING_CONTENT)).putExtra
+                        (ConstantString.TIDING_TIME, mList.get(position - 1).get(ConstantString.TIDING_TIME)));
+
             }
         });
     }

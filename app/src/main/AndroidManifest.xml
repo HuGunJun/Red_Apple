@@ -121,6 +121,8 @@
         <!-- 关于我们-->
         <activity android:name=".Mine.Act_AboutUs"></activity>
 
+        <!-- 系统消息详情页面-->
+        <activity android:name=".Mine.MessageDetailActivity"></activity>
     </application>
 
 </manifest>

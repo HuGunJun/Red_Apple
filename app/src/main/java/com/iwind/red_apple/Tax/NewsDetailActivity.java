@@ -220,8 +220,6 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
 
     @Override
     public void InitView() {
-        title_bar.setTitle(getIntent().getExtras().getString(ConstantString.NEW_TITLE));
-        tv_question_describe.setText(getIntent().getExtras().getString(ConstantString.NEW_TITLE));
         title_bar.setLeftImageResource(R.drawable.ease_mm_title_back);
         title_bar.setRightImageRightResource(R.drawable.iv_share);
     }
@@ -262,6 +260,9 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
                                 .MESSAGE_COUNT))
                                 .equals("") ? "0" : ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
                                 .MESSAGE_COUNT)));
+                        title_bar.setTitle(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString.NEW_TITLE)));
+                        tv_question_describe.setText(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
+                                .NEW_TITLE)));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

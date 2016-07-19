@@ -1,7 +1,9 @@
 package com.iwind.red_apple.Mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
@@ -14,6 +16,9 @@ import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
+import com.iwind.red_apple.Tax.AnswerDetailActivity;
+import com.iwind.red_apple.Tax.DiscussDetailActivity;
+import com.iwind.red_apple.Tax.NewsDetailActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -103,6 +108,8 @@ public class MyCollectionActivity extends EaseBaseActivity {
 
                             hashMap.put(ConstantString.COLLECTION_ID, jsonArray.getJSONObject(i).getString
                                     (ConstantString.COLLECTION_ID));
+                            hashMap.put(ConstantString.MOUDEL_ID, jsonArray.getJSONObject(i).getString(ConstantString
+                                    .MOUDEL_ID));
                             hashMap.put(ConstantString.LABLES, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
                                     .getString(ConstantString.LABLES)));
                             hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray
@@ -111,6 +118,10 @@ public class MyCollectionActivity extends EaseBaseActivity {
                                             .getJSONObject(i).getString(ConstantString.ZANCOUTN)));
                             hashMap.put(ConstantString.CONTENT, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
                                     .getString(ConstantString.CONTENT)));
+                            hashMap.put(ConstantString.TITLE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.TITLE)));
+                            hashMap.put(ConstantString.MOUDEL_TYPE, jsonArray.getJSONObject(i).getString
+                                    (ConstantString.MOUDEL_TYPE));
                             mList.add(hashMap);
                         }
                         mHomePageAdapter = new MyCollectionAdapter(context, mList);
@@ -156,6 +167,33 @@ public class MyCollectionActivity extends EaseBaseActivity {
             public void onLoadMore() {
                 page++;
                 InitData();
+            }
+        });
+        lv_mycollection.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /**
+                 * 1.办事须知2.问题库
+                 3.论坛
+                 4.论坛某留言
+                 5.客户端
+                 6.新闻
+                 */
+                if (mList.get(position - 1).get(ConstantString.MOUDEL_TYPE).equals("3")) {
+                    startActivity(new Intent(context, DiscussDetailActivity.class).putExtra(ConstantString.FORUM_ID,
+                            mList
+                                    .get(position - 1).get(ConstantString.MOUDEL_ID)));
+                }
+                if (mList.get(position - 1).get(ConstantString.MOUDEL_TYPE).equals("4")) {
+                    startActivity(new Intent(context, AnswerDetailActivity.class).putExtra(ConstantString
+                            .FORUMMESSAGEID, mList.get(position - 1).get(ConstantString.MOUDEL_ID)));
+                }
+                if (mList.get(position - 1).get(ConstantString.MOUDEL_TYPE).equals("6")) {
+                    startActivity(new Intent(context, NewsDetailActivity.class).putExtra(ConstantString.NEW_ID, mList
+                            .get
+                                    (position
+                                            - 1).get(ConstantString.MOUDEL_ID)));
+                }
             }
         });
     }

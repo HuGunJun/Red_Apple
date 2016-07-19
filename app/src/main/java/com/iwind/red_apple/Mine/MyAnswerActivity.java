@@ -2,6 +2,7 @@ package com.iwind.red_apple.Mine;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.ResponseUtils;
@@ -91,8 +92,12 @@ public class MyAnswerActivity extends EaseBaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
-                        for (int i = 0; i < 20; i++) {
+                        for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.USER_PIC, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.USER_PIC)));
+                            hashMap.put(ConstantString.NICK_NAME, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.NICK_NAME)));
                             mList.add(hashMap);
                         }
                         mMyAnswerAdapter = new MyAnswerAdapter(context, mList);
@@ -140,6 +145,12 @@ public class MyAnswerActivity extends EaseBaseActivity {
             public void onLoadMore() {
                 page++;
                 InitData();
+            }
+        });
+        lv_myanswer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                
             }
         });
     }

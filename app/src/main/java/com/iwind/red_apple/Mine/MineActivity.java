@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.easemob.easeui.widget.EaseAlertDialog;
+import com.iwind.red_apple.App.MyApplication;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
 import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 /**
@@ -23,15 +27,20 @@ import org.xutils.x;
 @ContentView(R.layout.activity_act__mine)
 public class MineActivity extends AppCompatActivity {
     private long exitTime = 0;
+    @ViewInject(R.id.iv_avatar)
+    ImageView iv_avatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
+        InitView();
 
     }
 
     public void InitView() {
+        x.image().bind(iv_avatar, ConstantUrl.USER_PIC + MyApplication.getInstance().getUserPic(), MyApplication
+                .getInstance().getOptions());
 
     }
 

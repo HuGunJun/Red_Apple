@@ -53,13 +53,14 @@ public class MyAnswerAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_myanswer, null);
-            x.view().inject(holder,convertView);
+            x.view().inject(holder, convertView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL),
+        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.USER_PIC),
                 MyApplication.getInstance().getOptions());
+        holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
 
         return convertView;
     }

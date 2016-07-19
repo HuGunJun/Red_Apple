@@ -101,6 +101,8 @@ public class NewActivity extends EaseBaseActivity {
                                             .getString(ConstantString.ZANCOUTN)));
                             hashMap.put(ConstantString.NEW_CONTENT, ResponseUtils.ParaseNull(jsonArray.getJSONObject
                                     (i).getString(ConstantString.NEW_CONTENT)));
+                            hashMap.put(ConstantString.NEW_TITLE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
+                                    .getString(ConstantString.NEW_TITLE)));
                             hashMap.put(ConstantString.NEW_TIME, DateUtils.ParseTimeMillisToTime(ResponseUtils
                                     .ParaseNull(jsonArray.getJSONObject(i).getString(ConstantString.NEW_TIME))));
                             mList.add(hashMap);
@@ -153,7 +155,9 @@ public class NewActivity extends EaseBaseActivity {
         lv_news.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                startActivity(new Intent(context, NewsDetailActivity.class).putExtra(ConstantString.NEW_ID, mList.get
+                        (position - 1).get(ConstantString.NEW_ID)).putExtra(ConstantString.NEW_TITLE, mList.get
+                        (position - 1).get(ConstantString.NEW_TITLE)));
             }
         });
         lv_news.setXListViewListener(new XListView.IXListViewListener() {

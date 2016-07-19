@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_color"
+                android:clipToPadding="true"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
 
     <com.easemob.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
@@ -20,8 +20,7 @@
         android:paddingBottom="5dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:paddingTop="5dp"
-        android:text="为什么美国有那么多肌肉极其强大的肌肉男？" />
+        android:paddingTop="5dp"/>
 
     <LinearLayout
         android:id="@+id/lv_answer"
@@ -33,53 +32,76 @@
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:gravity="center_vertical|start"
             android:orientation="horizontal"
             android:padding="5dp">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/icon_default_avatar" />
-
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11.5dp"
                 android:ellipsize="end"
                 android:lines="1"
-                android:text="姓名"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:text="时间"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:gravity="center_vertical|end"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="某个集团的会计师"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:gravity="end|center_vertical">
 
             <ImageView
-                android:id="@+id/imageView5"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:layout_marginLeft="11.5dp"
-                android:src="@mipmap/iv_renzheng" />
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:src="@mipmap/iv_discuss_answer"/>
+
+            <TextView
+                android:id="@+id/tv_messagecount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/discuss_text_color"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:src="@mipmap/iv_share_discuss"/>
+
+            <TextView
+                android:id="@+id/tv_sharenumber"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/discuss_text_color"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:src="@mipmap/iv_look"/>
+
+            <TextView
+                android:id="@+id/tv_seeknumber"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/discuss_text_color"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -105,10 +127,9 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/tv_answer_content"
+                android:id="@+id/tv_news_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/hello_world" />
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 
@@ -128,6 +149,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/lv_zan"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -139,15 +161,16 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/iv_up" />
+                android:src="@mipmap/iv_up"/>
 
             <TextView
+                android:id="@+id/tv_zan_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="3dp"
-                android:text="@string/up"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
         <View
@@ -158,6 +181,7 @@
             android:background="@color/diliver_line"></View>
 
         <LinearLayout
+            android:id="@+id/lv_cai"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -169,7 +193,40 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/iv_answer_detail_collection" />
+                android:src="@mipmap/iv_down"/>
+
+            <TextView
+                android:id="@+id/tv_cai_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="3dp"
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/diliver_line"></View>
+
+
+        <LinearLayout
+            android:id="@+id/lv_collection"
+            style="@style/clickable_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/iv_answer_detail_collection"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -177,7 +234,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="3dp"
                 android:text="@string/collection"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
         </LinearLayout>
 
     </LinearLayout>

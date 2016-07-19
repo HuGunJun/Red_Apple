@@ -104,5 +104,13 @@ public class ConstantUrl {
     //搜索新闻
     public static final String SEARCH_NEWS = "news/search";
 
+    //获取新闻详情
+    public static final String GET_NEWS_DETAIL = "news/getNews";
+
+    //新闻踩赞
+    public static final String NEW_CAIORZAN = "news/newsCaiZan";
+
+    //更新新闻
+    public static final String UPDATE_NEW = "news/updateNews";
 
 }

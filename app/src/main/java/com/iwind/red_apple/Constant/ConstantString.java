@@ -183,6 +183,9 @@ public class ConstantString {
     //踩赞类型
     public static final String CAIZANTYPE = "forumCaizanType";
 
+    //新闻踩赞类型
+    public static final String NEW_CAIORZAN="newsCaizanType";
+
     //我的提问中列表标签
     public static final String FORUMKEYWORD = "forumKeyword";
 
@@ -218,6 +221,9 @@ public class ConstantString {
 
     //新闻id
     public static final String NEW_ID = "newsId";
+
+    //新闻标题
+    public static final String NEW_TITLE="newsTitle";
 
     //新闻内容
     public static final String NEW_CONTENT = "newsContent";

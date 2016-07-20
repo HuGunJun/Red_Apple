@@ -7,11 +7,6 @@ package com.iwind.red_apple.Constant;
  */
 public class ConstantUrl {
 
-    static {
-        System.loadLibrary("ConstantUrl");
-    }
-
-    public static native String getBaseUrl();
 
     //        public static final String BASE = "http://119.254.102.77:8071/";
     public static final String BASE = "http://192.168.0.25:8080/";

@@ -10,6 +10,18 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        ndk {
+            moduleName "SplashActivity"//定义NDKlibrary的名字
+            //ldLibs "log" 添加log库，看自己需求
+        }
+    }
+
+
+    sourceSets {
+        main {
+            jni.srcDir "src/main/jni"
+            jniLibs.srcDir "src/main/libs"
+        }
     }
 
     signingConfigs {
@@ -23,6 +35,11 @@ android {
     }
 
     buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
         debug {
             signingConfig signingConfigs.release
         }

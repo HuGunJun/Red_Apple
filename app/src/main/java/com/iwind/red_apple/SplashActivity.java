@@ -34,12 +34,12 @@ public class SplashActivity extends EaseBaseActivity {
     @ViewInject(R.id.iv_splash)
     ImageView iv_splash;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         InitView();
-        Log(ConstantUrl.getBaseUrl());
     }
 
     @Override

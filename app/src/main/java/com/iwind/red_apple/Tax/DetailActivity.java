@@ -55,7 +55,6 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
         InitView();
         ShowLoadingDialog();
         Update(1);
-        setonClickListener();
     }
 
 
@@ -114,31 +113,6 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
             @Override
             public void onFinished() {
                 CloseLoadingDialog();
-            }
-        });
-    }
-
-    private void setonClickListener() {
-        title_bar.setLeftImageClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        title_bar.setRightTextClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "分享", Toast.LENGTH_SHORT).show();
-            }
-        });
-        title_bar.setTitleClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (tv_describe.getVisibility() == View.VISIBLE) {
-                    tv_describe.setVisibility(View.GONE);
-                } else {
-                    tv_describe.setVisibility(View.VISIBLE);
-                }
             }
         });
     }
@@ -348,11 +322,29 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
 
     @Override
     public void setOnClickListener() {
+        title_bar.setLeftImageClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         title_bar.setRightTextClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 ShowLoadingDialog();
                 Update(2);
+                Toast.makeText(getApplicationContext(), "分享", Toast.LENGTH_SHORT).show();
+            }
+        });
+        title_bar.setTitleClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (tv_describe.getVisibility() == View.VISIBLE) {
+                    tv_describe.setVisibility(View.GONE);
+                } else {
+                    tv_describe.setVisibility(View.VISIBLE);
+                }
             }
         });
     }

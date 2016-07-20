@@ -123,6 +123,9 @@
 
         <!-- 系统消息详情页面-->
         <activity android:name=".Mine.MessageDetailActivity"></activity>
+
+        <!-- 私信页面-->
+        <activity android:name=".Tax.PersonalInfo"></activity>
     </application>
 
 </manifest>

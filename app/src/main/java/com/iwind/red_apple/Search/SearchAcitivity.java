@@ -61,6 +61,9 @@ public class SearchAcitivity extends EaseBaseActivity {
         }
     }
 
+
+
+
     @Override
     public void InitView() {
 

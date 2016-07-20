@@ -201,6 +201,9 @@ public class ConstantString {
     //办税须知title
     public static final String WORK_TITLE = "workTitle";
 
+    //私信办税须知内容
+    public static final String WORK_PERSONAL_CONTENT = "workMessage";
+
     //客户端id
     public static final String CLIENT_ID = "clientId";
 
@@ -235,13 +238,16 @@ public class ConstantString {
     public static final String TITLE = "title";
 
     //问题标题
-    public static final String PROBLEM_TITLE="problemTitle";
+    public static final String PROBLEM_TITLE = "problemTitle";
 
     //问题内容
     public static final String PROBLEM_CONTENT = "problemContent";
 
     //问题id
     public static final String PROBLEM_ID = "problemId";
+
+    //私信问题内容
+    public static final String PROBLEM_PERSONAL_CONTENT = "problemMessage";
 
     /**
      * 用户个人信息获取接口字段-------开始

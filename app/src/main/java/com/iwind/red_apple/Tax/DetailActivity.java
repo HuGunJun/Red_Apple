@@ -1,5 +1,6 @@
 package com.iwind.red_apple.Tax;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.print.PageRange;
@@ -132,6 +133,14 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
                 MethodCaiOrZan(2);
                 break;
             case R.id.lv_personal:
+                if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
+                    startActivity(new Intent(context, PersonalInfo.class).putExtra(ConstantString.PROBLEM_ID, getIntent
+                            ().getExtras().getString(ConstantString.PROBLEM_ID)));
+                }
+                if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
+                    startActivity(new Intent(context, PersonalInfo.class).putExtra(ConstantString.WORK_ID, getIntent
+                            ().getExtras().getString(ConstantString.WORK_ID)));
+                }
                 break;
         }
     }

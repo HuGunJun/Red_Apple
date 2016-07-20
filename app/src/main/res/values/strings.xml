@@ -28,6 +28,7 @@
     <string name="add_discuss">新增讨论</string>
     <string name="add_answer">添加回答</string>
     <string name="please_input_answer">请输入回答内容</string>
+    <string name="please_input_personal_info">请输入私信内容</string>
     <string name="question_lib">问题库</string>
     <string name="personal_industry">个人业务</string>
     <string name="brown">发布</string>

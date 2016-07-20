@@ -98,6 +98,9 @@ public class ConstantUrl {
     //修改办税须知
     public static final String UPDATE_WORK = "work/updateWork";
 
+    //发送办税须知私信
+    public static final String SEND_WORK_PERSONAL_INFO="work/addmessage";
+
     //搜索客户端
     public static final String GETCLIENT = "client/search";
 
@@ -121,5 +124,8 @@ public class ConstantUrl {
 
     //获取问题详情
     public static final String GET_PROBLEM_DETAIL="problem/getProblem";
+
+    //新增问题库私信
+    public static final String SEND_PROBLEM_PERSONAL_INFO="problem/addmessage";
 
 }

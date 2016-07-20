@@ -41,7 +41,6 @@ public class MainActivity extends TabActivity {
     EaseTitleBar title_bar;
     public static MainActivity instance;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

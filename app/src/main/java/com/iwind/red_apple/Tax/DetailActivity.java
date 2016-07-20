@@ -55,6 +55,7 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
         InitView();
         ShowLoadingDialog();
         Update(1);
+        setOnClickListener();
     }
 
 
@@ -248,11 +249,13 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
         RequestParams params = null;
         if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
             params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl
-                    .GET_WORK_DETAIL);
+                    .GET_PROBLEM_DETAIL);
             params.addBodyParameter(ConstantString.PROBLEM_ID, getIntent().getExtras().getString
                     (ConstantString.PROBLEM_ID));
         }
         if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl
+                    .GET_WORK_DETAIL);
             params.addBodyParameter(ConstantString.WORK_ID, getIntent().getExtras().getString
                     (ConstantString.WORK_ID));
         }
@@ -270,18 +273,18 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
                             tv_content.setText(ResponseUtils.ParaseNull
                                     (object.getString
                                             (ConstantString.PROBLEM_CONTENT)));
-                            title_bar.setTitle(ResponseUtils.ParaseNull(jsonObject.getString
+                            title_bar.setTitle(ResponseUtils.ParaseNull(object.getString
                                     (ConstantString.PROBLEM_TITLE)));
-                            tv_describe.setText(ResponseUtils.ParaseNull(jsonObject.getString
+                            tv_describe.setText(ResponseUtils.ParaseNull(object.getString
                                     (ConstantString.PROBLEM_TITLE)));
                         }
                         if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
                             tv_content.setText(ResponseUtils.ParaseNull
                                     (object.getString
                                             (ConstantString.WORK_CONTENT)));
-                            title_bar.setTitle(ResponseUtils.ParaseNull(jsonObject.getString
+                            title_bar.setTitle(ResponseUtils.ParaseNull(object.getString
                                     (ConstantString.WORK_TITLE)));
-                            tv_describe.setText(ResponseUtils.ParaseNull(jsonObject.getString
+                            tv_describe.setText(ResponseUtils.ParaseNull(object.getString
                                     (ConstantString.WORK_TITLE)));
                         }
 

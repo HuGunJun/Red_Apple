@@ -7,8 +7,8 @@ package com.iwind.red_apple.Constant;
  */
 public class ConstantUrl {
 
-        public static final String BASE = "http://119.254.102.77:8071/";
-//    public static final String BASE = "http://192.168.0.197:8080/";
+//        public static final String BASE = "http://119.254.102.77:8071/";
+    public static final String BASE = "http://192.168.0.25:8080/";
 
     //基地址
     public static final String BASE_URL = BASE + "af_interface/";
@@ -118,5 +118,8 @@ public class ConstantUrl {
 
     //修改问题库
     public static final String UPDATE_PROBLEM="problem/updateProblem";
+
+    //获取问题详情
+    public static final String GET_PROBLEM_DETAIL="problem/getProblem";
 
 }

@@ -73,8 +73,7 @@
                 android:layout_toRightOf="@+id/iv_usename"
                 android:background="@color/white"
                 android:hint="@string/user_name"
-                android:paddingLeft="5dp"
-                android:text="18222107512"/>
+                android:paddingLeft="5dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -107,8 +106,7 @@
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
                 android:hint="@string/password"
-                android:paddingLeft="5dp"
-                android:text="huguojun23.714"/>
+                android:paddingLeft="5dp"/>
 
         </LinearLayout>
 

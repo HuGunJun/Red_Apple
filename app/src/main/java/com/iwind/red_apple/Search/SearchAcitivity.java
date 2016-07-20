@@ -8,8 +8,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.easeui.utils.ResponseUtils;
+import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -62,8 +69,6 @@ public class SearchAcitivity extends EaseBaseActivity {
     }
 
 
-
-
     @Override
     public void InitView() {
 
@@ -85,6 +90,7 @@ public class SearchAcitivity extends EaseBaseActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (query.getText().toString().equals("")) {
                     search_clear.setVisibility(View.GONE);
+                    Search(query.getText().toString());
                 } else {
                     search_clear.setVisibility(View.VISIBLE);
                 }
@@ -96,4 +102,47 @@ public class SearchAcitivity extends EaseBaseActivity {
             }
         });
     }
+
+    /**
+     * 搜索
+     *
+     * @param s
+     */
+    private void Search(String s) {
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEARCH);
+        params.addBodyParameter(ConstantString.SEARCH_CONTENT, s);
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+    }
+
 }

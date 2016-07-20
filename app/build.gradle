@@ -16,20 +16,20 @@ android {
         release {
             keyAlias "red_other_apple"
             keyPassword "redapple2016"
-            storeFile file("E:\\WorkSpace\\WorkSpace for AndroidStudio\\Red_Apple\\red_apple.jks");
+            storeFile file("E:\\WorkSpace\\WorkSpace for AndroidStudio\\Red_Apple\\Red_Apple\\red_apple.jks");
             storePassword "redapple2016"
 
         }
     }
 
-//    buildTypes {
-//        debug {
-//            signingConfig signingConfigs.release
-//        }
-//        release {
-//            signingConfig signingConfigs.release
-//        }
-//    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
 }
 
 dependencies {

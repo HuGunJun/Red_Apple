@@ -39,6 +39,7 @@ public class SplashActivity extends EaseBaseActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         InitView();
+        Log(ConstantUrl.getBaseUrl());
     }
 
     @Override

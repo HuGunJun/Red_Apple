@@ -137,7 +137,7 @@ public class RegisterActivity extends EaseBaseActivity {
         params.addBodyParameter(ConstantString.PHONE_NUM, username);
         params.addBodyParameter(ConstantString.PASSWORD, pass);
         params.addBodyParameter(ConstantString.SMSCODE, vifi_code);
-        params.addBodyParameter(ConstantString.TYPE, "1");
+        params.addBodyParameter(ConstantString.SMSYTPE, "1");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

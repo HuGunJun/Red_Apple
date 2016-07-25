@@ -65,7 +65,9 @@ public class SettingActivity extends EaseBaseActivity {
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.LOGOUT);
         params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
         params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
-        x.http().post(params, new Callback.CommonCallback<String>() {
+        Log(ConstantUrl.BASE_URL + ConstantUrl.LOGOUT + "?" + ConstantString.USER_ID + "=" + MyApplication
+                .getInstance().getUserid() + "&" + ConstantString.TOKEN + "=" + MyApplication.getInstance().getToken());
+        x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 Log(result);

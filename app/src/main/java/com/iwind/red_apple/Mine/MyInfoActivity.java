@@ -75,6 +75,8 @@ public class MyInfoActivity extends EaseBaseActivity {
         super.onResume();
         iv_avator.setImageBitmap(BitmapFactory.decodeFile(FileUtils
                 .getImagePath(context, true) + User_Photos_File_Name));
+        x.image().bind(iv_avator, ConstantUrl.USER_PIC + MyApplication.getInstance().getUserPic(), MyApplication
+                .getInstance().getOptions());
     }
 
     @Override

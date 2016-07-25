@@ -61,7 +61,7 @@ public class TaxKnowAdapter extends BaseAdapter {
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
         holder.tv_type.setText(mList.get(position).get(ConstantString.HLABEL) + "-" + mList.get
                 (position).get(ConstantString.TAX_TYPE));
-
+        holder.tv_title.setText(mList.get(position).get(ConstantString.PROBLEM_TITLE));
         return convertView;
     }
 
@@ -73,5 +73,7 @@ public class TaxKnowAdapter extends BaseAdapter {
         TextView tv_read_count;
         @ViewInject(R.id.tv_type)
         TextView tv_type;
+        @ViewInject(R.id.tv_title)
+        TextView tv_title;
     }
 }

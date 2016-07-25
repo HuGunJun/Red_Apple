@@ -197,6 +197,8 @@ public class TaxKnowActivity extends EaseBaseActivity implements View.OnClickLis
                             HashMap<String, String> hashMap = new HashMap<String, String>();
                             hashMap.put(ConstantString.PROBLEM_ID, jsonArray.getJSONObject(i)
                                     .getString(ConstantString.PROBLEM_ID));
+                            hashMap.put(ConstantString.PROBLEM_TITLE, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.PROBLEM_TITLE)));
                             hashMap.put(ConstantString.HLABEL, ResponseUtils.ParaseNull(jsonArray
                                     .getJSONObject(i).getString(ConstantString.HLABEL)));
                             hashMap.put(ConstantString.TAX_TYPE, ResponseUtils.ParaseNull

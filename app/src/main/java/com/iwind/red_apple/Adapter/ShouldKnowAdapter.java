@@ -58,13 +58,10 @@ public class ShouldKnowAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-
-
         holder.tv_content.setText(mList.get(position).get(ConstantString.WORK_CONTENT));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
         holder.tv_type.setText(mList.get(position).get(ConstantString.WORK_LABEL));
-
-
+        holder.tv_title.setText(mList.get(position).get(ConstantString.WORK_TITLE));
         return convertView;
     }
 
@@ -76,5 +73,7 @@ public class ShouldKnowAdapter extends BaseAdapter {
         TextView tv_read_count;
         @ViewInject(R.id.tv_type)
         TextView tv_type;
+        @ViewInject(R.id.tv_title)
+        TextView tv_title;
     }
 }

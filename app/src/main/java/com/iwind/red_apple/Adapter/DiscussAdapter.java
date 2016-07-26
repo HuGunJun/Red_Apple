@@ -79,8 +79,14 @@ public class DiscussAdapter extends BaseAdapter {
             holder.tv_name.setText(mList.get(position).get(ConstantString.NICK_NAME));
         }
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
-        holder.tv_type.setText(mList.get(position).get(ConstantString.HLABEL) + "-" + mList.get(position).get
-                (ConstantString.TAX_TYPE));
+        String[] s = mList.get(position).get(ConstantString.FORUMKEYWORD).split(",");
+        String label = "";
+        for (int i = 0; i < s.length; i++) {
+            if (!s[i].equals("")) {
+                label = label + s[i] + "-";
+            }
+        }
+        holder.tv_type.setText(label);
         holder.tv_time.setText(mList.get(position).get
                 (ConstantString.FORUM_TIME));
         return convertView;

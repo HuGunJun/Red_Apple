@@ -1,8 +1,11 @@
 package com.iwind.red_apple.Tax;
 
 import android.os.Bundle;
-import android.service.carrier.CarrierIdentifier;
+import android.os.Handler;
+import android.os.Message;
 import android.text.Html;
+import android.text.Spanned;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +18,7 @@ import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
+import com.iwind.red_apple.Utils.ShowImageInText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -237,12 +241,16 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
                         ConstantString.RESULT_INFO)) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
-                        JSONObject jsonObject1 = jsonObject.getJSONObject(ConstantString.OBJ);
+                        final JSONObject jsonObject1 = jsonObject.getJSONObject(ConstantString.OBJ);
                         tv_time.setText(DateUtils.ParseTimeMillisToTime(jsonObject1.getString(ConstantString
                                 .NEW_TIME)));
-                        tv_news_content.setText(Html.fromHtml(ResponseUtils.ParaseNull(jsonObject1.getString
+                        tv_news_content.setMovementMethod(ScrollingMovementMethod.getInstance());
+//                        tv_news_content.setText(Html.fromHtml(ResponseUtils.ParaseNull(jsonObject1.getString
+//                                (ConstantString
+//                                        .NEW_CONTENT))));
+                        new ShowImageInText(ResponseUtils.ParaseNull(jsonObject1.getString
                                 (ConstantString
-                                        .NEW_CONTENT))));
+                                        .NEW_CONTENT)), tv_news_content);
                         tv_zan_count.setText(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString.ZANCOUTN))
                                 .equals("") ? "0" : ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
                                 .ZANCOUTN)));
@@ -285,6 +293,7 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
             }
         });
     }
+
 
     @Override
     public void setOnClickListener() {

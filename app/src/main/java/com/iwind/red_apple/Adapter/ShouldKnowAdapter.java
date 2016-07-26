@@ -1,6 +1,7 @@
 package com.iwind.red_apple.Adapter;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,9 +59,16 @@ public class ShouldKnowAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tv_content.setText(mList.get(position).get(ConstantString.WORK_CONTENT));
+        holder.tv_content.setText(Html.fromHtml(mList.get(position).get(ConstantString.WORK_CONTENT)));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
-        holder.tv_type.setText(mList.get(position).get(ConstantString.WORK_LABEL));
+        String[] s = mList.get(position).get(ConstantString.WORK_LABEL).split(",");
+        String label = "";
+        for (int i = 0; i < s.length; i++) {
+            if (!s[i].equals("")) {
+                label = label + s[i] + "-";
+            }
+        }
+        holder.tv_type.setText(label);
         holder.tv_title.setText(mList.get(position).get(ConstantString.WORK_TITLE));
         return convertView;
     }

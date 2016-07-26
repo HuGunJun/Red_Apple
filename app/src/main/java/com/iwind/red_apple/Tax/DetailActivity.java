@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.print.PageRange;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -279,18 +280,18 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject object = jsonObject.getJSONObject(ConstantString.OBJ);
                         if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
-                            tv_content.setText(ResponseUtils.ParaseNull
+                            tv_content.setText(Html.fromHtml(ResponseUtils.ParaseNull
                                     (object.getString
-                                            (ConstantString.PROBLEM_CONTENT)));
+                                            (ConstantString.PROBLEM_CONTENT))));
                             title_bar.setTitle(ResponseUtils.ParaseNull(object.getString
                                     (ConstantString.PROBLEM_TITLE)));
                             tv_describe.setText(ResponseUtils.ParaseNull(object.getString
                                     (ConstantString.PROBLEM_TITLE)));
                         }
                         if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
-                            tv_content.setText(ResponseUtils.ParaseNull
+                            tv_content.setText(Html.fromHtml(ResponseUtils.ParaseNull
                                     (object.getString
-                                            (ConstantString.WORK_CONTENT)));
+                                            (ConstantString.WORK_CONTENT))));
                             title_bar.setTitle(ResponseUtils.ParaseNull(object.getString
                                     (ConstantString.WORK_TITLE)));
                             tv_describe.setText(ResponseUtils.ParaseNull(object.getString

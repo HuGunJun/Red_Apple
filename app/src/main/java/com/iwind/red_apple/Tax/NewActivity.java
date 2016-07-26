@@ -80,6 +80,8 @@ public class NewActivity extends EaseBaseActivity {
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                lv_news.stopRefresh();
+                lv_news.stopLoadMore();
                 Log(result);
                 if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
                         ConstantString.STATE,

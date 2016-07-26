@@ -73,9 +73,17 @@ public class AddDiscussActivity extends EaseBaseActivity {
                     Toast(getResources().getString(R.string.please_input_discuss_title));
                     return;
                 }
-                startActivity(new Intent(context, AddDiscussSelectIndustryAndTax.class).putExtra(ConstantString
-                        .FORUM_TITLE, et_discuss_title.getText().toString()));
+                startActivityForResult(new Intent(context, AddDiscussSelectIndustryAndTax.class).putExtra(ConstantString
+                        .FORUM_TITLE, et_discuss_title.getText().toString()), 1100);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            finish();
+        }
     }
 }

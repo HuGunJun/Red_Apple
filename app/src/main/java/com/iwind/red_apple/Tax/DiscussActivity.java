@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.DateUtils;
@@ -45,7 +46,7 @@ public class DiscussActivity extends EaseBaseActivity {
     XListView lv_discuss;
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private DiscussAdapter discussAdapter;
-    int page = 0;
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,6 @@ public class DiscussActivity extends EaseBaseActivity {
         x.view().inject(this);
         ShowLoadingDialog();
         InitView();
-        InitData();
         setOnClickListener();
     }
 
@@ -76,6 +76,7 @@ public class DiscussActivity extends EaseBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        page = 1;
         InitData();
     }
 
@@ -98,6 +99,10 @@ public class DiscussActivity extends EaseBaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        if (jsonArray.length() < 0) {
+                            Toast(getResources().getString(R.string.no_more_data));
+                            return;
+                        }
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
                             hashMap.put(ConstantString.FORUM_ID, jsonArray.getJSONObject(i)
@@ -112,6 +117,8 @@ public class DiscussActivity extends EaseBaseActivity {
                                     .getString(ConstantString.NICK_NAME)));
                             hashMap.put(ConstantString.USER_PHONE, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
                                     .getString(ConstantString.USER_PHONE)));
+                            hashMap.put(ConstantString.FORUMKEYWORD, ResponseUtils.ParaseNull(jsonArray.getJSONObject
+                                    (i).getString(ConstantString.FORUMKEYWORD)));
                             hashMap.put(ConstantString.FORUM_TIME, DateUtils
                                     .ParseTimeMillisToTime(ResponseUtils
                                             .ParaseNull(jsonArray
@@ -146,7 +153,7 @@ public class DiscussActivity extends EaseBaseActivity {
                                                     .SHARENUMBER)));
                             hashMap.put(ConstantString.USER_PIC, ResponseUtils.ParaseNull
                                     (jsonArray.getJSONObject(i)
-                                    .getString(ConstantString.USER_PIC)));
+                                            .getString(ConstantString.USER_PIC)));
                             mList.add(hashMap);
                         }
                         discussAdapter = new DiscussAdapter(context, mList);
@@ -186,7 +193,7 @@ public class DiscussActivity extends EaseBaseActivity {
         lv_discuss.setXListViewListener(new XListView.IXListViewListener() {
             @Override
             public void onRefresh() {
-                page = 0;
+                page = 1;
                 mList.clear();
                 InitData();
             }

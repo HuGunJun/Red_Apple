@@ -1,6 +1,7 @@
 package com.iwind.red_apple.Adapter;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class TaxKnowAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tv_content.setText(mList.get(position).get(ConstantString.PROBLEM_CONTENT));
+        holder.tv_content.setText(Html.fromHtml(mList.get(position).get(ConstantString.PROBLEM_CONTENT)));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
         holder.tv_type.setText(mList.get(position).get(ConstantString.HLABEL) + "-" + mList.get
                 (position).get(ConstantString.TAX_TYPE));

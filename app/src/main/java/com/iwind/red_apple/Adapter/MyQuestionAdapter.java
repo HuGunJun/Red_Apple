@@ -61,9 +61,15 @@ public class MyQuestionAdapter extends BaseAdapter {
         }
 
 
-
+        String[] s = list.get(position).get(ConstantString.FORUMKEYWORD).split(",");
+        String label = "";
+        for (int i = 0; i < s.length; i++) {
+            if (!s[i].equals("")) {
+                label = label + s[i] + "-";
+            }
+        }
         holder.tv_content.setText(list.get(position).get(ConstantString.FORUM_CONTENT));
-        holder.tv_type.setText(list.get(position).get(ConstantString.FORUMKEYWORD));
+        holder.tv_type.setText(label);
 
 
 

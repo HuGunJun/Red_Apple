@@ -78,6 +78,7 @@ public class Frag_Country extends BaseFragment {
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GETCLIENT);
         params.addBodyParameter(ConstantString.SEARCH_CONTENT, "");
         params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
+        params.addBodyParameter(ConstantString.TYPE,"1");
         params.addBodyParameter(ConstantString.PAGE, "" + page);
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override

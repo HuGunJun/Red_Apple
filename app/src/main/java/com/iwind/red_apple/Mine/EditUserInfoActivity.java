@@ -108,14 +108,13 @@ public class EditUserInfoActivity extends EaseBaseActivity {
 
     public void updateUserInfo(int whichinfo, int cityorarea) {
         RequestParams params;
-        if (whichinfo == REQUEST_CHAGE_NICK) {
-            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_USENAME);
-        } else {
-            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_USERINFO);
-        }
+        params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.UPDATE_USERINFO);
         params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
         params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
         switch (whichinfo) {
+            case REQUEST_CHAGE_NICK:
+                params.addBodyParameter(ConstantString.NICK_NAME, et_update_info.getText().toString());
+                break;
             case REQUEST_CHAGE_SEX:
                 params.addBodyParameter(ConstantString.SEX, et_update_info.getText().toString());
                 break;

@@ -150,6 +150,7 @@ public class RegisterActivity extends EaseBaseActivity {
                         MyApplication.getInstance().setToken(jsonObject.getString(ConstantString.TOKEN));
                         MyApplication.getInstance().setUserNameAndPwd(username, pass);
                         startActivity(new Intent(context, MainActivity.class));
+                        setResult(RESULT_OK);
                         finish();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -203,7 +204,7 @@ public class RegisterActivity extends EaseBaseActivity {
         @Override
         public void onTick(long millisUntilFinished) {// 计时过程
             btn_get_vifi_code.setClickable(false);//防止重复点击
-            btn_get_vifi_code.setText(millisUntilFinished / 1000 + "");
+            btn_get_vifi_code.setText(millisUntilFinished / 1000 + "秒");
         }
     }
 }

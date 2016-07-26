@@ -13,6 +13,7 @@ import com.easemob.easeui.utils.ResponseUtils;
 import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
+import com.iwind.red_apple.Mine.Act_ChangePass;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,8 +53,20 @@ public class LoginActivity extends EaseBaseActivity {
                 Login();
                 break;
             case R.id.et_register:
-                startActivity(new Intent(context, RegisterActivity.class));
+                startActivityForResult(new Intent(context, RegisterActivity.class), 1234);
                 break;
+            case R.id.tv_forgot_pass:
+                startActivity(new Intent(context, Act_ChangePass.class));
+                break;
+        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            finish();
         }
     }
 

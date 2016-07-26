@@ -43,7 +43,7 @@ public class Frag_Local extends BaseFragment {
     View view;
     @ViewInject(R.id.lv_local)
     XListView lv_local;
-    int page=1;
+    int page = 1;
 
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private VideoGuideAdapter mHomePageAdapter;
@@ -75,6 +75,7 @@ public class Frag_Local extends BaseFragment {
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GETCLIENT);
         params.addBodyParameter(ConstantString.SEARCH_CONTENT, "");
         params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
+        params.addBodyParameter(ConstantString.TYPE, "2");
         params.addBodyParameter(ConstantString.PAGE, "" + page);
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override

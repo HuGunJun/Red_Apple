@@ -13,6 +13,9 @@ public class ConstantString {
     //解析用户手机号
     public static final String USER_PHONE = "userPhone";
 
+    //短信验证码
+    public static final String CAPCHA="captcha";
+
     //验证码
     public static final String SMSCODE = "smsCode";
 
@@ -207,6 +210,9 @@ public class ConstantString {
     //客户端id
     public static final String CLIENT_ID = "clientId";
 
+    //客户端类型
+    public static final String CLIENT_LABELS = "clientLabels";
+
     //客户端标题
     public static final String CLIENT_TITLE = "clientTitle";
 
@@ -248,6 +254,7 @@ public class ConstantString {
 
     //私信问题内容
     public static final String PROBLEM_PERSONAL_CONTENT = "problemMessage";
+
 
     /**
      * 用户个人信息获取接口字段-------开始

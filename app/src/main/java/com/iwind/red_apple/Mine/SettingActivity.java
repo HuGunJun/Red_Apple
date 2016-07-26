@@ -46,7 +46,7 @@ public class SettingActivity extends EaseBaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_change_pass:
-                startActivity(new Intent(context, Act_ChangePass.class));
+                startActivityForResult(new Intent(context, Act_ChangePass.class), 1255);
                 break;
             case R.id.btn_quite:
                 Logout();
@@ -54,6 +54,14 @@ public class SettingActivity extends EaseBaseActivity {
             case R.id.rl_about_us:
                 startActivity(new Intent(context, Act_AboutUs.class));
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            finish();
         }
     }
 

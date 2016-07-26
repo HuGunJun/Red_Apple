@@ -54,6 +54,7 @@ public class DiscussActivity extends EaseBaseActivity {
         x.view().inject(this);
         ShowLoadingDialog();
         InitView();
+        InitData();
         setOnClickListener();
     }
 
@@ -76,8 +77,6 @@ public class DiscussActivity extends EaseBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        page = 1;
-        InitData();
     }
 
     @Override

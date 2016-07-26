@@ -8,7 +8,7 @@ package com.iwind.red_apple.Constant;
 public class ConstantUrl {
 
 
-            public static final String BASE = "http://119.254.102.77:8071/";
+    public static final String BASE = "http://119.254.102.77:8071/";
 //    public static final String BASE = "http://192.168.0.25:8080/";
 
     //基地址
@@ -26,6 +26,15 @@ public class ConstantUrl {
 
     //发送注册短信验证码
     public static final String SEND_SMSCODE = "sms/regist/sendSmsCode";
+
+    //发送忘记密码验证码
+    public static final String SENDFORGOTPASS = "sms/pass/sendSmsCode";
+
+    //忘记密码
+    public static final String FORGOTPASS = "api/forgetPassword";
+
+    //网络接口修改密码
+    public static final String CHAGE_PASS = "api/resetPassword";
 
     //轮播图
     public static final String GET_IMAGE_TURN = "main/getCarousel";
@@ -56,9 +65,6 @@ public class ConstantUrl {
 
     //修改用户信息
     public static final String UPDATE_USERINFO = "api/users/updateUser";
-
-    //修改用户昵称
-    public static final String UPDATE_USENAME = "api/users/nickname";
 
     //获取系统消息
     public static final String GET_MESSAGE = "main/getTidings";

@@ -13,70 +13,77 @@
         android:layout_height="wrap_content"></com.easemob.easeui.widget.EaseTitleBar>
 
     <LinearLayout
-        style="@style/clickable_layout"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="@string/old_pass"/>
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="11.5dp">
 
         <EditText
-            android:id="@+id/et_old_pass"
+            android:id="@+id/et_username"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:background="@null"
-            android:hint="@string/please_input_old_pass"/>
-    </LinearLayout>
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/white"
+            android:hint="@string/user_name"/>
 
-    <LinearLayout
-        style="@style/clickable_layout"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/diliver_line"></View>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="@string/old_pass"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_get_vifi_code"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"
+                android:background="@mipmap/iv_btn_get_vificode"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/get_sms_code"
+                android:textColor="@color/lightgray"/>
+
+            <EditText
+                android:id="@+id/et_vificode"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@+id/btn_get_vifi_code"
+                android:background="@color/white"
+                android:hint="@string/vifi_code"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/diliver_line"></View>
 
         <EditText
-            android:id="@+id/et_new_pass"
+            android:id="@+id/et_pass"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:background="@null"
-            android:hint="@string/please_input_new_pass"/>
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:hint="@string/password"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/diliver_line"></View>
     </LinearLayout>
 
-    <LinearLayout
-        style="@style/clickable_layout"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="@string/comfirm_pass"/>
-
-        <EditText
-            android:id="@+id/et_comfirm_pass"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:background="@null"
-            android:hint="@string/please_input_again"/>
-    </LinearLayout>
 </LinearLayout>

@@ -58,11 +58,17 @@ public class VideoGuideAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-
-        holder.tv_type.setText(mList.get(position).get(ConstantString.TAX_TYPE));
+        String[] s = mList.get(position).get(ConstantString.CLIENT_LABELS).split(",");
+        String label = "";
+        for (int i = 0; i < s.length; i++) {
+            if (!s[i].equals("")) {
+                label = label + s[i] + "-";
+            }
+        }
+        holder.tv_type.setText(label);
         holder.tv_content.setText(mList.get(position).get(ConstantString.CLIENT_CONTENT));
-        holder.tv_read_count.setText(mList.get(position).get(ConstantString.MESSAGE_COUNT));
-
+        holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
+        holder.tv_title.setText(mList.get(position).get(ConstantString.CLIENT_TITLE));
         return convertView;
     }
 
@@ -74,5 +80,7 @@ public class VideoGuideAdapter extends BaseAdapter {
         TextView tv_read_count;
         @ViewInject(R.id.tv_type)
         TextView tv_type;
+        @ViewInject(R.id.tv_title)
+        TextView tv_title;
     }
 }

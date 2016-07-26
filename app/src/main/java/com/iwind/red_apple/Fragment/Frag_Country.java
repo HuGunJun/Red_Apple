@@ -45,7 +45,7 @@ public class Frag_Country extends BaseFragment {
     View view;
     @ViewInject(R.id.lv_country)
     XListView lv_country;
-    int page=1;
+    int page = 1;
 
     private List<HashMap<String, String>> mList = new ArrayList<HashMap<String, String>>();
     private VideoGuideAdapter mHomePageAdapter;
@@ -78,7 +78,7 @@ public class Frag_Country extends BaseFragment {
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GETCLIENT);
         params.addBodyParameter(ConstantString.SEARCH_CONTENT, "");
         params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
-        params.addBodyParameter(ConstantString.TYPE,"1");
+        params.addBodyParameter(ConstantString.TYPE, "1");
         params.addBodyParameter(ConstantString.PAGE, "" + page);
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
@@ -93,6 +93,11 @@ public class Frag_Country extends BaseFragment {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        if (jsonArray.length() < 0) {
+                            Toast.makeText(getActivity(), getResources().getString(R.string.no_more_data), Toast
+                                    .LENGTH_SHORT).show();
+                            return;
+                        }
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
                             hashMap.put(ConstantString.CLIENT_ID, jsonArray.getJSONObject(i).getString(ConstantString
@@ -103,10 +108,12 @@ public class Frag_Country extends BaseFragment {
                             hashMap.put(ConstantString.CLIENT_CONTENT, ResponseUtils.ParaseNull(jsonArray
                                     .getJSONObject(i).getString
                                             (ConstantString.CLIENT_CONTENT)));
-                            hashMap.put(ConstantString.MESSAGE_COUNT, ResponseUtils.ParaseNull(jsonArray
-                                    .getJSONObject(i).getString(ConstantString.MESSAGE_COUNT)).equals("") ? "0" :
+                            hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.ZANCOUTN)).equals("") ? "0" :
                                     ResponseUtils.ParaseNull(jsonArray
-                                            .getJSONObject(i).getString(ConstantString.MESSAGE_COUNT)));
+                                            .getJSONObject(i).getString(ConstantString.ZANCOUTN)));
+                            hashMap.put(ConstantString.CLIENT_LABELS, ResponseUtils.ParaseNull(jsonArray
+                                    .getJSONObject(i).getString(ConstantString.CLIENT_LABELS)));
                             mList.add(hashMap);
                         }
                         mHomePageAdapter = new VideoGuideAdapter(getActivity(), mList);
@@ -141,7 +148,9 @@ public class Frag_Country extends BaseFragment {
         lv_country.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getActivity(), VideoDetailActivity.class));
+
+                startActivity(new Intent(getActivity(), VideoDetailActivity.class).putExtra(ConstantString.CLIENT_ID,
+                        mList.get(position - 1).get(ConstantString.CLIENT_ID)));
             }
         });
         lv_country.setXListViewListener(new XListView.IXListViewListener() {

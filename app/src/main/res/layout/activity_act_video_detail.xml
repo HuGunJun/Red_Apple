@@ -76,6 +76,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/lv_collection"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -99,6 +100,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/lv_zan"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -129,6 +131,7 @@
             android:background="@color/diliver_line"></View>
 
         <LinearLayout
+            android:id="@+id/lv_down"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -159,6 +162,7 @@
             android:background="@color/diliver_line"></View>
 
         <LinearLayout
+            android:id="@+id/lv_personal"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

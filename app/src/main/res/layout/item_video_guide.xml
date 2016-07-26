@@ -6,19 +6,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="7.5dp"
         android:background="@drawable/btn_selector"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="11.5dp">
 
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/hello_world"
+            android:textColor="@color/black"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical">
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="11.5dp">
 
 
             <TextView

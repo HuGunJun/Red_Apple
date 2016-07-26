@@ -10,13 +10,21 @@ import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.DensityUtil;
+import com.easemob.easeui.utils.ResponseUtils;
 import com.easemob.easeui.widget.EaseTitleBar;
 import com.easemob.easeui.widget.videoview.MediaController;
 import com.easemob.easeui.widget.videoview.SuperVideoPlayer;
 import com.easemob.easeui.widget.videoview.Video;
 import com.easemob.easeui.widget.videoview.VideoUrl;
+import com.iwind.red_apple.Constant.ConstantString;
+import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -37,7 +45,8 @@ public class VideoDetailActivity extends EaseBaseActivity {
     TextView tv_question_describe;
     @ViewInject(R.id.video_player_item_1)
     SuperVideoPlayer mSuperVideoPlayer;
-
+    @ViewInject(R.id.tv_answer_content)
+    TextView tv_answer_content;
     private String TEST_URL = "http://192.168.0.200:8080/com.nkbh.pro/a.mp4";
 
 
@@ -96,7 +105,9 @@ public class VideoDetailActivity extends EaseBaseActivity {
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()){
 
+        }
     }
 
     @Override
@@ -109,6 +120,50 @@ public class VideoDetailActivity extends EaseBaseActivity {
 
     @Override
     public void InitData() {
+        ShowLoadingDialog();
+        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.GETCLIENTDETAIL);
+        params.addBodyParameter(ConstantString.CLIENT_ID, getIntent().getExtras().getString(ConstantString.CLIENT_ID));
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log(result);
+                CloseLoadingDialog();
+                if (ResponseUtils.isSuccess(context, ConstantString.RESULT_STATE, result,
+                        ConstantString.STATE,
+                        ConstantString.RESULT_INFO)) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONObject jsonObject1 = jsonObject.getJSONObject(ConstantString.OBJ);
+                        title_bar.setTitle(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
+                                .CLIENT_TITLE)));
+                        tv_question_describe.setText(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
+                                .CLIENT_TITLE)));
+                        tv_answer_content.setText(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
+                                .CLIENT_CONTENT)));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+
         ArrayList<Video> videoArrayList = new ArrayList<>();
         Video video = new Video();
         ArrayList<VideoUrl> arrayList1 = new ArrayList<>();

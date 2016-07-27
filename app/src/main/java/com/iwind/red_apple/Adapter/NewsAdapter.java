@@ -2,6 +2,7 @@ package com.iwind.red_apple.Adapter;
 
 import android.content.Context;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,18 @@ public class NewsAdapter extends BaseAdapter {
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
+        }
+        String[] split = mList.get(position).get(ConstantString.NEW_CONTENT).split("<img");
+        for (int i = 0; i < split.length; i++) {
+            String[] ima = split[i].split("src");
+            for (int j = 0; j < ima.length; j++) {
+                if (ima[j].contains("http")) {
+                    String substring = ima[j].substring(ima[j].indexOf("http"),
+                            ima[j].indexOf("\"/>"));
+                    Log.i("main", substring);
+                    x.image().bind(holder.iv_avator, substring, MyApplication.getInstance().getOptions());
+                }
+            }
         }
         holder.tv_content.setText(Html.fromHtml(mList.get(position).get(ConstantString.NEW_CONTENT)));
         holder.tv_time.setText(mList.get(position).get(ConstantString.NEW_TIME));

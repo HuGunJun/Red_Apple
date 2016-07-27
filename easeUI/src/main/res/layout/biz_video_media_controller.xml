@@ -20,7 +20,7 @@
             android:src="@drawable/biz_video_play"/>
 
         <RelativeLayout
-            android:layout_width="0.0dip"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5.0dip"
@@ -49,6 +49,7 @@
 
         <View
             android:layout_width="120dp"
+            android:visibility="gone"
             android:layout_height="match_parent"/>
 
         <RelativeLayout
@@ -81,7 +82,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="40dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <com.easemob.easeui.widget.videoview.EasySwitcher
             android:id="@+id/video_src_switcher"

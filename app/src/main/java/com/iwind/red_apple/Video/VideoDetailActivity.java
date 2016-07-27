@@ -156,8 +156,6 @@ public class VideoDetailActivity extends EaseBaseActivity {
                             videoUrl1.setFormatName("720P");
                             videoUrl1.setFormatUrl(ConstantUrl.VIDEO_URL + jsonArray
                                     .getJSONObject(i).getString(ConstantString.CLIENT_VIDEO_URL));
-                            Log(ConstantUrl.VIDEO_URL + jsonArray
-                                    .getJSONObject(i).getString(ConstantString.CLIENT_VIDEO_URL));
                             arrayList1.add(videoUrl1);
                             video.setVideoName("视频");
                             video.setVideoUrl(arrayList1);

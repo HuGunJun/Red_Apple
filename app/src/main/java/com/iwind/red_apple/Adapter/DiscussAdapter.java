@@ -71,6 +71,7 @@ public class DiscussAdapter extends BaseAdapter {
                 (ConstantString.USER_PIC), options);
         Log.i("main", ConstantUrl.BASE_URL + mList.get(position).get
                 (ConstantString.USER_PIC));
+        holder.tv_title.setText(mList.get(position).get(ConstantString.FORUM_TITLE));
         holder.tv_content.setText(mList.get(position).get(ConstantString.FORUM_CONTENT));
 
         if (mList.get(position).get(ConstantString.NICK_NAME).equals("")) {
@@ -106,5 +107,7 @@ public class DiscussAdapter extends BaseAdapter {
         TextView tv_type;
         @ViewInject(R.id.tv_time)
         TextView tv_time;
+        @ViewInject(R.id.tv_title)
+        TextView tv_title;
     }
 }

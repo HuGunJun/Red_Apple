@@ -88,6 +88,7 @@ public class PersonalInfo extends EaseBaseActivity {
             return;
         }
         RequestParams params = null;
+        //问题库私信
         if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
             params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEND_PROBLEM_PERSONAL_INFO);
             params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
@@ -97,6 +98,7 @@ public class PersonalInfo extends EaseBaseActivity {
             params.addBodyParameter(ConstantString.PROBLEM_PERSONAL_CONTENT, et_content.getText().toString());
 
         }
+        //办税须知私信
         if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
             params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEND_WORK_PERSONAL_INFO);
             params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
@@ -105,6 +107,15 @@ public class PersonalInfo extends EaseBaseActivity {
                     .PROBLEM_ID));
             params.addBodyParameter(ConstantString.WORK_PERSONAL_CONTENT, et_content.getText().toString());
 
+        }
+        //客户端私信
+        if (getIntent().getExtras().getString(ConstantString.CLIENT_ID) != null) {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEND_CLIENT_PERSONAL_INFO);
+            params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+            params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
+            params.addBodyParameter(ConstantString.CLIENT_ID, getIntent().getExtras().getString(ConstantString
+                    .CLIENT_ID));
+            params.addBodyParameter(ConstantString.CLIENT_MESSAGE_CONTENT, et_content.getText().toString());
         }
         ShowLoadingDialog();
         x.http().post(params, new Callback.CommonCallback<String>() {

@@ -115,6 +115,7 @@
                 android:src="@mipmap/iv_up"/>
 
             <TextView
+                android:id="@+id/tv_zan_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -131,7 +132,7 @@
             android:background="@color/diliver_line"></View>
 
         <LinearLayout
-            android:id="@+id/lv_down"
+            android:id="@+id/lv_cai"
             style="@style/clickable_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -146,6 +147,7 @@
                 android:src="@mipmap/iv_down"/>
 
             <TextView
+                android:id="@+id/tv_cai_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

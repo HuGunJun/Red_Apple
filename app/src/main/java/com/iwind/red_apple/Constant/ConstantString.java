@@ -186,6 +186,9 @@ public class ConstantString {
     //踩赞类型
     public static final String CAIZANTYPE = "forumCaizanType";
 
+    //客户端踩赞类型
+    public static final String CLIENT_CAIORZAN_TYPE = "clientCaizanType";
+
     //新闻踩赞类型
     public static final String NEW_CAIORZAN = "newsCaizanType";
 
@@ -209,6 +212,9 @@ public class ConstantString {
 
     //客户端id
     public static final String CLIENT_ID = "clientId";
+
+    //客户端私信内容
+    public static final String CLIENT_MESSAGE_CONTENT = "clientMessage";
 
     //客户端类型
     public static final String CLIENT_LABELS = "clientLabels";

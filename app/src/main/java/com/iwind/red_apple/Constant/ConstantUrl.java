@@ -87,6 +87,12 @@ public class ConstantUrl {
     //讨论回答踩赞
     public static final String FORUM_ZAIORCAI = "forum/messageCaiZan";
 
+    //客户端踩赞
+    public static final String CLIENT_CAIORZAN = "client/clientCaiZan";
+
+    //修改客户端
+    public static final String CLIENT_UPDATE = "client/updateClient";
+
     //添加讨论（添加问题)
     public static final String ADD_FORUM = "forum/addforum";
 
@@ -104,6 +110,9 @@ public class ConstantUrl {
 
     //发送办税须知私信
     public static final String SEND_WORK_PERSONAL_INFO = "work/addmessage";
+
+    //发送客户端私信
+    public static final String SEND_CLIENT_PERSONAL_INFO="client/addmessage";
 
     //搜索客户端
     public static final String GETCLIENT = "client/search";

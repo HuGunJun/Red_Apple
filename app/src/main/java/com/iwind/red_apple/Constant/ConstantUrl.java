@@ -7,13 +7,10 @@ package com.iwind.red_apple.Constant;
  */
 public class ConstantUrl {
 
-
     public static final String BASE = "http://119.254.102.77:8071/";
-//    public static final String BASE = "http://192.168.0.25:8080/";
 
     //基地址
     public static final String BASE_URL = BASE + "af_interface/";
-//    public static final String BASE_URL = BASE+"af_interface/";
 
     //登陆
     public static final String LOGIN = "api/login";
@@ -112,7 +109,7 @@ public class ConstantUrl {
     public static final String GETCLIENT = "client/search";
 
     //获取客户端
-    public static final String GETCLIENTDETAIL="client/getClient";
+    public static final String GETCLIENTDETAIL = "client/getClient";
 
     //搜索新闻
     public static final String SEARCH_NEWS = "news/search";
@@ -140,5 +137,8 @@ public class ConstantUrl {
 
     //搜索
     public static final String SEARCH = "main/search";
+
+    //视频地址
+    public static final String VIDEO_URL = BASE + "pic";
 
 }

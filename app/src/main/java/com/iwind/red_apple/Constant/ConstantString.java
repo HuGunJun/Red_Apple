@@ -14,7 +14,7 @@ public class ConstantString {
     public static final String USER_PHONE = "userPhone";
 
     //短信验证码
-    public static final String CAPCHA="captcha";
+    public static final String CAPCHA = "captcha";
 
     //验证码
     public static final String SMSCODE = "smsCode";
@@ -218,6 +218,12 @@ public class ConstantString {
 
     //客户端内容
     public static final String CLIENT_CONTENT = "clientContent";
+
+    //视频key
+    public static final String VIDEOLIST = "videoList";
+
+    //客户端视频
+    public static final String CLIENT_VIDEO_URL = "clientVideoVisit";
 
     //用户职位
     public static final String POSITON = "position";

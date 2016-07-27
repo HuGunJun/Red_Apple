@@ -3,6 +3,7 @@ package com.iwind.red_apple.Video;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -105,7 +106,7 @@ public class VideoDetailActivity extends EaseBaseActivity {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
 
         }
     }
@@ -140,7 +141,29 @@ public class VideoDetailActivity extends EaseBaseActivity {
                                 .CLIENT_TITLE)));
                         tv_answer_content.setText(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
                                 .CLIENT_CONTENT)));
-
+                        JSONObject objlist = jsonObject.getJSONObject(ConstantString.ARRAY);
+                        //文件列表
+                        /**
+                         *this area is for filelist
+                         */
+                        //视频列表
+                        JSONArray jsonArray = objlist.getJSONArray(ConstantString.VIDEOLIST);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            ArrayList<Video> videoArrayList = new ArrayList<>();
+                            Video video = new Video();
+                            ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
+                            VideoUrl videoUrl1 = new VideoUrl();
+                            videoUrl1.setFormatName("720P");
+                            videoUrl1.setFormatUrl(ConstantUrl.VIDEO_URL + jsonArray
+                                    .getJSONObject(i).getString(ConstantString.CLIENT_VIDEO_URL));
+                            Log(ConstantUrl.VIDEO_URL + jsonArray
+                                    .getJSONObject(i).getString(ConstantString.CLIENT_VIDEO_URL));
+                            arrayList1.add(videoUrl1);
+                            video.setVideoName("视频");
+                            video.setVideoUrl(arrayList1);
+                            videoArrayList.add(video);
+                            mSuperVideoPlayer.loadMultipleVideo(videoArrayList);
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -162,26 +185,6 @@ public class VideoDetailActivity extends EaseBaseActivity {
 
             }
         });
-
-
-        ArrayList<Video> videoArrayList = new ArrayList<>();
-        Video video = new Video();
-        ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
-
-        VideoUrl videoUrl1 = new VideoUrl();
-        videoUrl1.setFormatName("720P");
-        videoUrl1.setFormatUrl(TEST_URL);
-        VideoUrl videoUrl2 = new VideoUrl();
-        videoUrl2.setFormatName("480P");
-        videoUrl2.setFormatUrl(TEST_URL);
-
-        arrayList1.add(videoUrl1);
-        arrayList1.add(videoUrl2);
-        video.setVideoName("房源视频");
-        video.setVideoUrl(arrayList1);
-        videoArrayList.add(video);
-
-        mSuperVideoPlayer.loadMultipleVideo(videoArrayList);
     }
 
     @Override

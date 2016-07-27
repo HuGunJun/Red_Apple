@@ -104,7 +104,7 @@ public class PersonalInfo extends EaseBaseActivity {
             params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
             params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
             params.addBodyParameter(ConstantString.WORK_ID, getIntent().getExtras().getString(ConstantString
-                    .PROBLEM_ID));
+                    .WORK_ID));
             params.addBodyParameter(ConstantString.WORK_PERSONAL_CONTENT, et_content.getText().toString());
 
         }

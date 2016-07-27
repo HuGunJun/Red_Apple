@@ -97,13 +97,15 @@ public class MyQuestionActivity extends EaseBaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
-                        if(jsonArray.length()<0){
+                        if (jsonArray.length() < 0) {
                             Toast(getResources().getString(R.string.no_more_data));
                         }
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
                             hashMap.put(ConstantString.FORUM_ID, jsonArray.getJSONObject(i).getString(ConstantString
                                     .FORUM_ID));
+                            hashMap.put(ConstantString.FORUM_TITLE, ResponseUtils.ParaseNull(jsonArray.getJSONObject
+                                    (i).getString(ConstantString.FORUM_TITLE)));
                             hashMap.put(ConstantString.FORUM_CONTENT, ResponseUtils.ParaseNull(jsonArray
                                     .getJSONObject(i).getString
                                             (ConstantString.FORUM_CONTENT)));

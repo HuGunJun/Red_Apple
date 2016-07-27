@@ -174,8 +174,15 @@ public class DiscussDetailActivity extends EaseBaseActivity implements View.OnCl
                         JSONObject jsonObject = new JSONObject(result);
                         JSONObject OBJ = jsonObject.getJSONObject(ConstantString.OBJ);
                         tv_answer.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString.FORUM_CONTENT)));
-                        tv_label.setText(ResponseUtils.ParaseNull(OBJ.getString(ConstantString
-                                .HLABEL)) + "-" + ResponseUtils.ParaseNull(OBJ.getString(ConstantString.TAX_TYPE)));
+                        String[] s = ResponseUtils.ParaseNull(OBJ.getString(ConstantString.FORUMKEYWORD)).split(",");
+                        String label = "";
+                        for (int i = 0; i < s.length; i++) {
+                            if (!s[i].equals("")) {
+                                label = label + s[i] + "-";
+                            }
+                        }
+
+                        tv_label.setText(label);
                         tv_question_describe.setText(ResponseUtils.ParaseNull(OBJ.getString
                                 (ConstantString.FORUM_TITLE)));
                         tv_messagecount.setText(ResponseUtils.ParaseNull(OBJ.getString

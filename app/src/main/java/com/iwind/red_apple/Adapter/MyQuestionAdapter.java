@@ -54,7 +54,7 @@ public class MyQuestionAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.item_myquestion, null);
-            x.view().inject(holder,convertView);
+            x.view().inject(holder, convertView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -70,8 +70,7 @@ public class MyQuestionAdapter extends BaseAdapter {
         }
         holder.tv_content.setText(list.get(position).get(ConstantString.FORUM_CONTENT));
         holder.tv_type.setText(label);
-
-
+        holder.tv_title.setText(list.get(position).get(ConstantString.FORUM_TITLE));
 
 
         return convertView;
@@ -82,5 +81,7 @@ public class MyQuestionAdapter extends BaseAdapter {
         TextView tv_type;
         @ViewInject(R.id.tv_content)
         TextView tv_content;
+        @ViewInject(R.id.tv_title)
+        TextView tv_title;
     }
 }

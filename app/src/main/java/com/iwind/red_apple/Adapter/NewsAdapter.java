@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.R;
+import com.iwind.red_apple.Utils.ShowImageInText;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -62,11 +63,10 @@ public class NewsAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        x.image().bind(holder.iv_avator, mList.get(position).get(ConstantString.IV_URL), MyApplication.getInstance()
-                .getOptions());
         holder.tv_content.setText(Html.fromHtml(mList.get(position).get(ConstantString.NEW_CONTENT)));
         holder.tv_time.setText(mList.get(position).get(ConstantString.NEW_TIME));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
+        holder.tv_title.setText(mList.get(position).get(ConstantString.NEW_TITLE));
         return convertView;
     }
 
@@ -80,5 +80,7 @@ public class NewsAdapter extends BaseAdapter {
         TextView tv_read_count;
         @ViewInject(R.id.tv_time)
         TextView tv_time;
+        @ViewInject(R.id.tv_title)
+        TextView tv_title;
     }
 }

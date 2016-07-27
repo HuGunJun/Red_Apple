@@ -1,12 +1,10 @@
 package com.iwind.red_apple.Tax;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.text.Html;
-import android.text.Spanned;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +16,6 @@ import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
-import com.iwind.red_apple.Utils.ShowImageInText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,6 +52,8 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
     TextView tv_cai_count;
     @ViewInject(R.id.tv_zan_count)
     TextView tv_zan_count;
+    @ViewInject(R.id.web)
+    WebView web;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -248,9 +247,16 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
 //                        tv_news_content.setText(Html.fromHtml(ResponseUtils.ParaseNull(jsonObject1.getString
 //                                (ConstantString
 //                                        .NEW_CONTENT))));
-                        new ShowImageInText(ResponseUtils.ParaseNull(jsonObject1.getString
+//                        new ShowImageInText(ResponseUtils.ParaseNull(jsonObject1.getString
+//                                (ConstantString
+//                                        .NEW_CONTENT)), tv_news_content);
+                        WebSettings settings = web.getSettings();
+                        settings.setUseWideViewPort(true);// 这个很关键
+                        settings.setLoadWithOverviewMode(true);
+                        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+                        web.loadData(jsonObject1.getString
                                 (ConstantString
-                                        .NEW_CONTENT)), tv_news_content);
+                                        .NEW_CONTENT), "text/html", "UTF-8");
                         tv_zan_count.setText(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString.ZANCOUTN))
                                 .equals("") ? "0" : ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
                                 .ZANCOUTN)));

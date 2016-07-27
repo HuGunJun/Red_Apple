@@ -68,6 +68,7 @@ public class MyCollectionAdapter extends BaseAdapter {
                 (ConstantString.LABLES));
         holder.tv_read_count.setText(mList.get(position).get(ConstantString.ZANCOUTN));
         holder.tv_content.setText(mList.get(position).get(ConstantString.CONTENT));
+        holder.tv_title.setText(mList.get(position).get(ConstantString.TITLE));
         return convertView;
     }
 
@@ -79,5 +80,7 @@ public class MyCollectionAdapter extends BaseAdapter {
         TextView tv_read_count;
         @ViewInject(R.id.tv_type)
         TextView tv_type;
+        @ViewInject(R.id.tv_title)
+        TextView tv_title;
     }
 }

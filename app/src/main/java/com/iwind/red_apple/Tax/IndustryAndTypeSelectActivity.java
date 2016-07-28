@@ -48,6 +48,7 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
     private IndustrySelectAdapter mIndustrySelectAdapter;
     private String selectString = "";
     List<String> selectid = new ArrayList<String>();
+    String hlabel = "", label = "";
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -101,6 +102,8 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put(ConstantString.LABEL_ID, jsonArray.getJSONObject(i).getString(ConstantString
+                                    .LABEL_ID));
                             hashMap.put(ConstantString.TYPE, jsonArray.getJSONObject(i).getString(ConstantString
                                     .LABELNAME));
                             hashMap.put(ConstantString.IS_SELECT, "0");
@@ -149,6 +152,7 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
                     } else {
                         Intent in = new Intent();
                         in.putExtra(REQUEST_INDUSTRY + "", selectString);
+                        in.putExtra(ConstantString.LABEL_ID, hlabel);
                         setResult(RESULT_OK, in);
                         finish();
                     }
@@ -159,6 +163,7 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
                     } else {
                         Intent in = new Intent();
                         in.putExtra(REQUEST_TYPE + "", selectString);
+                        in.putExtra(ConstantString.LABEL_ID, label);
                         setResult(RESULT_OK, in);
                         finish();
                     }
@@ -172,6 +177,7 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
                     IndustrySelectAdapter.SetSelect(position - 1);
                     mIndustrySelectAdapter.notifyDataSetChanged();
                     selectString = list.get(position - 1).get(ConstantString.TYPE);
+                    hlabel = list.get(position - 1).get(ConstantString.LABEL_ID);
                 }
                 if (getIntent().getExtras().getInt(ConstantString.TYPE) == REQUEST_TYPE) {
                     if (selectid.size() > 1) {
@@ -182,6 +188,7 @@ public class IndustryAndTypeSelectActivity extends EaseBaseActivity {
                         selectid.add(position + "");
                         list.get(position - 1).put(ConstantString.IS_SELECT, "1");
                         selectString = selectString + list.get(position - 1).get(ConstantString.TYPE) + ",";
+                        label = label + list.get(position - 1).get(ConstantString.LABEL_ID) + ",";
                     } else {
                         list.get(position - 1).put(ConstantString.IS_SELECT, "0");
                         selectid.remove(position + "");

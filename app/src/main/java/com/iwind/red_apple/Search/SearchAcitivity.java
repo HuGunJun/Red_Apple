@@ -90,9 +90,9 @@ public class SearchAcitivity extends EaseBaseActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (query.getText().toString().equals("")) {
                     search_clear.setVisibility(View.GONE);
-                    Search(query.getText().toString());
                 } else {
                     search_clear.setVisibility(View.VISIBLE);
+                    Search(query.getText().toString());
                 }
             }
 
@@ -110,7 +110,8 @@ public class SearchAcitivity extends EaseBaseActivity {
      */
     private void Search(String s) {
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEARCH);
-        params.addBodyParameter(ConstantString.SEARCH_CONTENT, s);
+        params.addBodyParameter(ConstantString.ALL_SEARCH_CONTENT, s);
+        params.addBodyParameter(ConstantString.LABELNAME, "");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

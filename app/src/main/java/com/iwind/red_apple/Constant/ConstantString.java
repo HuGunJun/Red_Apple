@@ -108,6 +108,9 @@ public class ConstantString {
     //搜索关键
     public static final String SEARCH_CONTENT = "searContext";
 
+    //全部搜索关键字
+    public static final String ALL_SEARCH_CONTENT="searchContent";
+
     //提交反馈
     public static final String FEEDBACKCONTENT = "feedbackContent";
 
@@ -134,6 +137,9 @@ public class ConstantString {
 
     //标签名称
     public static final String LABELNAME = "labelName";
+
+    //标签id
+    public static final String LABEL_ID="labelId";
 
     //标签
     public static final String LABLES = "labels";

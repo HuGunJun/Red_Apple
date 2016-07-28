@@ -3,6 +3,7 @@ package com.iwind.red_apple.Tax;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -45,6 +46,7 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
     TextView tv_industry;
     @ViewInject(R.id.tv_type)
     TextView tv_type;
+    String hlabel = "", label = "";
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -74,11 +76,13 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
         switch (requestCode) {
             case REQUEST_INDUSTRY:
                 if (data != null) {
+                    hlabel = data.getExtras().getString(ConstantString.LABEL_ID);
                     tv_industry.setText(data.getExtras().getString(REQUEST_INDUSTRY + ""));
                 }
                 break;
             case REQUEST_TYPE:
                 if (data != null) {
+                    label = data.getExtras().getString(ConstantString.LABEL_ID);
                     tv_type.setText(data.getExtras().getString(REQUEST_TYPE + ""));
                 }
                 break;
@@ -144,10 +148,8 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
         params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
         params.addBodyParameter(ConstantString.FORUM_TITLE, discussTitle);
         params.addBodyParameter(ConstantString.FORUM_CONTENT, et_discuss_content.getText().toString());
-        params.addBodyParameter(ConstantString.LABLES, tv_industry.getText().toString());
+        params.addBodyParameter(ConstantString.LABLES, label + hlabel);
         params.addBodyParameter(ConstantString.KEYWORD, tv_industry.getText().toString() + "," + tv_type.getText()
-                .toString());
-        Log(tv_industry.getText().toString() + "," + tv_type.getText()
                 .toString());
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override

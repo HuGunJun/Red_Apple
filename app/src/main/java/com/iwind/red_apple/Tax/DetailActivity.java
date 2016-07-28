@@ -153,18 +153,21 @@ public class DetailActivity extends EaseBaseActivity implements View.OnClickList
      */
     private void MethodCaiOrZan(final int i) {
         ShowLoadingDialog();
-        RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.FORUM_ZAIORCAI);
-        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
-        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
-        params.addBodyParameter(ConstantString.CAIZANTYPE, i + "");
+        RequestParams params = null;
         if (getIntent().getExtras().getString(ConstantString.PROBLEM_ID) != null) {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.PROBLEM_CAIORZAN);
             params.addBodyParameter(ConstantString.PROBLEM_ID, getIntent().getExtras().getString
                     (ConstantString.PROBLEM_ID));
+            params.addBodyParameter(ConstantString.PROBLEM_CAIORZAN_TYPE, "" + i);
         }
         if (getIntent().getExtras().getString(ConstantString.WORK_ID) != null) {
+            params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.DO_TAX_SHOULD_KNOW_CAIORZAN);
             params.addBodyParameter(ConstantString.WORK_ID, getIntent().getExtras().getString
                     (ConstantString.WORK_ID));
+            params.addBodyParameter(ConstantString.DO_TAX_SHOW_KNOW_TYPE, "" + i);
         }
+        params.addBodyParameter(ConstantString.USER_ID, MyApplication.getInstance().getUserid());
+        params.addBodyParameter(ConstantString.TOKEN, MyApplication.getInstance().getToken());
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

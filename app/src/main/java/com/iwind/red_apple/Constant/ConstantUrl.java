@@ -7,7 +7,7 @@ package com.iwind.red_apple.Constant;
  */
 public class ConstantUrl {
 
-//    public static final String BASE = "http://119.254.102.77:8071/";
+    //    public static final String BASE = "http://119.254.102.77:8071/";
     public static final String BASE = "http://192.168.0.43:8080/";
 
     //基地址
@@ -88,8 +88,14 @@ public class ConstantUrl {
     //讨论回答踩赞
     public static final String FORUM_ZAIORCAI = "forum/messageCaiZan";
 
+    //办税须知踩赞
+    public static final String DO_TAX_SHOULD_KNOW_CAIORZAN = "work/workCaiZan";
+
     //客户端踩赞
     public static final String CLIENT_CAIORZAN = "client/clientCaiZan";
+
+    //问题库踩赞
+    public static final String PROBLEM_CAIORZAN = "problem/problemCaiZan";
 
     //修改客户端
     public static final String CLIENT_UPDATE = "client/updateClient";
@@ -113,7 +119,7 @@ public class ConstantUrl {
     public static final String SEND_WORK_PERSONAL_INFO = "work/addmessage";
 
     //发送客户端私信
-    public static final String SEND_CLIENT_PERSONAL_INFO="client/addmessage";
+    public static final String SEND_CLIENT_PERSONAL_INFO = "client/addmessage";
 
     //搜索客户端
     public static final String GETCLIENT = "client/search";

@@ -198,6 +198,12 @@ public class ConstantString {
     //新闻踩赞类型
     public static final String NEW_CAIORZAN = "newsCaizanType";
 
+    //问题库踩赞类型
+    public static final String PROBLEM_CAIORZAN_TYPE="problemCaizanType";
+
+    //办税须知踩赞类型
+    public static final String DO_TAX_SHOW_KNOW_TYPE="workCaizanType";
+
     //我的提问中列表标签
     public static final String FORUMKEYWORD = "forumKeyword";
 

@@ -16,6 +16,7 @@ import com.iwind.red_apple.App.MyApplication;
 import com.iwind.red_apple.Constant.ConstantString;
 import com.iwind.red_apple.Constant.ConstantUrl;
 import com.iwind.red_apple.R;
+import com.iwind.red_apple.Utils.ShowImageInText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,8 +53,6 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
     TextView tv_cai_count;
     @ViewInject(R.id.tv_zan_count)
     TextView tv_zan_count;
-    @ViewInject(R.id.web)
-    WebView web;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -244,19 +243,9 @@ public class NewsDetailActivity extends EaseBaseActivity implements View.OnClick
                         tv_time.setText(DateUtils.ParseTimeMillisToTime(jsonObject1.getString(ConstantString
                                 .NEW_TIME)));
                         tv_news_content.setMovementMethod(ScrollingMovementMethod.getInstance());
-//                        tv_news_content.setText(Html.fromHtml(ResponseUtils.ParaseNull(jsonObject1.getString
-//                                (ConstantString
-//                                        .NEW_CONTENT))));
-//                        new ShowImageInText(ResponseUtils.ParaseNull(jsonObject1.getString
-//                                (ConstantString
-//                                        .NEW_CONTENT)), tv_news_content);
-                        WebSettings settings = web.getSettings();
-                        settings.setUseWideViewPort(true);// 这个很关键
-                        settings.setLoadWithOverviewMode(true);
-                        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-                        web.loadData(jsonObject1.getString
+                        new ShowImageInText(ResponseUtils.ParaseNull(jsonObject1.getString
                                 (ConstantString
-                                        .NEW_CONTENT), "text/html", "UTF-8");
+                                        .NEW_CONTENT)), tv_news_content);
                         tv_zan_count.setText(ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString.ZANCOUTN))
                                 .equals("") ? "0" : ResponseUtils.ParaseNull(jsonObject1.getString(ConstantString
                                 .ZANCOUTN)));

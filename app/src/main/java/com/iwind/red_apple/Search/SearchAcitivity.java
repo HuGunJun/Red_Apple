@@ -34,6 +34,7 @@ public class SearchAcitivity extends EaseBaseActivity {
     EditText query;
     @ViewInject(R.id.search_clear)
     ImageButton search_clear;
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -112,6 +113,8 @@ public class SearchAcitivity extends EaseBaseActivity {
         RequestParams params = new RequestParams(ConstantUrl.BASE_URL + ConstantUrl.SEARCH);
         params.addBodyParameter(ConstantString.ALL_SEARCH_CONTENT, s);
         params.addBodyParameter(ConstantString.LABELNAME, "");
+        params.addBodyParameter(ConstantString.PAGE, page + "");
+        params.addBodyParameter(ConstantString.ROWS, ConstantString.ROWCOUNT);
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

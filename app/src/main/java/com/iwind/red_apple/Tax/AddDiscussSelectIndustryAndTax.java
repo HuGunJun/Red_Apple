@@ -150,7 +150,7 @@ public class AddDiscussSelectIndustryAndTax extends EaseBaseActivity {
         params.addBodyParameter(ConstantString.FORUM_CONTENT, et_discuss_content.getText().toString());
         params.addBodyParameter(ConstantString.LABLES, label + hlabel);
         params.addBodyParameter(ConstantString.KEYWORD, tv_industry.getText().toString() + "," + tv_type.getText()
-                .toString());
+                .toString() + "," + discussTitle);
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

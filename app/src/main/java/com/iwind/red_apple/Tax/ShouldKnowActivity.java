@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.ResponseUtils;
@@ -136,6 +137,10 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonArray = jsonObject.getJSONArray(ConstantString.ARRAY);
+                        if (jsonArray.length() < 0) {
+                            Toast(getResources().getString(R.string.no_more_data));
+                            return;
+                        }
                         for (int i = 0; i < jsonArray.length(); i++) {
                             HashMap<String, String> hashMap = new HashMap<String, String>();
                             hashMap.put(ConstantString.WORK_ID, jsonArray.getJSONObject(i).getString(ConstantString
@@ -149,9 +154,10 @@ public class ShouldKnowActivity extends EaseBaseActivity implements View.OnClick
                                     (ConstantString.WORK_TITLE));
                             hashMap.put(ConstantString.ZANCOUTN, ResponseUtils.ParaseNull(jsonArray.getJSONObject(i)
                                     .getString
-                                    (ConstantString.ZANCOUTN)).equals("") ? "0" : ResponseUtils.ParaseNull(jsonArray
-                                    .getJSONObject(i).getString
-                                    (ConstantString.ZANCOUTN)));
+                                            (ConstantString.ZANCOUTN)).equals("") ? "0" : ResponseUtils.ParaseNull
+                                    (jsonArray
+                                            .getJSONObject(i).getString
+                                                    (ConstantString.ZANCOUTN)));
                             mList.add(hashMap);
                         }
                         mNewsAdapter = new ShouldKnowAdapter(context, mList);
